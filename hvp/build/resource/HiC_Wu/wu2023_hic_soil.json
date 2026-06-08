@@ -1,0 +1,136 @@
+{
+  "resources": [
+    {
+      "doi": "10.1038/s41467-023-42967-z",
+      "title": "Hi-C metagenome sequencing reveals soil phage–host interactions",
+      "url": "https://www.nature.com/articles/s41467-023-42967-z"
+    }
+  ],
+  "studies": [
+    {
+      "name": "Hi-C metagenome sequencing reveals soil phage–host interactions",
+      "description": "Study applying Hi-C, shotgun metagenomes, and metatranscriptomes to identify soil phage–host interactions."
+    }
+  ],
+  "resource_study_links": [
+    {
+      "resource_doi": "10.1038/s41467-023-42967-z",
+      "study_name": "Hi-C metagenome sequencing reveals soil phage–host interactions"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Prosser, WA, USA",
+      "latitude": 46.251111,
+      "longitude": -119.728611,
+      "elevation_m": 117
+    }
+  ],
+  "sample_types": [
+    { "name": "Soil" },
+    { "name": "Metagenome" }
+  ],
+  "organism_types": [
+    { "name": "Microbiome" },
+    { "name": "Bacteria" },
+    { "name": "Bacteriophage" }
+  ],
+  "samples": [
+    {
+      "external_id": "SM297",
+      "sample_type_name": "Metagenome",
+      "organism_type_name": "Microbiome",
+      "location_name": "Prosser, WA, USA",
+      "elevation_m": 117,
+      "environment_text": "Arid grassland soils",
+      "gold": {
+        "ecosystem": "Terrestrial",
+        "ecosystem_category": "Soil",
+        "ecosystem_type": "Grassland",
+        "ecosystem_subtype": "Arid grassland",
+        "specific_ecosystem": "Arid grassland soils"
+      },
+      "environment_details": "Metaphenome experiment; replicate soil sample."
+    },
+    {
+      "external_id": "SM306",
+      "sample_type_name": "Metagenome",
+      "organism_type_name": "Microbiome",
+      "location_name": "Prosser, WA, USA",
+      "elevation_m": 117,
+      "environment_text": "Arid grassland soils",
+      "gold": {
+        "ecosystem": "Terrestrial",
+        "ecosystem_category": "Soil",
+        "ecosystem_type": "Grassland",
+        "ecosystem_subtype": "Arid grassland",
+        "specific_ecosystem": "Arid grassland soils"
+      },
+      "environment_details": "Metaphenome experiment; replicate soil sample."
+    },
+    {
+      "external_id": "SM317",
+      "sample_type_name": "Metagenome",
+      "organism_type_name": "Microbiome",
+      "location_name": "Prosser, WA, USA",
+      "elevation_m": 117,
+      "environment_text": "Arid grassland soils",
+      "gold": {
+        "ecosystem": "Terrestrial",
+        "ecosystem_category": "Soil",
+        "ecosystem_type": "Grassland",
+        "ecosystem_subtype": "Arid grassland",
+        "specific_ecosystem": "Arid grassland soils"
+      },
+      "environment_details": "Metaphenome experiment; replicate soil sample."
+    },
+    {
+      "external_id": "SM324",
+      "sample_type_name": "Metagenome",
+      "organism_type_name": "Microbiome",
+      "location_name": "Prosser, WA, USA",
+      "elevation_m": 117,
+      "environment_text": "Arid grassland soils",
+      "gold": {
+        "ecosystem": "Terrestrial",
+        "ecosystem_category": "Soil",
+        "ecosystem_type": "Grassland",
+        "ecosystem_subtype": "Arid grassland",
+        "specific_ecosystem": "Arid grassland soils"
+      },
+      "environment_details": "Metaphenome experiment; replicate soil sample."
+    },
+    {
+      "external_id": "SM330",
+      "sample_type_name": "Metagenome",
+      "organism_type_name": "Microbiome",
+      "location_name": "Prosser, WA, USA",
+      "elevation_m": 117,
+      "environment_text": "Arid grassland soils",
+      "gold": {
+        "ecosystem": "Terrestrial",
+        "ecosystem_category": "Soil",
+        "ecosystem_type": "Grassland",
+        "ecosystem_subtype": "Arid grassland",
+        "specific_ecosystem": "Arid grassland soils"
+      },
+      "environment_details": "Metaphenome experiment; replicate soil sample."
+    },
+    {
+      "external_id": "SM335",
+      "sample_type_name": "Metagenome",
+      "organism_type_name": "Microbiome",
+      "location_name": "Prosser, WA, USA",
+      "elevation_m": 117,
+      "environment_text": "Arid grassland soils",
+      "gold": {
+        "ecosystem": "Terrestrial",
+        "ecosystem_category": "Soil",
+        "ecosystem_type": "Grassland",
+        "ecosystem_subtype": "Arid grassland",
+        "specific_ecosystem": "Arid grassland soils"
+      },
+      "environment_details": "Metaphenome experiment; replicate soil sample."
+    }
+  ]
+}

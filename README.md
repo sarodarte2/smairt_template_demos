@@ -1,72 +1,99 @@
-# SMAIRT Demos
+# SMAIRT TechFest Demos
 
-This is the participant workspace for the SMAIRT TechFest demo. Each subfolder is
-a **starting point**, not a solution. You get the background and the research
-question (and for HVP, the method to build the database). Your job is to use
-**SMAIRT** to answer the question by writing the scripts.
+Welcome to the participant workspace for the SMAIRT TechFest demos.
 
-> Solutions are intentionally NOT here. Worked-out reference versions live in the
-> repo's `reference_solutions/` (used by the presenter).
+SMAIRT stands for **Scientific Method with AI Research Template**. These demos show how to use an AI coding assistant while keeping the scientist in control of the question, assumptions, code review, interpretation, and next steps.
 
-> **First time using an AI coding assistant?** Read
-> [`USING_ZOO_CODE.md`](USING_ZOO_CODE.md). It walks through installing Zoo
-> Code, signing in, priming the assistant, and approving its edits. Every demo
-> assumes you've skimmed it.
+You will choose one demo track, generate a fresh SMAIRT project, prime Zoo Code with the project context, and run one documented research iteration.
 
-## How a demo works (all three follow the same shape)
+![Three SMAIRT demo tracks](demo_tracks.svg)
 
-**Step 0: set up your environment (do this first).** From the demo folder you
-chose, create a virtual environment and install its requirements. This installs
-`cookiecutter` (needed in Step 2) plus that demo's libraries:
+---
+
+## Choose a demo track
+
+| Track | Best for | Start here |
+|-------|----------|------------|
+| Lunar free-return trajectory | A compact physics example with no external data. Good if you are newer to coding or want the fastest setup. | [`lunar/DEMO.md`](lunar/DEMO.md) |
+| Human Virome Project | A database example about phage-host links, CRISPR evidence, Hi-C evidence, geography, and gene function. Requires PostgreSQL setup unless a presenter provides a database or fallback. | [`hvp/DEMO.md`](hvp/DEMO.md) |
+| Bring your own problem | Your own research question. Good if you already have an idea and want to turn it into a first SMAIRT iteration. | [`bring_your_own/DEMO.md`](bring_your_own/DEMO.md) |
+
+---
+
+## What you will do
+
+Each demo follows the same basic flow:
+
+1. Pick a track.
+2. Read that track's `DEMO.md` file and background question.
+3. Create a Python virtual environment.
+4. Install the track requirements.
+5. Generate a fresh SMAIRT project with Cookiecutter.
+6. Configure Zoo Code.
+7. Paste the priming prompt so Zoo Code reads the project context files.
+8. Ask for one analysis script.
+9. Review the script before running it.
+10. Run it, interpret the result, and log what you learned.
+
+The point is not to let AI run the project by itself. The point is to use AI speed while preserving a reproducible record of the scientific process.
+
+---
+
+## First-time Zoo Code setup
+
+If you are new to Zoo Code, read this first:
+
+[`USING_ZOO_CODE.md`](USING_ZOO_CODE.md)
+
+For this workshop, configure Zoo Code with:
+
+| Setting | Value |
+|---------|-------|
+| API Provider | OpenAI Compatible |
+| API key | Create a PNNL Birthright key at https://ai-incubator-depot.pnnl.gov/ |
+| API Base URL | `https://ai-incubator-api.pnnl.gov` |
+| Model | `gpt-5.5-project` |
+
+---
+
+## Common setup pattern
+
+Run these commands from the demo folder you choose. For example, use `demos/lunar` for the Lunar track.
 
 ```bash
-cd demos/<your-demo>          # e.g. demos/lunar
 python3 -m venv .venv
 source .venv/bin/activate     # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-> Hitting `command not found: cookiecutter`? You skipped Step 0 or your venv is
-> not activated. Re-run the lines above (and confirm your prompt shows `.venv`).
+Then generate a new SMAIRT project:
 
-Then, with the venv active:
+```bash
+cookiecutter https://github.com/biodataganache/smairt-template.git
+```
 
-1. **Read the demo's `DEMO.md`** and its `background/01_initial_question.md`.
-2. **Generate a fresh SMAIRT project** with cookiecutter (the demo gives you the
-   exact values):
-   ```bash
-   cookiecutter https://github.com/biodataganache/smairt-template.git
-   ```
-   Cookiecutter then asks 12 questions interactively. If you've run it before, it
-   first asks `Is it okay to delete and re-download it? [y/n] (y):`. Press
-   **Enter**. Press **Enter** to accept a default, or type the value/number. For
-   the numbered "Select" prompts (domain, ai_tool, etc.) type the **number**
-   (e.g. `4`), not the word. Each demo's `DEMO.md` lists the exact answers to
-   use; for `ai_tool` choose `2` (gpt5, Zoo Code with `gpt-5.5-project`).
-3. **Copy the background/question into your new project:**
-   ```bash
-   cp background/01_initial_question.md <your_project>/background/
-   ```
-4. **Configure and prime your AI assistant (Zoo Code).** Use **OpenAI Compatible**,
-   create a PNNL Birthright API key at https://ai-incubator-depot.pnnl.gov/, set
-   **API Base URL** to `https://ai-incubator-api.pnnl.gov`, and select model
-   `gpt-5.5-project`. Then paste the demo's priming prompt directly into Zoo Code;
-   that prompt tells the AI to read `prompts/AI_CONTEXT.md`,
-   `prompts/CODE_CONVENTIONS.md`, and your `background/01_initial_question.md`.
-5. **Run SMAIRT iterations on your own**: hypothesis, ask AI for code, review,
-   run, interpret, log, then choose the next step. Nothing is pre-written for you.
+Each track's `DEMO.md` gives the exact Cookiecutter answers to use.
 
-## The three demos
+---
 
-| Demo | You are given | You build |
-|------|---------------|-----------|
-| [`hvp/`](hvp/DEMO.md) | Background + question + the database-build pipeline & data | The queries/analysis that answer the phage-host question |
-| [`lunar/`](lunar/DEMO.md) | Background + question (Artemis II free-return) | The CR3BP model + free-return search |
-| [`bring_your_own/`](bring_your_own/DEMO.md) | A question worksheet | Everything, on your own problem |
+## What the folders contain
 
-## Prerequisites
+| Path | Contents |
+|------|----------|
+| [`lunar/`](lunar/DEMO.md) | Lunar free-return demo instructions, requirements, and background question. |
+| [`hvp/`](hvp/DEMO.md) | HVP demo instructions, database build files, requirements, and background question. |
+| [`bring_your_own/`](bring_your_own/DEMO.md) | Bring-your-own-problem instructions, worksheet, and starter requirements. |
+| [`USING_ZOO_CODE.md`](USING_ZOO_CODE.md) | First-time Zoo Code setup and workflow guidance. |
+| [`demo_tracks.svg`](demo_tracks.svg) | Visual summary of the three demo tracks. |
 
-- Python 3.10+, VS Code, Git, Zoo Code (AI assistant)
-- Everything else (cookiecutter + per-demo libraries) is installed by **Step 0**
-  above via each demo's `requirements.txt`.
-# techfest2026_demos
+---
+
+## Important notes
+
+- These folders are starting points, not solutions.
+- Worked reference solutions are not in this participant folder.
+- Review AI-generated code before running it.
+- Record your interpretation in the generated SMAIRT project.
+- If Zoo Code gets stuck, start a new task and re-prime it from your project files.
+
+Your final product is not just a script. It is a documented reasoning trail that shows what you asked, what was run, what happened, and what you concluded.

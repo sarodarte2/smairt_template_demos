@@ -1,0 +1,3 @@
+# No Git LFS tracking is needed for this repository.
+# Large HVP resources are committed as sub-100 MB split parts under
+# hvp/build/resource/GSVA/parts/ and reconstructed locally before use.

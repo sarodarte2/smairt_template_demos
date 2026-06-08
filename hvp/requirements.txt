@@ -1,0 +1,6 @@
+# HVP demo. cookiecutter generates the SMAIRT project; the rest build the DB.
+cookiecutter
+pandas
+psycopg2-binary
+openpyxl
+# (PostgreSQL itself must be installed separately, e.g. `brew install postgresql@16`.)
