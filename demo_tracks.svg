@@ -18,34 +18,34 @@
   <text x="150" y="58" text-anchor="middle" class="title">Artemis Lunar</text>
   <text x="150" y="82" text-anchor="middle" class="title">Free-Return Trajectory</text>
   <text x="232" y="58" class="icon">🚀</text>
-  <text x="22" y="126" class="body">Simple example</text>
-  <text x="22" y="170" class="body">Calculate the trajectory of</text>
-  <text x="22" y="194" class="body">the Artemis free-return</text>
-  <text x="22" y="218" class="body">launch. This launch used the</text>
-  <text x="22" y="242" class="body">gravity of the Moon to return</text>
-  <text x="22" y="266" class="body">to Earth.</text>
+  <text x="22" y="126" class="body">• Simple example</text>
+  <text x="22" y="170" class="body">• Calculate the trajectory of</text>
+  <text x="42" y="194" class="body">the Artemis free-return</text>
+  <text x="42" y="218" class="body">launch. This launch used the</text>
+  <text x="42" y="242" class="body">gravity of the Moon to return</text>
+  <text x="42" y="266" class="body">to Earth.</text>
   <text x="22" y="310" class="repo">Repository name: `lunar`</text>
 
   <rect x="310" y="5" width="280" height="380" class="card green" />
   <text x="430" y="57" text-anchor="middle" class="title">Human Virome Project</text>
   <text x="528" y="57" class="icon">🦠</text>
-  <text x="326" y="102" class="body">Complex example</text>
-  <text x="326" y="146" class="body">Ask questions about phage-</text>
-  <text x="326" y="170" class="body">host links, evidence methods,</text>
-  <text x="326" y="194" class="body">geography, and gene function.</text>
-  <text x="326" y="238" class="body">Requires additional setup to</text>
-  <text x="326" y="262" class="body">use the HVP PostgreSQL</text>
-  <text x="326" y="286" class="body">database.</text>
+  <text x="326" y="102" class="body">• Complex example</text>
+  <text x="326" y="146" class="body">• Ask questions about phage-</text>
+  <text x="346" y="170" class="body">host links, evidence methods,</text>
+  <text x="346" y="194" class="body">geography, and gene function.</text>
+  <text x="326" y="238" class="body">• Requires additional setup to</text>
+  <text x="346" y="262" class="body">use the HVP PostgreSQL</text>
+  <text x="346" y="286" class="body">database.</text>
   <text x="326" y="330" class="repo">Repository name: `hvp`</text>
 
   <rect x="615" y="5" width="280" height="380" class="card red" />
   <text x="748" y="58" text-anchor="middle" class="title">Bring your own problem</text>
   <text x="846" y="57" class="icon">🐙</text>
-  <text x="631" y="101" class="body">This requires personal setup:</text>
-  <text x="631" y="125" class="body">fill out a background</text>
-  <text x="631" y="149" class="body">questionnaire, provide data,</text>
-  <text x="631" y="173" class="body">or request synthetic data,</text>
-  <text x="631" y="197" class="body">then feed it to AI to begin.</text>
+  <text x="631" y="101" class="body">• This requires personal setup:</text>
+  <text x="651" y="125" class="body">fill out a background</text>
+  <text x="651" y="149" class="body">questionnaire, provide data,</text>
+  <text x="651" y="173" class="body">or request synthetic data,</text>
+  <text x="651" y="197" class="body">then feed it to AI to begin.</text>
   <text x="631" y="280" class="repo">Repository name:</text>
   <text x="631" y="304" class="repo">`bring_your_own`</text>
 </svg>
