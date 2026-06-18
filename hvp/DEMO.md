@@ -67,12 +67,17 @@ requirements (this provides `cookiecutter` plus the database-build libraries):
 
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate                # Windows: .venv\Scripts\activate
+source .venv/bin/activate                # Windows PowerShell: .venv\Scripts\Activate.ps1
 pip install -r requirements.txt          # cookiecutter, pandas, psycopg2-binary, openpyxl
 ```
 
 > `command not found: cookiecutter` later means this step was skipped or your
 > venv isn't active.
+>
+> Windows users: if PowerShell blocks activation, run
+> `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal,
+> then try `.venv\Scripts\Activate.ps1` again. In Command Prompt, use
+> `.venv\Scripts\activate.bat`.
 
 ---
 
@@ -94,6 +99,12 @@ brew install postgresql@16
 brew services start postgresql@16
 psql --version && pg_isready
 ```
+
+Windows users: PostgreSQL is usually easiest with the official installer from
+https://www.postgresql.org/download/windows/. During installation, keep track of
+which port and password you choose. If `psql` is not found afterward, open the
+**SQL Shell (psql)** app from the Start menu or add PostgreSQL's `bin` directory
+to your PATH.
 
 ### 1b. Download the GSVA resource files
 
@@ -209,7 +220,7 @@ the **Select** prompts, type the **number** (not the word). **Suggested answers:
 | description | `CRISPR vs Hi-C phage-host links` |
 | initial_research_question | `How do phage-host interaction networks differ between CRISPR-predicted and Hi-C experimental evidence?` |
 | domain | `1` (computational_biology) |
-| ai_tool | `2` (gpt5, Zoo Code with `gpt-5.5-project`) |
+| ai_tool | `2` (gpt5 / Zoo Code) |
 | include_example_project | `1` (no) |
 | data_progression | `4` (real_only) |
 | license | `1` (MIT) |
@@ -233,11 +244,20 @@ you write meaningful queries from the start.
 
 Full details in [`../USING_ZOO_CODE.md`](../USING_ZOO_CODE.md). In short:
 
-1. Install **Zoo Code** from the VS Code Extensions panel (`Cmd/Ctrl+Shift+X`).
+1. Install **Zoo Code** from the VS Code Extensions panel (`Cmd+Shift+X` on Mac,
+   `Ctrl+Shift+X` on Windows).
 2. Open its settings → **API Provider: OpenAI Compatible**.
 3. **API Key:** create a PNNL Birthright API key at https://ai-incubator-depot.pnnl.gov/.
 4. **API Base URL:** `https://ai-incubator-api.pnnl.gov`
-5. **Model:** `gpt-5.5-project`
+5. **Model:** try `gpt-5-birthright` first; if your key does not show it, use
+   `gpt-5.5-project`.
+
+> **Important URL check:** the `depot` URL is only for creating the API key. The
+> API Base URL field must be `https://ai-incubator-api.pnnl.gov`, not the `depot`
+> website.
+>
+> **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
+> Windows to render this file in VS Code.
 
 **Test the connection** in the Zoo Code chat:
 

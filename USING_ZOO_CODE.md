@@ -22,9 +22,14 @@ experience needed.
 2. Open Zoo Code settings and set **API Provider** to **OpenAI Compatible**.
 3. Create a PNNL Birthright API key at https://ai-incubator-depot.pnnl.gov/.
 4. Set **API Base URL** to `https://ai-incubator-api.pnnl.gov`.
-5. Paste your API key and select **Model** `gpt-5.5-project`.
+5. Paste your API key and select **Model** `gpt-5-birthright` first. If that
+   model is not available for your key, use `gpt-5.5-project`.
 6. You'll know it's ready when the chat box at the bottom of the panel is active
    and you can type into it.
+
+> **Important URL check:** the `depot` URL is only for creating your API key.
+> Do **not** paste the `depot` URL into the API Base URL field. The API Base URL
+> must be exactly `https://ai-incubator-api.pnnl.gov`.
 
 ## 3. Open your project folder
 
@@ -35,8 +40,15 @@ repo) so Zoo Code's file context is focused:
   `lunar_free_return/`).
 - Open the built in terminal with **Terminal > New Terminal** (or
   `` Ctrl+` ``). Make sure your virtual environment is active. Your prompt
-  should show `.venv`. If not, run `source .venv/bin/activate`
-  (Windows: `.venv\Scripts\activate`).
+  should show `.venv`. If not, run `source .venv/bin/activate`.
+- **Windows tip:** if you are using PowerShell, activate with
+  `.venv\Scripts\Activate.ps1`. If PowerShell blocks scripts, run
+  `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal
+  and try the activation command again. In Command Prompt, use
+  `.venv\Scripts\activate.bat`.
+- **Markdown preview tip:** while viewing any `.md` instruction file in VS Code,
+  press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on Windows to render it as a
+  formatted preview.
 
 ---
 

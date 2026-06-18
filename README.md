@@ -52,7 +52,14 @@ For this workshop, configure Zoo Code with:
 | API Provider | OpenAI Compatible |
 | API key | Create a PNNL Birthright key at https://ai-incubator-depot.pnnl.gov/ |
 | API Base URL | `https://ai-incubator-api.pnnl.gov` |
-| Model | `gpt-5.5-project` |
+| Model | Try `gpt-5-birthright` first; if your key does not show it, use `gpt-5.5-project`. |
+
+> **Important URL check:** use the `depot` URL only to create the key. The API
+> Base URL field must be `https://ai-incubator-api.pnnl.gov`, not the `depot`
+> website.
+>
+> **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
+> Windows to render these `.md` instructions in VS Code.
 
 ---
 
@@ -62,9 +69,14 @@ Run these commands from the demo folder you choose. For example, use `demos/luna
 
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate     # Windows: .venv\Scripts\activate
+source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
+
+Windows users: if PowerShell blocks activation, run
+`Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal,
+then try `.venv\Scripts\Activate.ps1` again. In Command Prompt, use
+`.venv\Scripts\activate.bat`.
 
 Then generate a new SMAIRT project:
 

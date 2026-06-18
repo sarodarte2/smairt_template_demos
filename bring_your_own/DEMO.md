@@ -21,12 +21,17 @@
 0. **Set up your environment first** (run from this folder, `demos/bring_your_own`):
    ```bash
    python3 -m venv .venv
-   source .venv/bin/activate     # Windows: .venv\Scripts\activate
+   source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
    pip install -r requirements.txt
    ```
    Installs `cookiecutter` (used in Step 2) plus common starter libs
    (numpy, pandas, matplotlib, scikit-learn). `command not found: cookiecutter`
    later means this step was skipped or your venv isn't active.
+
+   Windows users: if PowerShell blocks activation, run
+   `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal,
+   then try `.venv\Scripts\Activate.ps1` again. In Command Prompt, use
+   `.venv\Scripts\activate.bat`.
 
 1. **Fill in [`QUESTION_WORKSHEET.md`](QUESTION_WORKSHEET.md)** first. It forces
    your idea into a shape one SMAIRT iteration can move (computable, evaluable,
@@ -51,7 +56,7 @@
    | description | one line about your project |
    | initial_research_question | your question |
    | domain | number closest to your field |
-   | ai_tool | `2` (gpt5, zoo code) |
+   | ai_tool | `2` (gpt5 / Zoo Code) |
    | include_example_project | `1` (no) |
    | data_progression | `2` (synthetic_real) or `4` (real_only) |
    | license | `1` (MIT) |
@@ -74,7 +79,15 @@
    - Set **API Provider** to **OpenAI Compatible**.
    - Create a PNNL Birthright API key at https://ai-incubator-depot.pnnl.gov/.
    - Use **API Base URL**: `https://ai-incubator-api.pnnl.gov`.
-   - Select **Model**: `gpt-5.5-project`.
+   - Select **Model**: try `gpt-5-birthright` first; if your key does not show it,
+     use `gpt-5.5-project`.
+
+   > **Important URL check:** the `depot` URL is only for creating the API key.
+   > The API Base URL field must be `https://ai-incubator-api.pnnl.gov`, not the
+   > `depot` website.
+   >
+   > **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
+   > Windows to render this file in VS Code.
 
    Open your new project folder (**File > Open Folder...**). In the Zoo Code chat,
    paste this direct prompt:
