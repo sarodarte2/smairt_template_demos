@@ -1,11 +1,13 @@
-# Demo: Lunar / Artemis II Free-Return
+# Demo: Tryptic Peptide Digestion
 
-**You are given:** the background and the research question.  
+**You are given:** the background and the research question.
 
-**You build:** the orbital model and the free-return search using SMAIRT.
+**You build:** the in-silico trypsin digester and the MS-observable peptide
+filter using SMAIRT.
 
 There are **no solution scripts here**. The goal is to experience using SMAIRT
-to go from a question to an answer with an AI assistant.
+to go from a question to an answer with an AI assistant, on a small,
+exactly-checkable biology problem.
 
 > New to AI assistants? Read [`../USING_ZOO_CODE.md`](../USING_ZOO_CODE.md) first
 > (install, sign in, attach files, approve edits).
@@ -14,46 +16,44 @@ to go from a question to an answer with an AI assistant.
 
 ## The question
 
-Can you find a **Trans-Lunar Injection (TLI) burn** from a low-Earth parking orbit that produces a
-**free-return** trajectory that loops behind the Moon and comes back to a low
-Earth perigee with no further burns?
+For a given protein sequence, what set of peptides does **trypsin** produce, and
+which of those peptides fall in the **mass and length window a mass spectrometer
+can actually observe**?
 
 Full context, hypothesis, and metrics are in
 [`background/01_initial_question.md`](background/01_initial_question.md).
 
 ### Key terms
 
-- **Parking orbit:** a low circular orbit (here ~400 km altitude) where a
-  spacecraft coasts before heading to the Moon.
-- **TLI (trans-lunar injection) burn:** the engine firing that boosts the
-  spacecraft out of its parking orbit and onto a path toward the Moon. "How much
-  burn" = how much speed (delta-v) you add.
-- **Free-return:** a trajectory shaped so the Moon's gravity slings the craft
-  back to Earth on its own, with no return engine burn needed (the Apollo 13
-  safety trick).
-- **Perigee / return perigee:** the closest point to Earth; the *return* perigee
-  is how close the craft comes back to Earth after the lunar flyby. Low ≈ good.
-- **CR3BP (Circular Restricted Three-Body Problem):** the standard simplified
-  model of a small body moving under Earth + Moon gravity, with the Moon on a
-  circular orbit. Your simulator will use it.
-- **Jacobi constant:** an energy-like quantity that stays fixed along a correct
-  CR3BP trajectory. If your simulation conserves it, the math is trustworthy; if
-  it drifts, the result is junk.
-- **delta-v:** change in velocity (km/s), the standard "cost" measure for a burn.
+- **Trypsin:** the standard protease in proteomics. It cuts a protein into
+  peptides **after K (lysine) or R (arginine)**, but **not when the next residue
+  is P (proline)**.
+- **Peptide:** a short stretch of a protein produced by digestion; what the mass
+  spectrometer actually measures.
+- **Missed cleavage:** a site trypsin should have cut but didn't, leaving an
+  internal K/R inside a peptide. Real digests have a few.
+- **Monoisotopic mass:** a peptide's mass computed from the lightest isotope of
+  each atom; the value an MS reports. = sum of residue masses + one water.
+- **MS-observable window:** mass spectrometers only see peptides in a limited
+  mass/length range (roughly 500-5000 Da, 6-40 residues).
+- **Exact validation:** because the digestion rules are deterministic, you can
+  hand-check the answer on tiny sequences. "Correct" is unambiguous.
 
 ---
 
 ## Steps
 
-0. **Set up your environment first** (run from this folder, `demos/lunar`):
+0. **Set up your environment first** (run from this folder,
+   `demos/peptide_digest`):
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
    pip install -r requirements.txt
    ```
-   This installs `cookiecutter` (used in the next step) plus numpy/scipy/
-   matplotlib. If you see `command not found: cookiecutter`, this step was
-   skipped or your venv isn't active.
+   This installs `cookiecutter` (used in the next step) plus matplotlib (optional
+   plots). The digestion itself is pure-Python standard library. If you see
+   `command not found: cookiecutter`, this step was skipped or your venv isn't
+   active.
 
    Windows users: if PowerShell blocks activation, run
    `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal,
@@ -72,24 +72,24 @@ Full context, hypothesis, and metrics are in
 
    | Prompt | Suggested answer |
    |--------|------------------|
-   | project_name | `Lunar Free Return` |
+   | project_name | `Peptide Digest` |
    | project_slug | press Enter (auto) |
    | author_name | your name |
    | author_email | your email (or Enter) |
-   | description | `Artemis II free-return trajectory` |
-   | initial_research_question | `Can we find a TLI burn that yields a free-return?` |
-   | domain | `4` (physics) |
+   | description | `In-silico tryptic digestion and MS-observable peptides` |
+   | initial_research_question | `What tryptic peptides does a protein produce, and which are MS-observable?` |
+   | domain | `1` (computational_biology) |
    | ai_tool | `2` (gpt5 / Zoo Code) |
    | include_example_project | `1` (no) |
    | data_progression | `2` (synthetic_real) |
    | license | `1` (MIT) |
    | create_git_repo | `1` (yes) |
 
-   This creates a folder named after your project_slug (e.g. `lunar_free_return/`).
+   This creates a folder named after your project_slug (e.g. `peptide_digest/`).
 
 2. **Seed your project with the background:**
    ```bash
-   cp background/01_initial_question.md lunar_free_return/background/
+   cp background/01_initial_question.md peptide_digest/background/
    ```
 
 3. **Configure Zoo Code, then open the project in VS Code and prime it.** New to
@@ -112,8 +112,8 @@ Full context, hypothesis, and metrics are in
    > **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
    > Windows to render this file in VS Code.
 
-   Open your new `lunar_free_return/` folder in VS Code
-   (**File > Open Folder...**). In the Zoo Code chat, paste this direct prompt:
+   Open your new project folder in VS Code (**File > Open Folder...**). In the
+   Zoo Code chat, paste this direct prompt:
 
    ```text
    I'm starting a SMAIRT project to answer the question in
@@ -138,48 +138,51 @@ Full context, hypothesis, and metrics are in
 
    ```text
    Based on background/01_initial_question.md and the SMAIRT conventions, start
-   with an example that tests the key assumptions for the lunar free-return
-   question. Create the first numbered script in experiments/01_synthetic/.
+   with a small, exactly-checkable example. Create the first numbered script in
+   experiments/01_synthetic/ that digests a few short test sequences with trypsin
+   (cleave after K/R, NOT before P) and asserts the peptide list matches a
+   hand-written expected list. Treat these assertions as the validation.
 
-   Before writing code, briefly state what assumptions the script tests, what
-   result would make those assumptions credible, and how we could scale up in
-   further scripts once this first example is validated to model more and more of
-   the realistic lunar free-return case. Follow the project code conventions for
-   logging, figures, and the output comment block.
+   Before writing code, briefly state the test sequences and their expected
+   peptides, what would make the implementation credible, and how later scripts
+   will add missed cleavages and peptide-mass calculation. Follow the project code
+   conventions for logging and the output comment block.
    ```
 
    How to handle the AI response:
-   - If the plan tests assumptions clearly and the script is focused enough to
-     review, say: `Proceed with building the script.`
-   - Before running anything, check whether the code conserves the Jacobi constant,
-     keeps units explicit, and measures return perigee **after** the lunar flyby.
-   - If the assistant jumps straight to a final answer, redirect it:
-     `Slow down. First create a focused assumption-testing script and explain the
-     assumptions I should review before running it. `
-   - If the run finds no free-return, prompt it further. Ask it to inspect the log,
-     refine the TLI search near escape speed, and explain why the new range makes
-   sense.
-   - If the reported numbers look implausible, for example TLI burn far from
-     ~3.1 km/s or LEO speed far from ~7.7 km/s, ask the assistant to show the unit
-     conversion and compare against textbook values before continuing.
+   - If the test cases are explicit and the script is focused, say:
+     `Proceed with building the script.`
+   - Before trusting results, check the **"not before P"** exception is handled
+     (no peptide boundary at K-P or R-P) and that the N- and C-terminal peptides
+     are produced correctly.
+   - If the assistant skips validation and just prints peptides, redirect it:
+     `Add explicit assertions against hand-checked expected peptides first; that
+     is the experiment.`
+   - **Second iteration:** add missed cleavages (0 -> 1 -> 2) and show how peptide
+     count and average length change.
+   - **Third iteration:** add monoisotopic peptide mass and filter to the
+     MS-observable window (mass 500-5000 Da, length 6-40); report the observable
+     fraction and plot the distribution.
 
-5. **Interpret and log.** In `analysis/iteration_log.md`, note: did the loop
-   close? is the burn sensible? what are the model's limits (planar, point-mass,
-   circular Moon)? Record your key judgment call in
+5. **Interpret and log.** In `analysis/iteration_log.md`, note: did the digest
+   pass every hand-checked case? how did missed cleavages change the peptide set?
+   what fraction was MS-observable? Record any key judgment call (e.g. the exact
+   mass table or window you chose, and why) in
    `prompts/intellectual_contribution.md`. That reasoning is the science.
 
 ---
 
 ## What "done" looks like
 
-A trajectory that reaches the Moon and returns to a near-Earth perigee, reported
-in real units with its assumptions stated honestly and reproducible from your
-breadcrumb trail. (Requirements: cookiecutter + numpy/scipy/matplotlib, installed
-in Step 0; CPU-only, no network needed.)
+A trypsin digester that passes your hand-checked test cases, computes peptide
+masses that match reference values, honors the "not before P" rule, and reports
+how many peptides are MS-observable, all reproducible from your breadcrumb trail.
+(Requirements: cookiecutter + matplotlib, installed in Step 0; pure Python,
+CPU-only, no network needed.)
 
-> **Going further (optional, later):** relax the simplifying assumptions one at a
-> time, for example add the Sun's perturbation or move from the planar to a 3D
-> model, and report how much the required TLI burn and return perigee shift.
+> **Going further (optional, later):** paste a real protein sequence (e.g. BSA or
+> human serum albumin from a FASTA) and compare your peptide list and masses
+> against a public tool such as ExPASy PeptideMass as an external check.
 
 ---
 
@@ -190,10 +193,11 @@ in Step 0; CPU-only, no network needed.)
 | `command not found: cookiecutter` | venv not active or Step 0 skipped. Run `source .venv/bin/activate` then `pip install -r requirements.txt`. |
 | `No such file or directory: .../.venv/bin/...` | The venv was deleted/moved. Recreate it: `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`. |
 | cookiecutter asks to re-download the template | Normal if you've run it before. Press **Enter** (y). |
-| Jacobi drift is large (≫ 1e-6) | Integration is inaccurate. Ask the AI to lower solver tolerances (`rtol`/`atol`) or use a higher-order method. |
-| "No free-return found" | Expected at first. Widen/refine the TLI sweep near escape speed, and integrate long enough to capture the return leg. |
-| Trajectory escapes or never reaches the Moon | TLI burn too large (escapes) or too small (falls back). Narrow the sweep between those extremes. |
-| Numbers look implausible (e.g. burn ≫ 3 km/s) | Check units. Mixing non-dimensional and SI is the usual culprit. Ask the AI to show the unit conversion. |
+| Peptide split at K-P or R-P | The "not before P" exception isn't implemented. Ask the AI to skip cleavage when the next residue is proline. |
+| Off-by-one peptides (missing first/last) | Boundary handling at the protein N-/C-terminus. Check the last peptide is emitted even without a trailing K/R. |
+| Peptide masses look wrong (~18 Da off) | Forgot to add one water for the terminal groups, or used average instead of monoisotopic masses. |
+| Too few/too many peptides "observable" | Wrong mass/length window. Re-check the 500-5000 Da, 6-40 residue thresholds. |
+| Missed cleavages explode peptide count | Expected: count grows with allowed missed cleavages. Keep it at 1-2 like real searches. |
 | Zoo Code edits the wrong file / drifts | Re-attach `AI_CONTEXT.md` + your `background/01_initial_question.md` and restate the current step. |
 
 ### Zoo Code is stuck (an error a retry won't fix)

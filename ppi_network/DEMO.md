@@ -1,11 +1,13 @@
-# Demo: Lunar / Artemis II Free-Return
+# Demo: Protein-Protein Interaction Networks
 
-**You are given:** the background and the research question.  
+**You are given:** the background and the research question.
 
-**You build:** the orbital model and the free-return search using SMAIRT.
+**You build:** the synthetic-network generator and the hub/community analysis
+using SMAIRT.
 
 There are **no solution scripts here**. The goal is to experience using SMAIRT
-to go from a question to an answer with an AI assistant.
+to go from a question to an answer with an AI assistant, on a small network
+biology problem you can iterate on.
 
 > New to AI assistants? Read [`../USING_ZOO_CODE.md`](../USING_ZOO_CODE.md) first
 > (install, sign in, attach files, approve edits).
@@ -14,45 +16,41 @@ to go from a question to an answer with an AI assistant.
 
 ## The question
 
-Can you find a **Trans-Lunar Injection (TLI) burn** from a low-Earth parking orbit that produces a
-**free-return** trajectory that loops behind the Moon and comes back to a low
-Earth perigee with no further burns?
+In a protein-protein interaction network, can standard graph methods reliably
+**identify the most important proteins (hubs)** and **detect the functional
+modules (communities)** that are actually present?
 
 Full context, hypothesis, and metrics are in
 [`background/01_initial_question.md`](background/01_initial_question.md).
 
 ### Key terms
 
-- **Parking orbit:** a low circular orbit (here ~400 km altitude) where a
-  spacecraft coasts before heading to the Moon.
-- **TLI (trans-lunar injection) burn:** the engine firing that boosts the
-  spacecraft out of its parking orbit and onto a path toward the Moon. "How much
-  burn" = how much speed (delta-v) you add.
-- **Free-return:** a trajectory shaped so the Moon's gravity slings the craft
-  back to Earth on its own, with no return engine burn needed (the Apollo 13
-  safety trick).
-- **Perigee / return perigee:** the closest point to Earth; the *return* perigee
-  is how close the craft comes back to Earth after the lunar flyby. Low ≈ good.
-- **CR3BP (Circular Restricted Three-Body Problem):** the standard simplified
-  model of a small body moving under Earth + Moon gravity, with the Moon on a
-  circular orbit. Your simulator will use it.
-- **Jacobi constant:** an energy-like quantity that stays fixed along a correct
-  CR3BP trajectory. If your simulation conserves it, the math is trustworthy; if
-  it drifts, the result is junk.
-- **delta-v:** change in velocity (km/s), the standard "cost" measure for a burn.
+- **Node / edge:** a protein is a node; an interaction between two proteins is an
+  edge. The whole set is the network (graph).
+- **Hub:** a protein with an unusually high number of interaction partners (high
+  degree). Often biologically important.
+- **Module / community:** a group of proteins that interact much more with each
+  other than with the rest of the network; usually a shared pathway or complex.
+- **Centrality:** measures of how "important" a node is. Degree centrality counts
+  partners; betweenness centrality counts how often a node sits on shortest paths.
+- **Community detection:** algorithms (e.g. greedy modularity / Louvain in
+  networkx) that partition the graph into densely connected groups.
+- **Synthetic data with known truth:** you generate the network with planted hubs
+  and modules, so you can check whether the methods recover them before using
+  real data.
 
 ---
 
 ## Steps
 
-0. **Set up your environment first** (run from this folder, `demos/lunar`):
+0. **Set up your environment first** (run from this folder, `demos/ppi_network`):
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
    pip install -r requirements.txt
    ```
-   This installs `cookiecutter` (used in the next step) plus numpy/scipy/
-   matplotlib. If you see `command not found: cookiecutter`, this step was
+   This installs `cookiecutter` (used in the next step) plus networkx/numpy/
+   pandas/matplotlib. If you see `command not found: cookiecutter`, this step was
    skipped or your venv isn't active.
 
    Windows users: if PowerShell blocks activation, run
@@ -72,24 +70,24 @@ Full context, hypothesis, and metrics are in
 
    | Prompt | Suggested answer |
    |--------|------------------|
-   | project_name | `Lunar Free Return` |
+   | project_name | `PPI Network` |
    | project_slug | press Enter (auto) |
    | author_name | your name |
    | author_email | your email (or Enter) |
-   | description | `Artemis II free-return trajectory` |
-   | initial_research_question | `Can we find a TLI burn that yields a free-return?` |
-   | domain | `4` (physics) |
+   | description | `Finding hubs and communities in a protein interaction network` |
+   | initial_research_question | `Can graph methods recover the hubs and modules in a PPI network?` |
+   | domain | `1` (computational_biology) |
    | ai_tool | `2` (gpt5 / Zoo Code) |
    | include_example_project | `1` (no) |
    | data_progression | `2` (synthetic_real) |
    | license | `1` (MIT) |
    | create_git_repo | `1` (yes) |
 
-   This creates a folder named after your project_slug (e.g. `lunar_free_return/`).
+   This creates a folder named after your project_slug (e.g. `ppi_network/`).
 
 2. **Seed your project with the background:**
    ```bash
-   cp background/01_initial_question.md lunar_free_return/background/
+   cp background/01_initial_question.md ppi_network/background/
    ```
 
 3. **Configure Zoo Code, then open the project in VS Code and prime it.** New to
@@ -112,8 +110,8 @@ Full context, hypothesis, and metrics are in
    > **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
    > Windows to render this file in VS Code.
 
-   Open your new `lunar_free_return/` folder in VS Code
-   (**File > Open Folder...**). In the Zoo Code chat, paste this direct prompt:
+   Open your new project folder in VS Code (**File > Open Folder...**). In the
+   Zoo Code chat, paste this direct prompt:
 
    ```text
    I'm starting a SMAIRT project to answer the question in
@@ -138,48 +136,53 @@ Full context, hypothesis, and metrics are in
 
    ```text
    Based on background/01_initial_question.md and the SMAIRT conventions, start
-   with an example that tests the key assumptions for the lunar free-return
-   question. Create the first numbered script in experiments/01_synthetic/.
+   with a synthetic example. Create the first numbered script in
+   experiments/01_synthetic/ that (a) generates a network with a KNOWN number of
+   hubs and modules (e.g. a stochastic block model plus a few high-degree nodes),
+   (b) ranks nodes by degree and betweenness centrality, and (c) reports whether
+   the planted hubs appear in the top-k, with a drawing of the network.
 
-   Before writing code, briefly state what assumptions the script tests, what
-   result would make those assumptions credible, and how we could scale up in
-   further scripts once this first example is validated to model more and more of
-   the realistic lunar free-return case. Follow the project code conventions for
-   logging, figures, and the output comment block.
+   Before writing code, briefly state how many hubs/modules you'll plant, what
+   "recovering" a hub means (e.g. precision/recall in the top-k), and how later
+   scripts will add community detection and a noise-robustness test. Follow the
+   project code conventions for logging, figures, and the output comment block.
    ```
 
    How to handle the AI response:
-   - If the plan tests assumptions clearly and the script is focused enough to
-     review, say: `Proceed with building the script.`
-   - Before running anything, check whether the code conserves the Jacobi constant,
-     keeps units explicit, and measures return perigee **after** the lunar flyby.
-   - If the assistant jumps straight to a final answer, redirect it:
-     `Slow down. First create a focused assumption-testing script and explain the
-     assumptions I should review before running it. `
-   - If the run finds no free-return, prompt it further. Ask it to inspect the log,
-     refine the TLI search near escape speed, and explain why the new range makes
-   sense.
-   - If the reported numbers look implausible, for example TLI burn far from
-     ~3.1 km/s or LEO speed far from ~7.7 km/s, ask the assistant to show the unit
-     conversion and compare against textbook values before continuing.
+   - If the plan plants a known structure and checks recovery against it, say:
+     `Proceed with building the script.`
+   - Before trusting results, check it uses a **fixed random seed**, that the
+     planted hubs/modules are recorded as ground truth, and that recovery is
+     measured **against that truth** (not just "this node has high degree").
+   - If the assistant only reports centrality values with no comparison to the
+     plant, redirect it: `Report precision/recall of the planted hubs in the
+     top-k; that is the experiment.`
+   - **Second iteration:** add community detection (greedy modularity or Louvain)
+     and measure agreement with the planted module labels (adjusted Rand index or
+     NMI).
+   - **Third iteration:** add random noise edges (and/or remove true edges) and
+     plot how hub and community recovery degrade as noise increases.
 
-5. **Interpret and log.** In `analysis/iteration_log.md`, note: did the loop
-   close? is the burn sensible? what are the model's limits (planar, point-mass,
-   circular Moon)? Record your key judgment call in
+5. **Interpret and log.** In `analysis/iteration_log.md`, note: did centrality
+   recover the planted hubs? did community detection match the planted modules,
+   and by how much? at what noise level did recovery break down? Record your key
+   judgment call (e.g. which centrality you trust and why) in
    `prompts/intellectual_contribution.md`. That reasoning is the science.
 
 ---
 
 ## What "done" looks like
 
-A trajectory that reaches the Moon and returns to a near-Earth perigee, reported
-in real units with its assumptions stated honestly and reproducible from your
-breadcrumb trail. (Requirements: cookiecutter + numpy/scipy/matplotlib, installed
-in Step 0; CPU-only, no network needed.)
+On synthetic data: centrality rankings that recover the planted hubs in the
+top-k, community detection that matches the planted modules with high agreement,
+a noise-robustness curve, and a network drawing, all reproducible from your
+breadcrumb trail. (Requirements: cookiecutter + networkx/numpy/pandas/matplotlib,
+installed in Step 0; CPU-only, no network needed.)
 
-> **Going further (optional, later):** relax the simplifying assumptions one at a
-> time, for example add the Sun's perturbation or move from the planar to a 3D
-> model, and report how much the required TLI burn and return perigee shift.
+> **Going further (optional, later):** load a small published interaction list
+> (e.g. a subset of STRING or BioGRID for one organism or complex). Truth is now
+> real biology, so discuss which detected hubs/modules make biological sense and
+> which look like artifacts in your log.
 
 ---
 
@@ -190,10 +193,12 @@ in Step 0; CPU-only, no network needed.)
 | `command not found: cookiecutter` | venv not active or Step 0 skipped. Run `source .venv/bin/activate` then `pip install -r requirements.txt`. |
 | `No such file or directory: .../.venv/bin/...` | The venv was deleted/moved. Recreate it: `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`. |
 | cookiecutter asks to re-download the template | Normal if you've run it before. Press **Enter** (y). |
-| Jacobi drift is large (≫ 1e-6) | Integration is inaccurate. Ask the AI to lower solver tolerances (`rtol`/`atol`) or use a higher-order method. |
-| "No free-return found" | Expected at first. Widen/refine the TLI sweep near escape speed, and integrate long enough to capture the return leg. |
-| Trajectory escapes or never reaches the Moon | TLI burn too large (escapes) or too small (falls back). Narrow the sweep between those extremes. |
-| Numbers look implausible (e.g. burn ≫ 3 km/s) | Check units. Mixing non-dimensional and SI is the usual culprit. Ask the AI to show the unit conversion. |
+| `ModuleNotFoundError: networkx` | venv not active or Step 0 skipped. Activate the venv and reinstall requirements. |
+| Centrality doesn't find the planted hubs | Hubs aren't actually high-degree relative to the background, or you compared against the wrong node IDs. Increase the hubs' degree and track the planted IDs explicitly. |
+| Community detection finds one giant community | Modules aren't dense enough vs. between-module edges. Raise within-module edge probability or lower the between-module probability. |
+| Adjusted Rand index is near 0 | Detected and planted labels aren't aligned, or modules are too weak. Compare label sets correctly and strengthen the planted structure. |
+| Betweenness is very slow | Expected on larger graphs; use a smaller node count for the demo or approximate betweenness. |
+| Results change every run | No fixed random seed. Set and log a seed so the synthetic network is reproducible. |
 | Zoo Code edits the wrong file / drifts | Re-attach `AI_CONTEXT.md` + your `background/01_initial_question.md` and restate the current step. |
 
 ### Zoo Code is stuck (an error a retry won't fix)

@@ -1,11 +1,13 @@
-# Demo: Lunar / Artemis II Free-Return
+# Demo: Proteomics Differential Abundance
 
-**You are given:** the background and the research question.  
+**You are given:** the background and the research question.
 
-**You build:** the orbital model and the free-return search using SMAIRT.
+**You build:** the synthetic data generator and the differential-abundance
+analysis using SMAIRT.
 
 There are **no solution scripts here**. The goal is to experience using SMAIRT
-to go from a question to an answer with an AI assistant.
+to go from a question to an answer with an AI assistant, on a biology workflow
+that lets you iterate a few times.
 
 > New to AI assistants? Read [`../USING_ZOO_CODE.md`](../USING_ZOO_CODE.md) first
 > (install, sign in, attach files, approve edits).
@@ -14,46 +16,45 @@ to go from a question to an answer with an AI assistant.
 
 ## The question
 
-Can you find a **Trans-Lunar Injection (TLI) burn** from a low-Earth parking orbit that produces a
-**free-return** trajectory that loops behind the Moon and comes back to a low
-Earth perigee with no further burns?
+Given a two-condition protein-abundance matrix (e.g. **treated vs. control**),
+which proteins are **differentially abundant**, and how well can a per-protein
+test plus multiple-testing correction **recover the proteins we know are truly
+changed** while controlling false positives?
 
 Full context, hypothesis, and metrics are in
 [`background/01_initial_question.md`](background/01_initial_question.md).
 
 ### Key terms
 
-- **Parking orbit:** a low circular orbit (here ~400 km altitude) where a
-  spacecraft coasts before heading to the Moon.
-- **TLI (trans-lunar injection) burn:** the engine firing that boosts the
-  spacecraft out of its parking orbit and onto a path toward the Moon. "How much
-  burn" = how much speed (delta-v) you add.
-- **Free-return:** a trajectory shaped so the Moon's gravity slings the craft
-  back to Earth on its own, with no return engine burn needed (the Apollo 13
-  safety trick).
-- **Perigee / return perigee:** the closest point to Earth; the *return* perigee
-  is how close the craft comes back to Earth after the lunar flyby. Low ≈ good.
-- **CR3BP (Circular Restricted Three-Body Problem):** the standard simplified
-  model of a small body moving under Earth + Moon gravity, with the Moon on a
-  circular orbit. Your simulator will use it.
-- **Jacobi constant:** an energy-like quantity that stays fixed along a correct
-  CR3BP trajectory. If your simulation conserves it, the math is trustworthy; if
-  it drifts, the result is junk.
-- **delta-v:** change in velocity (km/s), the standard "cost" measure for a burn.
+- **Differential abundance:** a protein whose measured level genuinely differs
+  between conditions (not just noise).
+- **Synthetic data with a planted answer:** you generate the matrix yourself and
+  decide in advance which proteins are truly changed, so you can check whether
+  the analysis recovers them before trusting it on real data.
+- **p-value:** the chance of seeing a difference this large if nothing really
+  changed. Small = surprising under "no change".
+- **Multiple testing / FDR:** testing thousands of proteins at p < 0.05 yields
+  many false positives by chance. Benjamini-Hochberg (BH) correction controls
+  the **false-discovery rate** (the expected fraction of your hits that are
+  wrong).
+- **Volcano plot:** log2 fold-change (x) vs. -log10 p-value (y); the standard
+  visual for "big *and* significant" changes.
+- **Recall:** the fraction of the truly-changed proteins your analysis found.
 
 ---
 
 ## Steps
 
-0. **Set up your environment first** (run from this folder, `demos/lunar`):
+0. **Set up your environment first** (run from this folder,
+   `demos/proteomics_de`):
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
    pip install -r requirements.txt
    ```
-   This installs `cookiecutter` (used in the next step) plus numpy/scipy/
-   matplotlib. If you see `command not found: cookiecutter`, this step was
-   skipped or your venv isn't active.
+   This installs `cookiecutter` (used in the next step) plus numpy/pandas/scipy/
+   statsmodels/matplotlib. If you see `command not found: cookiecutter`, this
+   step was skipped or your venv isn't active.
 
    Windows users: if PowerShell blocks activation, run
    `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal,
@@ -72,24 +73,24 @@ Full context, hypothesis, and metrics are in
 
    | Prompt | Suggested answer |
    |--------|------------------|
-   | project_name | `Lunar Free Return` |
+   | project_name | `Proteomics DE` |
    | project_slug | press Enter (auto) |
    | author_name | your name |
    | author_email | your email (or Enter) |
-   | description | `Artemis II free-return trajectory` |
-   | initial_research_question | `Can we find a TLI burn that yields a free-return?` |
-   | domain | `4` (physics) |
+   | description | `Differential protein abundance with FDR control` |
+   | initial_research_question | `Which proteins are differentially abundant, and can we recover them at controlled FDR?` |
+   | domain | `1` (computational_biology) |
    | ai_tool | `2` (gpt5 / Zoo Code) |
    | include_example_project | `1` (no) |
    | data_progression | `2` (synthetic_real) |
    | license | `1` (MIT) |
    | create_git_repo | `1` (yes) |
 
-   This creates a folder named after your project_slug (e.g. `lunar_free_return/`).
+   This creates a folder named after your project_slug (e.g. `proteomics_de/`).
 
 2. **Seed your project with the background:**
    ```bash
-   cp background/01_initial_question.md lunar_free_return/background/
+   cp background/01_initial_question.md proteomics_de/background/
    ```
 
 3. **Configure Zoo Code, then open the project in VS Code and prime it.** New to
@@ -112,8 +113,8 @@ Full context, hypothesis, and metrics are in
    > **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
    > Windows to render this file in VS Code.
 
-   Open your new `lunar_free_return/` folder in VS Code
-   (**File > Open Folder...**). In the Zoo Code chat, paste this direct prompt:
+   Open your new project folder in VS Code (**File > Open Folder...**). In the
+   Zoo Code chat, paste this direct prompt:
 
    ```text
    I'm starting a SMAIRT project to answer the question in
@@ -138,48 +139,54 @@ Full context, hypothesis, and metrics are in
 
    ```text
    Based on background/01_initial_question.md and the SMAIRT conventions, start
-   with an example that tests the key assumptions for the lunar free-return
-   question. Create the first numbered script in experiments/01_synthetic/.
+   with a synthetic-data example that tests the key assumptions for the
+   differential-abundance question. Create the first numbered script in
+   experiments/01_synthetic/ that (a) generates a protein-abundance matrix where
+   I KNOW which proteins are truly changed, (b) runs a per-protein t-test, and
+   (c) reports recall and the observed false-discovery rate against that known
+   truth.
 
    Before writing code, briefly state what assumptions the script tests, what
-   result would make those assumptions credible, and how we could scale up in
-   further scripts once this first example is validated to model more and more of
-   the realistic lunar free-return case. Follow the project code conventions for
-   logging, figures, and the output comment block.
+   result would make those assumptions credible, and how we could make later
+   scripts more realistic. Follow the project code conventions for logging,
+   figures, and the output comment block.
    ```
 
    How to handle the AI response:
    - If the plan tests assumptions clearly and the script is focused enough to
      review, say: `Proceed with building the script.`
-   - Before running anything, check whether the code conserves the Jacobi constant,
-     keeps units explicit, and measures return perigee **after** the lunar flyby.
-   - If the assistant jumps straight to a final answer, redirect it:
-     `Slow down. First create a focused assumption-testing script and explain the
-     assumptions I should review before running it. `
-   - If the run finds no free-return, prompt it further. Ask it to inspect the log,
-     refine the TLI search near escape speed, and explain why the new range makes
-   sense.
-   - If the reported numbers look implausible, for example TLI burn far from
-     ~3.1 km/s or LEO speed far from ~7.7 km/s, ask the assistant to show the unit
-     conversion and compare against textbook values before continuing.
+   - Before trusting results, check that the analysis runs on **log2**
+     intensities, uses a **fixed random seed**, and compares results **against
+     the planted truth** (recall + observed FDR), not just a count of hits.
+   - If the assistant jumps straight to "here are the significant proteins",
+     redirect it: `Slow down. First confirm on synthetic data that we recover the
+     planted proteins at the chosen FDR before interpreting any hit list.`
+   - **Second iteration:** ask it to add Benjamini-Hochberg correction and show
+     how many false positives appear *without* it. This is the core lesson and a
+     natural next loop.
+   - **Third iteration:** ask it to add missing values (proteins not detected in
+     some samples) and decide filter vs. impute, then re-check recall/FDR.
 
-5. **Interpret and log.** In `analysis/iteration_log.md`, note: did the loop
-   close? is the burn sensible? what are the model's limits (planar, point-mass,
-   circular Moon)? Record your key judgment call in
-   `prompts/intellectual_contribution.md`. That reasoning is the science.
+5. **Interpret and log.** In `analysis/iteration_log.md`, note: did BH control
+   the observed FDR near the threshold? what was recall? what broke when you
+   added missing values? Record your key judgment call (e.g. your imputation
+   choice and why) in `prompts/intellectual_contribution.md`. That reasoning is
+   the science.
 
 ---
 
 ## What "done" looks like
 
-A trajectory that reaches the Moon and returns to a near-Earth perigee, reported
-in real units with its assumptions stated honestly and reproducible from your
-breadcrumb trail. (Requirements: cookiecutter + numpy/scipy/matplotlib, installed
-in Step 0; CPU-only, no network needed.)
+On synthetic data: a volcano plot with the planted true positives highlighted, a
+reported recall and observed FDR that track your BH threshold, and an honest note
+on what the missing-value handling did. Reproducible from your breadcrumb trail.
+(Requirements: cookiecutter + numpy/pandas/scipy/statsmodels/matplotlib,
+installed in Step 0; CPU-only, no network needed.)
 
-> **Going further (optional, later):** relax the simplifying assumptions one at a
-> time, for example add the Sun's perturbation or move from the planar to a 3D
-> model, and report how much the required TLI burn and return perigee shift.
+> **Going further (optional, later):** once the synthetic workflow is solid, you
+> can swap in a small real `proteinGroups`-style intensity table. The ground
+> truth is no longer known, so you shift from "recall" to reasoning about effect
+> sizes and prior biology. State that shift honestly in your log.
 
 ---
 
@@ -190,10 +197,11 @@ in Step 0; CPU-only, no network needed.)
 | `command not found: cookiecutter` | venv not active or Step 0 skipped. Run `source .venv/bin/activate` then `pip install -r requirements.txt`. |
 | `No such file or directory: .../.venv/bin/...` | The venv was deleted/moved. Recreate it: `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`. |
 | cookiecutter asks to re-download the template | Normal if you've run it before. Press **Enter** (y). |
-| Jacobi drift is large (≫ 1e-6) | Integration is inaccurate. Ask the AI to lower solver tolerances (`rtol`/`atol`) or use a higher-order method. |
-| "No free-return found" | Expected at first. Widen/refine the TLI sweep near escape speed, and integrate long enough to capture the return leg. |
-| Trajectory escapes or never reaches the Moon | TLI burn too large (escapes) or too small (falls back). Narrow the sweep between those extremes. |
-| Numbers look implausible (e.g. burn ≫ 3 km/s) | Check units. Mixing non-dimensional and SI is the usual culprit. Ask the AI to show the unit conversion. |
+| Almost everything is "significant" | You're testing raw p-values without correction. Add Benjamini-Hochberg FDR; recount hits. |
+| Recall is ~0 even on synthetic data | Effect size too small vs. noise, or you tested on raw (not log2) intensities. Increase planted fold-change or fix the transform. |
+| Observed FDR is far above your threshold | Correction not applied, or applied per-comparison instead of across all proteins. Ask the AI to apply BH across the full p-value vector. |
+| Results change every run | No fixed random seed. Set and log a seed so the synthetic truth is reproducible. |
+| t-test errors on proteins with missing values | Filter proteins with too few observations, or impute before testing; state which and why. |
 | Zoo Code edits the wrong file / drifts | Re-attach `AI_CONTEXT.md` + your `background/01_initial_question.md` and restate the current step. |
 
 ### Zoo Code is stuck (an error a retry won't fix)

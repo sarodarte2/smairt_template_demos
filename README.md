@@ -6,17 +6,28 @@ SMAIRT stands for **Scientific Method with AI Research Template**. These demos s
 
 You will choose one demo track, generate a fresh SMAIRT project, prime Zoo Code with the project context, and run one documented research iteration.
 
-![Three SMAIRT demo tracks](demo_tracks.svg)
+![SMAIRT demo tracks](demo_tracks.svg)
 
 ---
 
 ## Choose a demo track
 
-| Track | Best for | Start here |
-|-------|----------|------------|
-| Lunar free-return trajectory | A compact physics example with no external data. Good if you are newer to coding or want the fastest setup. | [`lunar/DEMO.md`](lunar/DEMO.md) |
-| Human Virome Project | A database example about phage-host links, CRISPR evidence, Hi-C evidence, geography, and gene function. Requires PostgreSQL setup unless a presenter provides a database or fallback. | [`hvp/DEMO.md`](hvp/DEMO.md) |
-| Bring your own problem | Your own research question. Good if you already have an idea and want to turn it into a first SMAIRT iteration. | [`bring_your_own/DEMO.md`](bring_your_own/DEMO.md) |
+Tracks are listed roughly easiest first. The biology tracks are all
+synthetic-data-first (you generate data with a known answer, then check that
+your analysis recovers it), pure Python, CPU-only, and need no downloads to
+start. Two of them (`proteomics_de`, `protein_properties`) can optionally take a
+small real dataset later.
+
+| Track | Domain | Best for | Start here |
+|-------|--------|----------|------------|
+| Lunar free-return trajectory | Physics | A compact example with no external data. Good if you are newer to coding or want the fastest setup. | [`lunar/DEMO.md`](lunar/DEMO.md) |
+| Enzyme kinetics (Michaelis-Menten) | Biochemistry | Recovering Km/Vmax from noisy velocity data; compares nonlinear fit vs. Lineweaver-Burk. Small, very approachable. | [`enzyme_kinetics/DEMO.md`](enzyme_kinetics/DEMO.md) |
+| Peptide digestion | Proteomics | In-silico tryptic digestion validated on known proteins; pure standard-library Python. | [`peptide_digest/DEMO.md`](peptide_digest/DEMO.md) |
+| Protein sequence properties | Proteomics | Compute MW/pI/GRAVY and test whether hydrophobicity separates membrane from soluble proteins. | [`protein_properties/DEMO.md`](protein_properties/DEMO.md) |
+| Differential abundance | Proteomics | Find proteins that change between conditions with t-tests + BH-FDR; planted up/down truth. | [`proteomics_de/DEMO.md`](proteomics_de/DEMO.md) |
+| Protein interaction networks | Network biology | Recover planted hubs and modules with centrality and community detection. | [`ppi_network/DEMO.md`](ppi_network/DEMO.md) |
+| Human Virome Project | Database / metagenomics | A more advanced database example about phage-host links, CRISPR/Hi-C evidence, geography, and gene function. Requires PostgreSQL setup unless a presenter provides a database or fallback. | [`hvp/DEMO.md`](hvp/DEMO.md) |
+| Bring your own problem | Any | Your own research question. Good if you already have an idea and want to turn it into a first SMAIRT iteration. | [`bring_your_own/DEMO.md`](bring_your_own/DEMO.md) |
 
 ---
 
@@ -93,10 +104,16 @@ Each track's `DEMO.md` gives the exact Cookiecutter answers to use.
 | Path | Contents |
 |------|----------|
 | [`lunar/`](lunar/DEMO.md) | Lunar free-return demo instructions, requirements, and background question. |
+| [`enzyme_kinetics/`](enzyme_kinetics/DEMO.md) | Michaelis-Menten Km/Vmax recovery demo (synthetic, numpy/scipy). |
+| [`peptide_digest/`](peptide_digest/DEMO.md) | In-silico tryptic digestion demo (pure Python). |
+| [`protein_properties/`](protein_properties/DEMO.md) | MW/pI/GRAVY and membrane-vs-soluble demo (synthetic, optional real later). |
+| [`proteomics_de/`](proteomics_de/DEMO.md) | Differential-abundance demo with t-tests + BH-FDR (synthetic, optional real later). |
+| [`ppi_network/`](ppi_network/DEMO.md) | Protein-interaction network demo: hubs and communities (synthetic, networkx). |
 | [`hvp/`](hvp/DEMO.md) | HVP demo instructions, database build files, requirements, and background question. |
 | [`bring_your_own/`](bring_your_own/DEMO.md) | Bring-your-own-problem instructions, worksheet, and starter requirements. |
+| `reserved_demo_a/`, `reserved_demo_b/` | Scaffolded placeholders for two future domain-specific demos (not yet defined). |
 | [`USING_ZOO_CODE.md`](USING_ZOO_CODE.md) | First-time Zoo Code setup and workflow guidance. |
-| [`demo_tracks.svg`](demo_tracks.svg) | Visual summary of the three demo tracks. |
+| [`demo_tracks.svg`](demo_tracks.svg) | Visual summary of the demo tracks. |
 
 ---
 

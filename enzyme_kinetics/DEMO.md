@@ -1,11 +1,13 @@
-# Demo: Lunar / Artemis II Free-Return
+# Demo: Enzyme Kinetics (Michaelis-Menten)
 
-**You are given:** the background and the research question.  
+**You are given:** the background and the research question.
 
-**You build:** the orbital model and the free-return search using SMAIRT.
+**You build:** the synthetic data generator and the Km/Vmax fitting using
+SMAIRT.
 
 There are **no solution scripts here**. The goal is to experience using SMAIRT
-to go from a question to an answer with an AI assistant.
+to go from a question to an answer with an AI assistant, on a small biochemistry
+problem you can iterate on.
 
 > New to AI assistants? Read [`../USING_ZOO_CODE.md`](../USING_ZOO_CODE.md) first
 > (install, sign in, attach files, approve edits).
@@ -14,38 +16,34 @@ to go from a question to an answer with an AI assistant.
 
 ## The question
 
-Can you find a **Trans-Lunar Injection (TLI) burn** from a low-Earth parking orbit that produces a
-**free-return** trajectory that loops behind the Moon and comes back to a low
-Earth perigee with no further burns?
+Given measurements of reaction velocity (v) at several substrate concentrations
+([S]), what are the enzyme's **Km and Vmax**, and how accurately can we recover
+them, especially when the measurements are noisy?
 
 Full context, hypothesis, and metrics are in
 [`background/01_initial_question.md`](background/01_initial_question.md).
 
 ### Key terms
 
-- **Parking orbit:** a low circular orbit (here ~400 km altitude) where a
-  spacecraft coasts before heading to the Moon.
-- **TLI (trans-lunar injection) burn:** the engine firing that boosts the
-  spacecraft out of its parking orbit and onto a path toward the Moon. "How much
-  burn" = how much speed (delta-v) you add.
-- **Free-return:** a trajectory shaped so the Moon's gravity slings the craft
-  back to Earth on its own, with no return engine burn needed (the Apollo 13
-  safety trick).
-- **Perigee / return perigee:** the closest point to Earth; the *return* perigee
-  is how close the craft comes back to Earth after the lunar flyby. Low ≈ good.
-- **CR3BP (Circular Restricted Three-Body Problem):** the standard simplified
-  model of a small body moving under Earth + Moon gravity, with the Moon on a
-  circular orbit. Your simulator will use it.
-- **Jacobi constant:** an energy-like quantity that stays fixed along a correct
-  CR3BP trajectory. If your simulation conserves it, the math is trustworthy; if
-  it drifts, the result is junk.
-- **delta-v:** change in velocity (km/s), the standard "cost" measure for a burn.
+- **Michaelis-Menten kinetics:** the standard model of enzyme rate vs. substrate:
+  `v = Vmax * [S] / (Km + [S])`. Rate rises, then saturates.
+- **Vmax:** the maximum reaction rate when the enzyme is fully saturated.
+- **Km:** the substrate concentration that gives half of Vmax; a measure of how
+  tightly the enzyme binds its substrate.
+- **Nonlinear least-squares fit:** fitting the curved equation directly to the
+  data (e.g. `scipy.optimize.curve_fit`). The modern, preferred method.
+- **Lineweaver-Burk plot:** an old shortcut that plots 1/v vs. 1/[S] to make a
+  straight line. Easy by hand, but the reciprocals amplify noise and bias the
+  estimate, which this demo shows.
+- **Synthetic data with known truth:** you generate v from Km/Vmax you choose, so
+  you can check whether your fit recovers them before using real data.
 
 ---
 
 ## Steps
 
-0. **Set up your environment first** (run from this folder, `demos/lunar`):
+0. **Set up your environment first** (run from this folder,
+   `demos/enzyme_kinetics`):
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -72,24 +70,24 @@ Full context, hypothesis, and metrics are in
 
    | Prompt | Suggested answer |
    |--------|------------------|
-   | project_name | `Lunar Free Return` |
+   | project_name | `Enzyme Kinetics` |
    | project_slug | press Enter (auto) |
    | author_name | your name |
    | author_email | your email (or Enter) |
-   | description | `Artemis II free-return trajectory` |
-   | initial_research_question | `Can we find a TLI burn that yields a free-return?` |
-   | domain | `4` (physics) |
+   | description | `Recovering Km and Vmax from velocity data` |
+   | initial_research_question | `How accurately can we recover Km and Vmax from noisy velocity data?` |
+   | domain | `1` (computational_biology) |
    | ai_tool | `2` (gpt5 / Zoo Code) |
    | include_example_project | `1` (no) |
    | data_progression | `2` (synthetic_real) |
    | license | `1` (MIT) |
    | create_git_repo | `1` (yes) |
 
-   This creates a folder named after your project_slug (e.g. `lunar_free_return/`).
+   This creates a folder named after your project_slug (e.g. `enzyme_kinetics/`).
 
 2. **Seed your project with the background:**
    ```bash
-   cp background/01_initial_question.md lunar_free_return/background/
+   cp background/01_initial_question.md enzyme_kinetics/background/
    ```
 
 3. **Configure Zoo Code, then open the project in VS Code and prime it.** New to
@@ -112,8 +110,8 @@ Full context, hypothesis, and metrics are in
    > **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
    > Windows to render this file in VS Code.
 
-   Open your new `lunar_free_return/` folder in VS Code
-   (**File > Open Folder...**). In the Zoo Code chat, paste this direct prompt:
+   Open your new project folder in VS Code (**File > Open Folder...**). In the
+   Zoo Code chat, paste this direct prompt:
 
    ```text
    I'm starting a SMAIRT project to answer the question in
@@ -138,48 +136,51 @@ Full context, hypothesis, and metrics are in
 
    ```text
    Based on background/01_initial_question.md and the SMAIRT conventions, start
-   with an example that tests the key assumptions for the lunar free-return
-   question. Create the first numbered script in experiments/01_synthetic/.
+   with a synthetic example. Create the first numbered script in
+   experiments/01_synthetic/ that (a) generates velocity-vs-substrate data from
+   KNOWN Km and Vmax with a little noise, (b) fits Km and Vmax with a nonlinear
+   least-squares fit, and (c) reports how close the fitted values are to the
+   known truth, with a plot of the fitted curve over the data.
 
-   Before writing code, briefly state what assumptions the script tests, what
-   result would make those assumptions credible, and how we could scale up in
-   further scripts once this first example is validated to model more and more of
-   the realistic lunar free-return case. Follow the project code conventions for
-   logging, figures, and the output comment block.
+   Before writing code, briefly state the true parameters you'll plant, what
+   recovery error would make the method credible, and how later scripts will
+   raise the noise and add the Lineweaver-Burk comparison. Follow the project code
+   conventions for logging, figures, and the output comment block.
    ```
 
    How to handle the AI response:
-   - If the plan tests assumptions clearly and the script is focused enough to
-     review, say: `Proceed with building the script.`
-   - Before running anything, check whether the code conserves the Jacobi constant,
-     keeps units explicit, and measures return perigee **after** the lunar flyby.
-   - If the assistant jumps straight to a final answer, redirect it:
-     `Slow down. First create a focused assumption-testing script and explain the
-     assumptions I should review before running it. `
-   - If the run finds no free-return, prompt it further. Ask it to inspect the log,
-     refine the TLI search near escape speed, and explain why the new range makes
-   sense.
-   - If the reported numbers look implausible, for example TLI burn far from
-     ~3.1 km/s or LEO speed far from ~7.7 km/s, ask the assistant to show the unit
-     conversion and compare against textbook values before continuing.
+   - If the plan plants known parameters and checks recovery against them, say:
+     `Proceed with building the script.`
+   - Before trusting results, check it uses a **fixed random seed**, sensible
+     initial guesses for the fit, and compares fitted Km/Vmax **against the
+     planted truth**, not just an R^2.
+   - If the assistant only reports an R^2 with no truth comparison, redirect it:
+     `On synthetic data, report the recovery error against the known Km and Vmax;
+     that is the experiment.`
+   - **Second iteration:** raise the noise and compare nonlinear fit vs.
+     Lineweaver-Burk parameter recovery; show the linearized method's bias.
+   - **Third iteration:** generate data with a competitive or noncompetitive
+     inhibitor and confirm the expected shift in apparent Km/Vmax.
 
-5. **Interpret and log.** In `analysis/iteration_log.md`, note: did the loop
-   close? is the burn sensible? what are the model's limits (planar, point-mass,
-   circular Moon)? Record your key judgment call in
+5. **Interpret and log.** In `analysis/iteration_log.md`, note: how well did each
+   method recover Km/Vmax? at what noise level did Lineweaver-Burk break down?
+   did the inhibition model behave as predicted? Record your key judgment call
+   (e.g. which method you trust and why) in
    `prompts/intellectual_contribution.md`. That reasoning is the science.
 
 ---
 
 ## What "done" looks like
 
-A trajectory that reaches the Moon and returns to a near-Earth perigee, reported
-in real units with its assumptions stated honestly and reproducible from your
-breadcrumb trail. (Requirements: cookiecutter + numpy/scipy/matplotlib, installed
-in Step 0; CPU-only, no network needed.)
+On synthetic data: fitted Km/Vmax that recover the planted truth within a small
+error, a clear demonstration that the nonlinear fit beats Lineweaver-Burk as
+noise grows, and a fitted-curve plot, all reproducible from your breadcrumb
+trail. (Requirements: cookiecutter + numpy/scipy/matplotlib, installed in
+Step 0; CPU-only, no network needed.)
 
-> **Going further (optional, later):** relax the simplifying assumptions one at a
-> time, for example add the Sun's perturbation or move from the planar to a 3D
-> model, and report how much the required TLI burn and return perigee shift.
+> **Going further (optional, later):** fit a small published v-vs-[S] dataset.
+> Truth is unknown, so report confidence intervals and compare to literature
+> values; state that shift honestly in your log.
 
 ---
 
@@ -190,10 +191,11 @@ in Step 0; CPU-only, no network needed.)
 | `command not found: cookiecutter` | venv not active or Step 0 skipped. Run `source .venv/bin/activate` then `pip install -r requirements.txt`. |
 | `No such file or directory: .../.venv/bin/...` | The venv was deleted/moved. Recreate it: `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`. |
 | cookiecutter asks to re-download the template | Normal if you've run it before. Press **Enter** (y). |
-| Jacobi drift is large (≫ 1e-6) | Integration is inaccurate. Ask the AI to lower solver tolerances (`rtol`/`atol`) or use a higher-order method. |
-| "No free-return found" | Expected at first. Widen/refine the TLI sweep near escape speed, and integrate long enough to capture the return leg. |
-| Trajectory escapes or never reaches the Moon | TLI burn too large (escapes) or too small (falls back). Narrow the sweep between those extremes. |
-| Numbers look implausible (e.g. burn ≫ 3 km/s) | Check units. Mixing non-dimensional and SI is the usual culprit. Ask the AI to show the unit conversion. |
+| Fit doesn't converge / gives nonsense | Bad initial guesses. Seed Km near the [S] of half-max and Vmax near the highest observed v. |
+| Fitted Vmax keeps climbing | Substrate range doesn't reach saturation. Extend [S] well above Km so the plateau is sampled. |
+| Lineweaver-Burk looks as good as the nonlinear fit | Noise is too low to expose the bias. Increase noise; the reciprocal plot should degrade faster. |
+| Results change every run | No fixed random seed. Set and log a seed so the synthetic truth is reproducible. |
+| Inhibition iteration shows no change | Check which parameter the model should move (competitive -> Km up; noncompetitive -> Vmax down) and that the generator applies it. |
 | Zoo Code edits the wrong file / drifts | Re-attach `AI_CONTEXT.md` + your `background/01_initial_question.md` and restate the current step. |
 
 ### Zoo Code is stuck (an error a retry won't fix)
