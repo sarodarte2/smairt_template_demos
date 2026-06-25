@@ -1,0 +1,22 @@
+============================================================
+Script: script_03_multi_loop_return
+Timestamp: 2026-06-25T12:14:20.939397
+Hypothesis: Discovering 3-Revolution Lunar Free-Return Orbits (HYPOTHESIS_03.md)
+============================================================
+
+System Parameters:
+  Earth GM: 398600.44 km^3/s^2
+  Moon GM: 4902.80 km^3/s^2
+  Earth-Moon Distance: 384400.0 km
+  Mass ratio mu: 0.0121505840
+  LEO Parking Altitude: 200.0 km
+  LEO Radius in ND units: 0.017094 (6571.00 km)
+  Non-dimensional Velocity Unit: 1.024547 km/s
+  Non-dimensional Time Unit: 4.3425 days
+
+--- PHASE 1: COARSE GRID SEARCH ---
+Running coarse 2D sweep: 36 speeds x 15 phase angles = 540 total cases...
+
+Coarse sweep complete. Found 0 candidates.
+WARNING: No candidates found in the initial coarse window. Expanding search...
+CRITICAL ERROR: No multi-loop candidates could be identified. Cannot proceed with refinement.

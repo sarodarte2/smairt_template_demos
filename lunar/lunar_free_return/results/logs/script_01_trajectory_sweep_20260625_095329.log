@@ -1,0 +1,55 @@
+============================================================
+Script: script_01_trajectory_sweep
+Timestamp: 2026-06-25T09:53:29.413745
+Hypothesis: Discovering the free-return trajectory band in the Earth-Moon CR3BP
+============================================================
+
+System Parameters:
+  Earth GM: 398600.44 km^3/s^2
+  Moon GM: 4902.80 km^3/s^2
+  Earth-Moon Distance: 384400.0 km
+  Mass ratio mu: 0.0121505840
+  LEO Parking Altitude: 200.0 km
+  LEO Radius in ND units: 0.017094 (6571.00 km)
+  Non-dimensional Velocity Unit: 1.024547 km/s
+  Non-dimensional Time Unit: 4.3425 days
+
+Circular Parking Orbit Baseline (LEO):
+  Inertial Circular Speed: 7.7885 km/s (ND: 7.601886)
+  Rotating Circular Speed: 7.7710 km/s (ND: 7.584791)
+
+Running sweep over 301 TLI injection speeds from 10.850 to 11.150 km/s...
+
+Trajectory Sweep Results Summary (sampled speeds):
+V_inj (km/s) | Outcome         | Min Selene (km) | Pass Behind? | Return Alt (km) | C Drift   
+--------------------------------------------------------------------------------------------
+     10.8500 | completed       |        215326.4 | False        |           709.4 | 2.5e-10
+     10.8710 | completed       |        211567.9 | False        |           848.3 | 4.5e-10
+     10.8920 | completed       |        210564.6 | False        |          1287.0 | 1.4e-10
+     10.9140 | completed       |        211321.1 | False        |           977.4 | 1.9e-10
+     10.9350 | completed       |        213001.3 | False        |        250525.4 | 9.3e-11
+     10.9570 | escape          |        215313.2 | False        |        254048.7 | 9.4e-11
+     10.9780 | escape          |        217813.5 | False        |        256167.4 | 9.5e-11
+     11.0000 | escape          |        220598.2 | False        |        257398.7 | 9.3e-11
+     11.0210 | escape          |        223334.6 | False        |        258134.1 | 9.0e-11
+     11.0420 | escape          |        226099.1 | False        |        258261.2 | 9.0e-11
+     11.0640 | escape          |        228992.4 | False        |        258335.8 | 8.9e-11
+     11.0850 | escape          |        231731.1 | False        |        257850.5 | 8.7e-11
+     11.1070 | escape          |        234561.9 | False        |        257641.5 | 8.5e-11
+     11.1280 | escape          |        237219.0 | False        |        256818.5 | 8.1e-11
+     11.1500 | escape          |        239949.6 | False        |        256050.1 | 8.0e-11
+
+Searching for Free-Return Corridor:
+  [WARNING] No trajectories met the strict free-return criteria in this sweep!
+
+Generating figures...
+  Saved rotating frame trajectories plot to C:\Users\diaz411\OneDrive - PNNL\Documents\intern\smairt_template_demos\lunar\lunar_free_return\results\figures\script_01_trajectory_sweep_trajectories.png
+  Saved metrics sweep plot to C:\Users\diaz411\OneDrive - PNNL\Documents\intern\smairt_template_demos\lunar\lunar_free_return\results\figures\script_01_trajectory_sweep_metrics.png
+
+Integration Quality Check:
+  Maximum Jacobi constant drift across all runs: 6.21e-10
+  Conservation check passed! The numerical integration is highly reliable.
+
+============================================================
+=== COMPLETE ===
+============================================================

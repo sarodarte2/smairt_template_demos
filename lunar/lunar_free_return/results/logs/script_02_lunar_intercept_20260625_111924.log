@@ -1,0 +1,30 @@
+============================================================
+Script: script_02_lunar_intercept
+Timestamp: 2026-06-25T11:19:24.487742
+Hypothesis: Discovering Direct Lunar Intercept Trajectories (Hohmann-like Leading Face Impacts)
+============================================================
+
+System Parameters:
+  Earth GM: 398600.44 km^3/s^2
+  Moon GM: 4902.80 km^3/s^2
+  Earth-Moon Distance: 384400.0 km
+  Mass ratio mu: 0.0121505840
+  LEO Parking Altitude: 200.0 km
+  LEO Radius in ND units: 0.017094 (6571.00 km)
+  Non-dimensional Velocity Unit: 1.024547 km/s
+  Non-dimensional Time Unit: 4.3425 days
+
+Running 2D grid sweep over 101 TLI speeds and 41 phase angles...
+
+Completed grid search. Found 0 lunar impact trajectories.
+  Leading face impacts (y > 0): 0
+  Trailing face impacts (y <= 0): 0
+
+[WARNING] No leading-face impact cases were found in the grid search!
+
+Generating figures...
+  Saved rotating frame trajectories plot to C:\Users\diaz411\OneDrive - PNNL\Documents\intern\smairt_template_demos\lunar\lunar_free_return\results\figures\script_02_lunar_intercept_trajectories.png
+  Saved selenocentric impact locations plot to C:\Users\diaz411\OneDrive - PNNL\Documents\intern\smairt_template_demos\lunar\lunar_free_return\results\figures\script_02_lunar_intercept_impacts.png
+============================================================
+=== COMPLETE ===
+============================================================

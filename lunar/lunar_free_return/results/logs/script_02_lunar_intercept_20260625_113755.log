@@ -1,0 +1,56 @@
+============================================================
+Script: script_02_lunar_intercept
+Timestamp: 2026-06-25T11:37:55.603987
+Hypothesis: Discovering Direct Lunar Intercept Trajectories (Hohmann-like Leading Face Impacts)
+============================================================
+
+System Parameters:
+  Earth GM: 398600.44 km^3/s^2
+  Moon GM: 4902.80 km^3/s^2
+  Earth-Moon Distance: 384400.0 km
+  Mass ratio mu: 0.0121505840
+  LEO Parking Altitude: 200.0 km
+  LEO Radius in ND units: 0.017094 (6571.00 km)
+  Non-dimensional Velocity Unit: 1.024547 km/s
+  Non-dimensional Time Unit: 4.3425 days
+
+Running 2D grid sweep over 51 TLI speeds and 15 phase angles...
+
+Completed grid search. Found 106 lunar impact trajectories.
+  Leading face impacts (y > 0): 88
+  Trailing face impacts (y <= 0): 18
+
+Optimal Leading-Face Lunar Intercept Case:
+  TLI Launch Speed: 10.9700 km/s
+  Launch Phase Angle (phi): 224.0 degrees
+  Time of Flight to Impact: 2.441 days
+  Impact Velocity: 2.572 km/s
+  Impact Angle: 65.5 degrees (from surface horizontal)
+  Impact Coordinates relative to Moon center: (-1990.8, 183.2) km
+  Jacobi Constant Drift: 7.01e-11
+
+Sampled Lunar Impact Trajectories:
+V_inj (km/s) | Phase (deg) | TOF (days) | Impact X (km) | Impact Y (km) | Leading? | Angle (deg)
+----------------------------------------------------------------------------------------
+     10.9650 |      224.0 |      2.502 |      -1200.6 |      -1398.3 | False    |       25.8
+     10.9590 |      225.0 |      2.593 |      -1928.3 |        873.9 | True     |       77.5
+     10.9470 |      226.0 |      2.793 |      -2277.2 |       -468.1 | False    |       47.8
+     10.9410 |      227.0 |      2.932 |      -1953.6 |       -816.1 | False    |       38.8
+     10.9380 |      228.0 |      3.027 |      -1744.6 |         14.0 | True     |       54.5
+     10.9380 |      229.0 |      3.079 |       -429.5 |       1868.4 | True     |       72.7
+     10.9310 |      231.0 |      3.323 |      -1488.8 |       1799.4 | True     |       84.2
+     10.9270 |      233.0 |      3.540 |      -1699.9 |       1451.3 | True     |       73.8
+     10.9270 |      235.0 |      3.696 |       1065.4 |       1916.4 | True     |       53.8
+     10.9250 |      238.0 |      3.987 |       1839.3 |       1006.4 | True     |       37.1
+
+Generating figures...
+  Saved rotating frame trajectories plot to C:\Users\diaz411\OneDrive - PNNL\Documents\intern\smairt_template_demos\lunar\lunar_free_return\results\figures\script_02_lunar_intercept_trajectories.png
+  Saved selenocentric impact locations plot to C:\Users\diaz411\OneDrive - PNNL\Documents\intern\smairt_template_demos\lunar\lunar_free_return\results\figures\script_02_lunar_intercept_impacts.png
+
+Integration Quality Check:
+  Maximum Jacobi constant drift across all runs: 1.79e-10
+  Conservation check passed! The numerical integration is highly reliable.
+
+============================================================
+=== COMPLETE ===
+============================================================

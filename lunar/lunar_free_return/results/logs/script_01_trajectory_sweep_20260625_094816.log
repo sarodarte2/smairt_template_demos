@@ -1,0 +1,21 @@
+============================================================
+Script: script_01_trajectory_sweep
+Timestamp: 2026-06-25T09:48:16.985150
+Hypothesis: Discovering the free-return trajectory band in the Earth-Moon CR3BP
+============================================================
+
+System Parameters:
+  Earth GM: 398600.44 km^3/s^2
+  Moon GM: 4902.80 km^3/s^2
+  Earth-Moon Distance: 384400.0 km
+  Mass ratio mu: 0.0121505840
+  LEO Parking Altitude: 200.0 km
+  LEO Radius in ND units: 0.017094 (6571.00 km)
+  Non-dimensional Velocity Unit: 1.024547 km/s
+  Non-dimensional Time Unit: 4.3425 days
+
+Circular Parking Orbit Baseline (LEO):
+  Inertial Circular Speed: 7.7885 km/s (ND: 7.601886)
+  Rotating Circular Speed: 7.7710 km/s (ND: 7.584791)
+
+Running sweep over 301 TLI injection speeds from 10.850 to 11.150 km/s...

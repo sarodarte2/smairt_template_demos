@@ -1,0 +1,188 @@
+============================================================
+Script: script_03_multi_loop_return
+Timestamp: 2026-06-25T12:21:18.957633
+Hypothesis: Discovering 3-Revolution Lunar Free-Return Orbits (HYPOTHESIS_03.md)
+============================================================
+
+System Parameters:
+  Earth GM: 398600.44 km^3/s^2
+  Moon GM: 4902.80 km^3/s^2
+  Earth-Moon Distance: 384400.0 km
+  Mass ratio mu: 0.0121505840
+  LEO Parking Altitude: 200.0 km
+  LEO Radius in ND units: 0.017094 (6571.00 km)
+  Non-dimensional Velocity Unit: 1.024547 km/s
+  Non-dimensional Time Unit: 4.3425 days
+
+--- PHASE 1: DIAGNOSTIC GRID SEARCH ---
+Running diagnostic sweep: 41 speeds x 21 phase angles = 861 cases...
+  [Active] v=10.9300 km/s, phi=210.0 deg | Loops=0.654 | Min Lunar=2898.6 km | Return Alt=424134.5 km | Collided=False
+  [Active] v=10.9200 km/s, phi=216.0 deg | Loops=0.522 | Min Lunar=8653.9 km | Return Alt=7348.2 km | Collided=False
+  [Active] v=10.9400 km/s, phi=216.0 deg | Loops=0.693 | Min Lunar=3158.0 km | Return Alt=-0.0 km | Collided=False
+  [Active] v=10.9900 km/s, phi=222.0 deg | Loops=0.511 | Min Lunar=5865.2 km | Return Alt=421146.5 km | Collided=False
+  [Active] v=10.9950 km/s, phi=222.0 deg | Loops=0.521 | Min Lunar=5266.3 km | Return Alt=421814.8 km | Collided=False
+  [Active] v=11.0000 km/s, phi=222.0 deg | Loops=0.529 | Min Lunar=4694.5 km | Return Alt=421728.1 km | Collided=False
+  [Active] v=11.0050 km/s, phi=222.0 deg | Loops=0.540 | Min Lunar=4285.2 km | Return Alt=426670.3 km | Collided=False
+  [Active] v=11.0100 km/s, phi=222.0 deg | Loops=0.546 | Min Lunar=3987.5 km | Return Alt=432948.5 km | Collided=False
+  [Active] v=11.0150 km/s, phi=222.0 deg | Loops=0.550 | Min Lunar=3670.2 km | Return Alt=422269.3 km | Collided=False
+  [Active] v=11.0200 km/s, phi=222.0 deg | Loops=0.554 | Min Lunar=3465.5 km | Return Alt=430456.6 km | Collided=False
+  [Active] v=11.0250 km/s, phi=222.0 deg | Loops=0.555 | Min Lunar=3331.7 km | Return Alt=427345.7 km | Collided=False
+  [Active] v=11.0300 km/s, phi=222.0 deg | Loops=0.555 | Min Lunar=3254.7 km | Return Alt=426233.2 km | Collided=False
+  [Active] v=11.0350 km/s, phi=222.0 deg | Loops=0.554 | Min Lunar=3229.1 km | Return Alt=426887.4 km | Collided=False
+  [Active] v=11.0400 km/s, phi=222.0 deg | Loops=0.552 | Min Lunar=3255.7 km | Return Alt=429738.5 km | Collided=False
+  [Active] v=11.0450 km/s, phi=222.0 deg | Loops=0.547 | Min Lunar=3358.8 km | Return Alt=424340.8 km | Collided=False
+  [Active] v=11.0500 km/s, phi=222.0 deg | Loops=0.543 | Min Lunar=3445.4 km | Return Alt=428331.1 km | Collided=False
+  [Active] v=10.9450 km/s, phi=225.0 deg | Loops=0.538 | Min Lunar=6200.8 km | Return Alt=427001.9 km | Collided=False
+  [Active] v=10.9500 km/s, phi=225.0 deg | Loops=0.610 | Min Lunar=3267.2 km | Return Alt=428236.3 km | Collided=False
+  [Active] v=10.9700 km/s, phi=225.0 deg | Loops=0.722 | Min Lunar=1772.9 km | Return Alt=-0.0 km | Collided=False
+  [Active] v=10.9750 km/s, phi=225.0 deg | Loops=0.649 | Min Lunar=3258.1 km | Return Alt=13247.2 km | Collided=False
+  [Active] v=10.9800 km/s, phi=225.0 deg | Loops=1.214 | Min Lunar=4320.7 km | Return Alt=3540.4 km | Collided=False
+  >>> CANDIDATE FOUND! v=10.9800 km/s, phi=225.0 deg | Loops=1.214 | Return Alt=3540.4 km
+  [Active] v=10.9850 km/s, phi=225.0 deg | Loops=0.936 | Min Lunar=5952.9 km | Return Alt=19828.2 km | Collided=False
+  [Active] v=10.9950 km/s, phi=225.0 deg | Loops=0.534 | Min Lunar=8003.5 km | Return Alt=5378.4 km | Collided=False
+  [Active] v=11.0000 km/s, phi=225.0 deg | Loops=0.521 | Min Lunar=8860.6 km | Return Alt=416075.5 km | Collided=False
+  [Active] v=11.0050 km/s, phi=225.0 deg | Loops=0.505 | Min Lunar=9650.2 km | Return Alt=416026.3 km | Collided=False
+  [Active] v=10.9300 km/s, phi=228.0 deg | Loops=0.524 | Min Lunar=7919.5 km | Return Alt=426804.4 km | Collided=False
+  [Active] v=10.9350 km/s, phi=228.0 deg | Loops=0.652 | Min Lunar=2730.0 km | Return Alt=426103.7 km | Collided=False
+  [Active] v=10.9500 km/s, phi=228.0 deg | Loops=0.628 | Min Lunar=5090.2 km | Return Alt=-0.0 km | Collided=False
+  [Active] v=10.9550 km/s, phi=228.0 deg | Loops=0.557 | Min Lunar=8446.5 km | Return Alt=0.0 km | Collided=False
+  [Active] v=10.9600 km/s, phi=228.0 deg | Loops=0.507 | Min Lunar=11483.6 km | Return Alt=0.0 km | Collided=False
+  [Active] v=10.9200 km/s, phi=231.0 deg | Loops=0.883 | Min Lunar=13722.6 km | Return Alt=0.0 km | Collided=False
+  [Active] v=10.9250 km/s, phi=231.0 deg | Loops=0.564 | Min Lunar=6190.5 km | Return Alt=427925.7 km | Collided=False
+  [Active] v=10.9350 km/s, phi=231.0 deg | Loops=0.755 | Min Lunar=2148.9 km | Return Alt=35485.6 km | Collided=False
+  [Active] v=10.9400 km/s, phi=231.0 deg | Loops=0.584 | Min Lunar=7721.3 km | Return Alt=0.0 km | Collided=False
+  [Active] v=10.9450 km/s, phi=231.0 deg | Loops=0.522 | Min Lunar=13110.5 km | Return Alt=0.0 km | Collided=False
+  [Active] v=10.9200 km/s, phi=234.0 deg | Loops=0.507 | Min Lunar=9631.1 km | Return Alt=411368.8 km | Collided=False
+  [Active] v=10.9300 km/s, phi=234.0 deg | Loops=0.731 | Min Lunar=3102.7 km | Return Alt=39131.2 km | Collided=False
+  [Active] v=10.9350 km/s, phi=234.0 deg | Loops=0.561 | Min Lunar=10984.9 km | Return Alt=0.0 km | Collided=False
+  [Active] v=10.9100 km/s, phi=237.0 deg | Loops=0.541 | Min Lunar=27065.2 km | Return Alt=40465.8 km | Collided=False
+  [Active] v=10.9200 km/s, phi=237.0 deg | Loops=0.581 | Min Lunar=5905.5 km | Return Alt=426285.1 km | Collided=False
+  [Active] v=10.9300 km/s, phi=237.0 deg | Loops=0.565 | Min Lunar=9740.3 km | Return Alt=-0.0 km | Collided=False
+  [Active] v=10.9200 km/s, phi=240.0 deg | Loops=0.640 | Min Lunar=3781.5 km | Return Alt=431466.7 km | Collided=False
+  [Active] v=10.9250 km/s, phi=240.0 deg | Loops=0.738 | Min Lunar=3347.1 km | Return Alt=96481.7 km | Collided=False
+  [Active] v=10.9300 km/s, phi=240.0 deg | Loops=0.515 | Min Lunar=16132.8 km | Return Alt=0.0 km | Collided=False
+  [Active] v=10.9200 km/s, phi=243.0 deg | Loops=0.664 | Min Lunar=3143.0 km | Return Alt=426764.0 km | Collided=False
+  [Active] v=10.9250 km/s, phi=243.0 deg | Loops=0.663 | Min Lunar=5931.8 km | Return Alt=46148.2 km | Collided=False
+  [Active] v=10.9200 km/s, phi=246.0 deg | Loops=0.642 | Min Lunar=3737.6 km | Return Alt=420556.3 km | Collided=False
+  [Active] v=10.9250 km/s, phi=246.0 deg | Loops=0.622 | Min Lunar=7436.3 km | Return Alt=41646.2 km | Collided=False
+  [Active] v=10.9200 km/s, phi=249.0 deg | Loops=0.584 | Min Lunar=5705.7 km | Return Alt=411584.8 km | Collided=False
+  [Active] v=10.9250 km/s, phi=249.0 deg | Loops=0.623 | Min Lunar=7635.9 km | Return Alt=50276.3 km | Collided=False
+  [Active] v=10.9200 km/s, phi=252.0 deg | Loops=0.509 | Min Lunar=9377.2 km | Return Alt=27759.2 km | Collided=False
+  [Active] v=10.9250 km/s, phi=252.0 deg | Loops=0.638 | Min Lunar=6520.8 km | Return Alt=78508.9 km | Collided=False
+  [Active] v=10.9250 km/s, phi=255.0 deg | Loops=0.704 | Min Lunar=4297.5 km | Return Alt=156540.0 km | Collided=False
+  [Active] v=10.9350 km/s, phi=261.0 deg | Loops=0.511 | Min Lunar=4625.6 km | Return Alt=0.0 km | Collided=False
+  [Active] v=10.9250 km/s, phi=264.0 deg | Loops=0.645 | Min Lunar=3415.7 km | Return Alt=422577.7 km | Collided=False
+  [Active] v=10.9300 km/s, phi=267.0 deg | Loops=0.714 | Min Lunar=17533.7 km | Return Alt=10089.4 km | Collided=False
+  [Active] v=10.9350 km/s, phi=267.0 deg | Loops=0.625 | Min Lunar=11877.3 km | Return Alt=73791.3 km | Collided=False
+  [Active] v=10.9300 km/s, phi=270.0 deg | Loops=0.555 | Min Lunar=11745.3 km | Return Alt=51453.7 km | Collided=False
+  [Active] v=10.9350 km/s, phi=270.0 deg | Loops=0.529 | Min Lunar=28762.2 km | Return Alt=23279.0 km | Collided=False
+
+============================================================
+DIAGNOSTICS SUMMARY:
+  Max Loops Found: 1.2141 at v=10.9800 km/s, phi=225.0 deg (Return Alt=3540.4 km, Collided=False)
+  Min Lunar Distance Found: 1737.4 km at v=10.9400 km/s, phi=228.0 deg
+  Number of Candidates: 1
+============================================================
+
+
+Selected Best Candidate for Refinement:
+  v_inj = 10.9800 km/s
+  phi_deg = 225.0 deg
+  Observed loops = 1.214
+  Return Altitude = 3540.4 km
+
+--- PHASE 2: HIGH-FIDELITY FINE REFINE SWEEP ---
+  [Fine Active] v=10.98260 km/s, phi=224.800 deg | Loops=1.219 | Min Lunar=4262.7 km | Return Alt=-0.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98260 km/s, phi=224.800 deg | Loops=1.219 | Return Alt=-0.0 km | Drift=3.49e-10
+  [Fine Active] v=10.98280 km/s, phi=224.800 deg | Loops=1.152 | Min Lunar=4311.7 km | Return Alt=0.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98280 km/s, phi=224.800 deg | Loops=1.152 | Return Alt=0.0 km | Drift=3.67e-10
+  [Fine Active] v=10.98300 km/s, phi=224.800 deg | Loops=1.105 | Min Lunar=4361.3 km | Return Alt=3114.6 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98300 km/s, phi=224.800 deg | Loops=1.105 | Return Alt=3114.6 km | Drift=8.04e-10
+  [Fine Active] v=10.98320 km/s, phi=224.800 deg | Loops=1.059 | Min Lunar=4411.6 km | Return Alt=7206.7 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98320 km/s, phi=224.800 deg | Loops=1.059 | Return Alt=7206.7 km | Drift=8.25e-10
+  [Fine Active] v=10.98340 km/s, phi=224.800 deg | Loops=1.031 | Min Lunar=4462.6 km | Return Alt=9892.6 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98340 km/s, phi=224.800 deg | Loops=1.031 | Return Alt=9892.6 km | Drift=7.62e-10
+  [Fine Active] v=10.98360 km/s, phi=224.800 deg | Loops=1.006 | Min Lunar=4514.2 km | Return Alt=11736.3 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98360 km/s, phi=224.800 deg | Loops=1.006 | Return Alt=11736.3 km | Drift=6.14e-10
+  [Fine Active] v=10.98000 km/s, phi=225.000 deg | Loops=1.227 | Min Lunar=4288.0 km | Return Alt=3522.8 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98000 km/s, phi=225.000 deg | Loops=1.227 | Return Alt=3522.8 km | Drift=4.87e-10
+  [Fine Active] v=10.98020 km/s, phi=225.000 deg | Loops=1.150 | Min Lunar=4675.5 km | Return Alt=0.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98020 km/s, phi=225.000 deg | Loops=1.150 | Return Alt=0.0 km | Drift=8.78e-10
+  [Fine Active] v=10.98040 km/s, phi=225.000 deg | Loops=1.099 | Min Lunar=4725.3 km | Return Alt=605.5 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98040 km/s, phi=225.000 deg | Loops=1.099 | Return Alt=605.5 km | Drift=1.04e-09
+  [Fine Active] v=10.98060 km/s, phi=225.000 deg | Loops=1.048 | Min Lunar=4775.9 km | Return Alt=4393.3 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98060 km/s, phi=225.000 deg | Loops=1.048 | Return Alt=4393.3 km | Drift=1.03e-09
+  [Fine Active] v=10.98080 km/s, phi=225.000 deg | Loops=1.014 | Min Lunar=4827.0 km | Return Alt=6883.1 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98080 km/s, phi=225.000 deg | Loops=1.014 | Return Alt=6883.1 km | Drift=8.40e-10
+  [Fine Active] v=10.97760 km/s, phi=225.200 deg | Loops=1.271 | Min Lunar=2829.0 km | Return Alt=50209.4 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97760 km/s, phi=225.200 deg | Loops=1.271 | Return Alt=50209.4 km | Drift=3.54e-10
+  [Fine Active] v=10.97780 km/s, phi=225.200 deg | Loops=1.161 | Min Lunar=5018.9 km | Return Alt=0.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97780 km/s, phi=225.200 deg | Loops=1.161 | Return Alt=0.0 km | Drift=9.59e-10
+  [Fine Active] v=10.97800 km/s, phi=225.200 deg | Loops=1.103 | Min Lunar=5079.1 km | Return Alt=0.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97800 km/s, phi=225.200 deg | Loops=1.103 | Return Alt=0.0 km | Drift=3.54e-10
+  [Fine Active] v=10.97820 km/s, phi=225.200 deg | Loops=1.054 | Min Lunar=5140.1 km | Return Alt=1410.4 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97820 km/s, phi=225.200 deg | Loops=1.054 | Return Alt=1410.4 km | Drift=1.09e-09
+  [Fine Active] v=10.97840 km/s, phi=225.200 deg | Loops=1.023 | Min Lunar=5202.0 km | Return Alt=3932.8 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97840 km/s, phi=225.200 deg | Loops=1.023 | Return Alt=3932.8 km | Drift=1.09e-09
+  [Fine Active] v=10.98300 km/s, phi=225.200 deg | Loops=1.006 | Min Lunar=6441.4 km | Return Alt=18375.8 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98300 km/s, phi=225.200 deg | Loops=1.006 | Return Alt=18375.8 km | Drift=7.44e-10
+  [Fine Active] v=10.98320 km/s, phi=225.200 deg | Loops=1.038 | Min Lunar=6489.9 km | Return Alt=20620.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98320 km/s, phi=225.200 deg | Loops=1.038 | Return Alt=20620.0 km | Drift=7.79e-10
+  [Fine Active] v=10.98340 km/s, phi=225.200 deg | Loops=1.097 | Min Lunar=6538.9 km | Return Alt=23089.8 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98340 km/s, phi=225.200 deg | Loops=1.097 | Return Alt=23089.8 km | Drift=8.82e-10
+  [Fine Active] v=10.98360 km/s, phi=225.200 deg | Loops=1.179 | Min Lunar=4579.9 km | Return Alt=15830.9 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98360 km/s, phi=225.200 deg | Loops=1.179 | Return Alt=15830.9 km | Drift=8.33e-10
+  [Fine Active] v=10.97560 km/s, phi=225.400 deg | Loops=1.181 | Min Lunar=5372.9 km | Return Alt=0.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97560 km/s, phi=225.400 deg | Loops=1.181 | Return Alt=0.0 km | Drift=3.56e-10
+  [Fine Active] v=10.97580 km/s, phi=225.400 deg | Loops=1.115 | Min Lunar=5431.5 km | Return Alt=0.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97580 km/s, phi=225.400 deg | Loops=1.115 | Return Alt=0.0 km | Drift=4.61e-10
+  [Fine Active] v=10.97600 km/s, phi=225.400 deg | Loops=1.070 | Min Lunar=5491.0 km | Return Alt=0.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97600 km/s, phi=225.400 deg | Loops=1.070 | Return Alt=0.0 km | Drift=3.56e-10
+  [Fine Active] v=10.97620 km/s, phi=225.400 deg | Loops=1.017 | Min Lunar=5551.4 km | Return Alt=1349.3 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97620 km/s, phi=225.400 deg | Loops=1.017 | Return Alt=1349.3 km | Drift=1.35e-09
+  [Fine Active] v=10.98100 km/s, phi=225.400 deg | Loops=1.007 | Min Lunar=6961.0 km | Return Alt=16107.2 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98100 km/s, phi=225.400 deg | Loops=1.007 | Return Alt=16107.2 km | Drift=8.76e-10
+  [Fine Active] v=10.98120 km/s, phi=225.400 deg | Loops=1.047 | Min Lunar=7019.9 km | Return Alt=18570.1 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98120 km/s, phi=225.400 deg | Loops=1.047 | Return Alt=18570.1 km | Drift=9.29e-10
+  [Fine Active] v=10.98140 km/s, phi=225.400 deg | Loops=1.104 | Min Lunar=7079.2 km | Return Alt=20704.5 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98140 km/s, phi=225.400 deg | Loops=1.104 | Return Alt=20704.5 km | Drift=9.22e-10
+  [Fine Active] v=10.98160 km/s, phi=225.400 deg | Loops=1.220 | Min Lunar=2960.5 km | Return Alt=1945.9 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98160 km/s, phi=225.400 deg | Loops=1.220 | Return Alt=1945.9 km | Drift=1.40e-09
+  [Fine Active] v=10.97920 km/s, phi=225.600 deg | Loops=1.022 | Min Lunar=7490.0 km | Return Alt=14610.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97920 km/s, phi=225.600 deg | Loops=1.022 | Return Alt=14610.0 km | Drift=9.57e-10
+  [Fine Active] v=10.97940 km/s, phi=225.600 deg | Loops=1.072 | Min Lunar=7547.0 km | Return Alt=17340.9 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97940 km/s, phi=225.600 deg | Loops=1.072 | Return Alt=17340.9 km | Drift=1.01e-09
+  [Fine Active] v=10.97960 km/s, phi=225.600 deg | Loops=1.141 | Min Lunar=6104.1 km | Return Alt=16792.4 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97960 km/s, phi=225.600 deg | Loops=1.141 | Return Alt=16792.4 km | Drift=9.89e-10
+  [Fine Active] v=10.98500 km/s, phi=225.600 deg | Loops=1.138 | Min Lunar=4424.8 km | Return Alt=52120.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98500 km/s, phi=225.600 deg | Loops=1.138 | Return Alt=52120.0 km | Drift=3.54e-10
+  [Fine Active] v=10.97760 km/s, phi=225.800 deg | Loops=1.047 | Min Lunar=8058.4 km | Return Alt=14281.5 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97760 km/s, phi=225.800 deg | Loops=1.047 | Return Alt=14281.5 km | Drift=1.21e-09
+  [Fine Active] v=10.97780 km/s, phi=225.800 deg | Loops=1.109 | Min Lunar=7947.0 km | Return Alt=16384.5 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97780 km/s, phi=225.800 deg | Loops=1.109 | Return Alt=16384.5 km | Drift=1.14e-09
+  [Fine Active] v=10.97800 km/s, phi=225.800 deg | Loops=1.246 | Min Lunar=2205.7 km | Return Alt=0.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97800 km/s, phi=225.800 deg | Loops=1.246 | Return Alt=0.0 km | Drift=8.62e-10
+  [Fine Active] v=10.98340 km/s, phi=225.800 deg | Loops=1.109 | Min Lunar=5911.1 km | Return Alt=26333.8 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98340 km/s, phi=225.800 deg | Loops=1.109 | Return Alt=26333.8 km | Drift=3.56e-10
+  [Fine Active] v=10.98360 km/s, phi=225.800 deg | Loops=1.003 | Min Lunar=9805.0 km | Return Alt=0.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.98360 km/s, phi=225.800 deg | Loops=1.003 | Return Alt=0.0 km | Drift=1.20e-09
+  [Fine Active] v=10.97600 km/s, phi=226.000 deg | Loops=1.037 | Min Lunar=8573.5 km | Return Alt=12488.3 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97600 km/s, phi=226.000 deg | Loops=1.037 | Return Alt=12488.3 km | Drift=1.22e-09
+  [Fine Active] v=10.97620 km/s, phi=226.000 deg | Loops=1.098 | Min Lunar=7810.6 km | Return Alt=14601.6 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97620 km/s, phi=226.000 deg | Loops=1.098 | Return Alt=14601.6 km | Drift=1.26e-09
+  [Fine Active] v=10.97640 km/s, phi=226.000 deg | Loops=1.245 | Min Lunar=2024.0 km | Return Alt=0.0 km | Collided=False
+  [SUCCESS MULTI-LOOP] v=10.97640 km/s, phi=226.000 deg | Loops=1.245 | Return Alt=0.0 km | Drift=9.71e-10
+
+==================================================
+OPTIMAL MULTI-LOOP RETURN TRAJECTORY
+==================================================
+  TLI Speed (v_inj): 10.97800 km/s
+  TLI Phase Angle (phi): 225.800 deg
+  Accumulated Loops: 1.2458 (Completed: 1)
+  Closest Lunar Approach: 2205.7 km (Alt: 468.3 km)
+  Post-Flyby Return Perigee Altitude: 0.0 km
+  Time-of-Flight (LEO to Return): 32.426 days
+  Jacobi Constant Drift (Delta C): 8.62e-10
+
+Generating visualizations...
+All files saved successfully.
