@@ -62,7 +62,7 @@ Full context, schema, and data caveats are in
 
 ## Step 0: Set up your environment
 
-From this folder (`demos/hvp`), create a virtual environment and install the
+From this folder (`hvp/`), create a virtual environment and install the
 requirements (this provides `cookiecutter` plus the database-build libraries):
 
 ```bash
@@ -218,11 +218,13 @@ the **Select** prompts, type the **number** (not the word). **Suggested answers:
 | author_name | your name |
 | author_email | your email (or Enter) |
 | description | `CRISPR vs Hi-C phage-host links` |
+| project_mode | `1` (standard) |
+| workflow_mode | `1` (ide_native) |
 | initial_research_question | `How do phage-host interaction networks differ between CRISPR-predicted and Hi-C experimental evidence?` |
-| domain | `1` (computational_biology) |
-| ai_tool | `2` (gpt5 / Zoo Code) |
+| domain | `3` (computational_biology) |
+| ai_tool | `1` (roo_zoo / Zoo Code) |
 | include_example_project | `1` (no) |
-| data_progression | `4` (real_only) |
+| starting_phase | `3` (real) |
 | license | `1` (MIT) |
 | create_git_repo | `1` (yes) |
 
@@ -297,7 +299,7 @@ Read the reply and decide whether the proposed plan is reasonable before moving 
 
 **Record, then iterate.** After key runs:
 1. Paste the output into the script's comment block (the breadcrumb trail).
-2. Add interpretation in `analysis/iteration_log.md`: what did you learn? Was
+2. Add interpretation in `analysis/ANALYSIS_01.md`: what did you learn? Was
    the hypothesis supported?
 3. Log your prompts in `prompts/session_log.md`.
 4. Record your key judgment call in `prompts/intellectual_contribution.md`.
@@ -333,7 +335,7 @@ conn.close()
 |--------|---------|
 | New script | `python scripts/new_script.py` |
 | Compile context for AI | `python scripts/compile_for_ai.py` |
-| Record hypothesis | edit `hypotheses/hypothesis_log.md` |
+| Record hypothesis | edit `hypotheses/HYPOTHESIS_01.md` |
 | Track your insight | edit `prompts/intellectual_contribution.md` |
 
 ---
@@ -379,7 +381,7 @@ database is still built on disk.
    SMAIRT workflow. To catch up, read my existing files:
    - experiments/ (numbered scripts, output pasted at the bottom)
    - results/logs/ (run outputs)
-   - analysis/iteration_log.md (conclusions so far)
+   - analysis/ANALYSIS_01.md (conclusions so far)
    Summarize where the project stands and the next step. Don't rewrite working
    code. Continue from here.
    ```

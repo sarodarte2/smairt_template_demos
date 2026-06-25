@@ -43,7 +43,7 @@ Full context, hypothesis, and metrics are in
 
 ## Steps
 
-0. **Set up your environment first** (run from this folder, `demos/ppi_network`):
+0. **Set up your environment first** (run from this folder, `ppi_network/`):
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -75,11 +75,13 @@ Full context, hypothesis, and metrics are in
    | author_name | your name |
    | author_email | your email (or Enter) |
    | description | `Finding hubs and communities in a protein interaction network` |
+   | project_mode | `1` (standard) |
+   | workflow_mode | `1` (ide_native) |
    | initial_research_question | `Can graph methods recover the hubs and modules in a PPI network?` |
-   | domain | `1` (computational_biology) |
-   | ai_tool | `2` (gpt5 / Zoo Code) |
+   | domain | `3` (computational_biology) |
+   | ai_tool | `1` (roo_zoo / Zoo Code) |
    | include_example_project | `1` (no) |
-   | data_progression | `2` (synthetic_real) |
+   | starting_phase | `1` (synthetic) |
    | license | `1` (MIT) |
    | create_git_repo | `1` (yes) |
 
@@ -163,7 +165,7 @@ Full context, hypothesis, and metrics are in
    - **Third iteration:** add random noise edges (and/or remove true edges) and
      plot how hub and community recovery degrade as noise increases.
 
-5. **Interpret and log.** In `analysis/iteration_log.md`, note: did centrality
+5. **Interpret and log.** In `analysis/ANALYSIS_01.md`, note: did centrality
    recover the planted hubs? did community detection match the planted modules,
    and by how much? at what noise level did recovery break down? Record your key
    judgment call (e.g. which centrality you trust and why) in
@@ -220,7 +222,7 @@ files hold the context.
    workflow. To get back up to speed, read my existing files:
    - experiments/ (my numbered scripts so far, with output pasted at the bottom)
    - results/logs/ (run outputs)
-   - analysis/iteration_log.md (what I concluded)
+   - analysis/ANALYSIS_01.md (what I concluded so far)
    Summarize where the project stands and what the next step is. Don't rewrite
    working code. Continue from here.
    ```

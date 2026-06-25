@@ -46,7 +46,7 @@ Full context, hypothesis, and metrics are in
 ## Steps
 
 0. **Set up your environment first** (run from this folder,
-   `demos/proteomics_de`):
+   `proteomics_de/`):
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -78,11 +78,13 @@ Full context, hypothesis, and metrics are in
    | author_name | your name |
    | author_email | your email (or Enter) |
    | description | `Differential protein abundance with FDR control` |
+   | project_mode | `1` (standard) |
+   | workflow_mode | `1` (ide_native) |
    | initial_research_question | `Which proteins are differentially abundant, and can we recover them at controlled FDR?` |
-   | domain | `1` (computational_biology) |
-   | ai_tool | `2` (gpt5 / Zoo Code) |
+   | domain | `3` (computational_biology) |
+   | ai_tool | `1` (roo_zoo / Zoo Code) |
    | include_example_project | `1` (no) |
-   | data_progression | `2` (synthetic_real) |
+   | starting_phase | `1` (synthetic) |
    | license | `1` (MIT) |
    | create_git_repo | `1` (yes) |
 
@@ -167,7 +169,7 @@ Full context, hypothesis, and metrics are in
    - **Third iteration:** ask it to add missing values (proteins not detected in
      some samples) and decide filter vs. impute, then re-check recall/FDR.
 
-5. **Interpret and log.** In `analysis/iteration_log.md`, note: did BH control
+5. **Interpret and log.** In `analysis/ANALYSIS_01.md`, note: did BH control
    the observed FDR near the threshold? what was recall? what broke when you
    added missing values? Record your key judgment call (e.g. your imputation
    choice and why) in `prompts/intellectual_contribution.md`. That reasoning is
@@ -223,7 +225,7 @@ files hold the context.
    workflow. To get back up to speed, read my existing files:
    - experiments/ (my numbered scripts so far, with output pasted at the bottom)
    - results/logs/ (run outputs)
-   - analysis/iteration_log.md (what I concluded)
+   - analysis/ANALYSIS_01.md (what I concluded so far)
    Summarize where the project stands and what the next step is. Don't rewrite
    working code. Continue from here.
    ```

@@ -98,12 +98,13 @@ chat.
 For each question you investigate, you repeat this cycle (your `DEMO.md` gives
 demo-specific prompts for each step):
 
-1. **Hypothesis:** write one testable sentence (in `hypotheses/hypothesis_log.md`).
+1. **Hypothesis:** write one testable sentence in a numbered file such as
+   `hypotheses/HYPOTHESIS_01.md`.
 2. **Ask:** request a small script from Zoo Code to test it.
 3. **Review:** read the proposed code; approve or correct it.
 4. **Run:** let it run the script; look at the output.
-5. **Interpret:** decide what the result means (write it in
-   `analysis/iteration_log.md`). Was the hypothesis supported? Surprising?
+5. **Interpret:** decide what the result means in a numbered analysis file such as
+   `analysis/ANALYSIS_01.md`. Was the hypothesis supported? Surprising?
 6. **Next:** note the next thing to try, and repeat.
 
 After a run, paste the output into the comment block at the bottom of the script

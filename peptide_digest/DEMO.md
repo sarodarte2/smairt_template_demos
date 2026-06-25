@@ -44,7 +44,7 @@ Full context, hypothesis, and metrics are in
 ## Steps
 
 0. **Set up your environment first** (run from this folder,
-   `demos/peptide_digest`):
+   `peptide_digest/`):
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -77,11 +77,13 @@ Full context, hypothesis, and metrics are in
    | author_name | your name |
    | author_email | your email (or Enter) |
    | description | `In-silico tryptic digestion and MS-observable peptides` |
+   | project_mode | `1` (standard) |
+   | workflow_mode | `1` (ide_native) |
    | initial_research_question | `What tryptic peptides does a protein produce, and which are MS-observable?` |
-   | domain | `1` (computational_biology) |
-   | ai_tool | `2` (gpt5 / Zoo Code) |
+   | domain | `3` (computational_biology) |
+   | ai_tool | `1` (roo_zoo / Zoo Code) |
    | include_example_project | `1` (no) |
-   | data_progression | `2` (synthetic_real) |
+   | starting_phase | `1` (synthetic) |
    | license | `1` (MIT) |
    | create_git_repo | `1` (yes) |
 
@@ -164,7 +166,7 @@ Full context, hypothesis, and metrics are in
      MS-observable window (mass 500-5000 Da, length 6-40); report the observable
      fraction and plot the distribution.
 
-5. **Interpret and log.** In `analysis/iteration_log.md`, note: did the digest
+5. **Interpret and log.** In `analysis/ANALYSIS_01.md`, note: did the digest
    pass every hand-checked case? how did missed cleavages change the peptide set?
    what fraction was MS-observable? Record any key judgment call (e.g. the exact
    mass table or window you chose, and why) in
@@ -219,7 +221,7 @@ files hold the context.
    workflow. To get back up to speed, read my existing files:
    - experiments/ (my numbered scripts so far, with output pasted at the bottom)
    - results/logs/ (run outputs)
-   - analysis/iteration_log.md (what I concluded)
+   - analysis/ANALYSIS_01.md (what I concluded so far)
    Summarize where the project stands and what the next step is. Don't rewrite
    working code. Continue from here.
    ```

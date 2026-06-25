@@ -43,7 +43,7 @@ Full context, hypothesis, and metrics are in
 ## Steps
 
 0. **Set up your environment first** (run from this folder,
-   `demos/enzyme_kinetics`):
+   `enzyme_kinetics/`):
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -75,11 +75,13 @@ Full context, hypothesis, and metrics are in
    | author_name | your name |
    | author_email | your email (or Enter) |
    | description | `Recovering Km and Vmax from velocity data` |
+   | project_mode | `1` (standard) |
+   | workflow_mode | `1` (ide_native) |
    | initial_research_question | `How accurately can we recover Km and Vmax from noisy velocity data?` |
-   | domain | `1` (computational_biology) |
-   | ai_tool | `2` (gpt5 / Zoo Code) |
+   | domain | `3` (computational_biology) |
+   | ai_tool | `1` (roo_zoo / Zoo Code) |
    | include_example_project | `1` (no) |
-   | data_progression | `2` (synthetic_real) |
+   | starting_phase | `1` (synthetic) |
    | license | `1` (MIT) |
    | create_git_repo | `1` (yes) |
 
@@ -162,7 +164,7 @@ Full context, hypothesis, and metrics are in
    - **Third iteration:** generate data with a competitive or noncompetitive
      inhibitor and confirm the expected shift in apparent Km/Vmax.
 
-5. **Interpret and log.** In `analysis/iteration_log.md`, note: how well did each
+5. **Interpret and log.** In `analysis/ANALYSIS_01.md`, note: how well did each
    method recover Km/Vmax? at what noise level did Lineweaver-Burk break down?
    did the inhibition model behave as predicted? Record your key judgment call
    (e.g. which method you trust and why) in
@@ -217,7 +219,7 @@ files hold the context.
    workflow. To get back up to speed, read my existing files:
    - experiments/ (my numbered scripts so far, with output pasted at the bottom)
    - results/logs/ (run outputs)
-   - analysis/iteration_log.md (what I concluded)
+   - analysis/ANALYSIS_01.md (what I concluded so far)
    Summarize where the project stands and what the next step is. Don't rewrite
    working code. Continue from here.
    ```

@@ -18,7 +18,7 @@
 
 ## Steps
 
-0. **Set up your environment first** (run from this folder, `demos/bring_your_own`):
+0. **Set up your environment first** (run from this folder, `bring_your_own/`):
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -54,11 +54,13 @@
    | author_name | your name |
    | author_email | your email (or Enter) |
    | description | one line about your project |
+   | project_mode | `1` (standard) |
+   | workflow_mode | `1` (ide_native) |
    | initial_research_question | your question |
    | domain | number closest to your field |
-   | ai_tool | `2` (gpt5 / Zoo Code) |
+   | ai_tool | `1` (roo_zoo / Zoo Code) |
    | include_example_project | `1` (no) |
-   | data_progression | `2` (synthetic_real) or `4` (real_only) |
+   | starting_phase | `1` (synthetic) or `3` (real) |
    | license | `1` (MIT) |
    | create_git_repo | `1` (yes) |
 
@@ -67,8 +69,8 @@
 3. **Write your `background/01_initial_question.md`** in the new project using
    your worksheet answers (question + what's known + data notes). You can do
    this by hand, or ask Zoo Code: *"Turn my filled-in worksheet (pasted below)
-   into a background/01_initial_question.md with clear Question and Hypothesis
-   sections ad well as any additional relevant information - google search allowed,"* then paste your worksheet.
+   into a `background/01_initial_question.md` with clear Question and Hypothesis
+   sections, plus any additional relevant context."* Then paste your worksheet.
 
 4. **Configure Zoo Code, then open the project in VS Code and prime it.** New to
    AI assistants? Read [`../USING_ZOO_CODE.md`](../USING_ZOO_CODE.md) first
@@ -109,14 +111,15 @@
    A general-purpose first prompt:
 
    ```text
-   Create script_01 in experiments/01_synthetic/ that tests my hypothesis. If I
-   don't have data yet, generate synthetic data with a known, controllable
-   structure so we can confirm the method works before using real data. Print
-   results to console and results/logs/, and leave the output comment block at
-   the end.
+   Create `script_01` in the first experiment folder for my chosen starting phase.
+   If I am starting synthetic-first, use `experiments/01_synthetic/`. If I am
+   starting real-data-first, use `experiments/03_real_data/`. If I don't have data
+   yet, generate synthetic data with a known, controllable structure so we can
+   confirm the method works before using real data. Print results to console and
+   `results/logs/`, and leave the output comment block at the end.
    ```
    Then review the proposed code, approve and run it, interpret the result
-   yourself, log it in `analysis/iteration_log.md`, and decide the next step. See
+   yourself, log it in `analysis/ANALYSIS_01.md`, and decide the next step. See
    more starter prompts under "Suggested starter prompts" below.
 
 ---
@@ -167,7 +170,7 @@ files hold the context.
    existing files:
    - experiments/ (numbered scripts, with output pasted at the bottom)
    - results/logs/ (run outputs)
-   - analysis/iteration_log.md (conclusions so far)
+   - analysis/ANALYSIS_01.md (conclusions so far)
    Summarize where the project stands and the next step. Don't rewrite working
    code. Continue from here.
    ```

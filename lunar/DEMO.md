@@ -45,7 +45,7 @@ Full context, hypothesis, and metrics are in
 
 ## Steps
 
-0. **Set up your environment first** (run from this folder, `demos/lunar`):
+0. **Set up your environment first** (run from this folder, `lunar/`):
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -77,11 +77,13 @@ Full context, hypothesis, and metrics are in
    | author_name | your name |
    | author_email | your email (or Enter) |
    | description | `Artemis II free-return trajectory` |
+   | project_mode | `1` (standard) |
+   | workflow_mode | `1` (ide_native) |
    | initial_research_question | `Can we find a TLI burn that yields a free-return?` |
    | domain | `4` (physics) |
-   | ai_tool | `2` (gpt5 / Zoo Code) |
+   | ai_tool | `1` (roo_zoo / Zoo Code) |
    | include_example_project | `1` (no) |
-   | data_progression | `2` (synthetic_real) |
+   | starting_phase | `1` (synthetic) |
    | license | `1` (MIT) |
    | create_git_repo | `1` (yes) |
 
@@ -163,7 +165,7 @@ Full context, hypothesis, and metrics are in
      ~3.1 km/s or LEO speed far from ~7.7 km/s, ask the assistant to show the unit
      conversion and compare against textbook values before continuing.
 
-5. **Interpret and log.** In `analysis/iteration_log.md`, note: did the loop
+5. **Interpret and log.** In `analysis/ANALYSIS_01.md`, note: did the loop
    close? is the burn sensible? what are the model's limits (planar, point-mass,
    circular Moon)? Record your key judgment call in
    `prompts/intellectual_contribution.md`. That reasoning is the science.
@@ -215,7 +217,7 @@ files hold the context.
    workflow. To get back up to speed, read my existing files:
    - experiments/ (my numbered scripts so far, with output pasted at the bottom)
    - results/logs/ (run outputs)
-   - analysis/iteration_log.md (what I concluded)
+   - analysis/ANALYSIS_01.md (what I concluded so far)
    Summarize where the project stands and what the next step is. Don't rewrite
    working code. Continue from here.
    ```

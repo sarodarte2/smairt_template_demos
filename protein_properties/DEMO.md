@@ -44,7 +44,7 @@ Full context, hypothesis, and metrics are in
 ## Steps
 
 0. **Set up your environment first** (run from this folder,
-   `demos/protein_properties`):
+   `protein_properties/`):
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -76,11 +76,13 @@ Full context, hypothesis, and metrics are in
    | author_name | your name |
    | author_email | your email (or Enter) |
    | description | `Computing MW, pI, GRAVY and separating membrane from soluble proteins` |
+   | project_mode | `1` (standard) |
+   | workflow_mode | `1` (ide_native) |
    | initial_research_question | `Can a hydrophobicity rule separate membrane from soluble proteins?` |
-   | domain | `1` (computational_biology) |
-   | ai_tool | `2` (gpt5 / Zoo Code) |
+   | domain | `3` (computational_biology) |
+   | ai_tool | `1` (roo_zoo / Zoo Code) |
    | include_example_project | `1` (no) |
-   | data_progression | `2` (synthetic_real) |
+   | starting_phase | `1` (synthetic) |
    | license | `1` (MIT) |
    | create_git_repo | `1` (yes) |
 
@@ -168,7 +170,7 @@ Full context, hypothesis, and metrics are in
    - **Third iteration:** compare features (GRAVY vs. pI vs. MW) and show GRAVY is
      the best separator; plot the GRAVY histograms for the two classes.
 
-5. **Interpret and log.** In `analysis/iteration_log.md`, note: did the
+5. **Interpret and log.** In `analysis/ANALYSIS_01.md`, note: did the
    calculators match references within tolerance? how well did GRAVY separate the
    two classes? which feature mattered most, and where did the simple rule
    misclassify? Record your key judgment call (e.g. the GRAVY threshold you chose
@@ -227,7 +229,7 @@ files hold the context.
    workflow. To get back up to speed, read my existing files:
    - experiments/ (my numbered scripts so far, with output pasted at the bottom)
    - results/logs/ (run outputs)
-   - analysis/iteration_log.md (what I concluded)
+   - analysis/ANALYSIS_01.md (what I concluded so far)
    Summarize where the project stands and what the next step is. Don't rewrite
    working code. Continue from here.
    ```
