@@ -2,7 +2,7 @@
 
 Artemis II free-return trajectory
 
-**Author:** Sophia Diaz (Sophia.Diaz@pnnl.gov)  
+**Author:** Jane Doe
 **Domain:** physics  
 **AI Tool:** roo_zoo
 
