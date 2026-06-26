@@ -108,10 +108,10 @@
   <!-- ── ROW 3 (y=396, h=143) ── MIXED ── -->
 
   <!-- Card 7: Protein LM (Advanced) -->
-  <rect x="38" y="396" width="332" height="143" rx="10" class="ci"/>
+  <rect x="38" y="396" width="332" height="143" rx="10" class="ca"/>
   <text x="50" y="421" class="ct">🤖 Protein Language Model</text>
-  <rect x="50" y="428" width="88" height="14" rx="7" class="pi"/>
-  <text x="94" y="438" text-anchor="middle" class="lg ti">ADVANCED</text>
+  <rect x="50" y="428" width="88" height="14" rx="7" class="pa"/>
+  <text x="94" y="438" text-anchor="middle" class="lg ta">ADVANCED</text>
   <text x="50" y="461" class="bp">• Nano masked-language model training</text>
   <text x="50" y="479" class="bp">• Motif recovery and family embeddings</text>
   <text x="50" y="506" class="rp">repo: protein_lm</text>
