@@ -13,7 +13,7 @@ SMAIRT stands for **Scientific Method with AI Research Template**. These demos a
 
 ---
 
-## What SMAIRT is, in plain language
+## What SMAIRT is
 
 SMAIRT is a way to use an AI coding assistant like a research collaborator **without letting AI take control of the project as the lead scientist**.
 
@@ -44,7 +44,7 @@ The finished product is not just code. It is a **followable reasoning trail** sh
 
 ---
 
-## The SMAIRT loop
+## The SMAIRT Loop
 
 Every SMAIRT project follows the same core loop.
 
@@ -82,50 +82,51 @@ That structure is what makes the workflow reproducible, hand-off friendly, and r
 
 ## What AI does vs. what the scientist does
 
-| AI is good at | The scientist must still do |
-|---------------|-----------------------------|
-| turning context into draft code | deciding whether the question is meaningful |
-| proposing a first experiment | checking assumptions and units |
-| editing files quickly | rejecting bad ideas and narrowing scope |
+| AI is good at                         | The scientist must still do                                |
+| ------------------------------------- | ---------------------------------------------------------- |
+| turning context into draft code       | deciding whether the question is meaningful                |
+| proposing a first experiment          | checking assumptions and units                             |
+| editing files quickly                 | rejecting bad ideas and narrowing scope                    |
 | keeping naming and logging consistent | interpreting whether the result is scientifically credible |
-| summarizing logs and prior work | deciding what the next iteration should be |
+| summarizing logs and prior work       | deciding what the next iteration should be                 |
 
 If the AI is wrong, overconfident, or vague, that is **not** a failure of SMAIRT. Catching that is part of the scientific workflow.
 
 ---
 
-## Demo track gallery
+## Demo Track Gallery
 
 The demos below are organized so a scientist can choose an approachable domain and practice the same SMAIRT loop in different styles.
 
-### Core showcase tracks
+### Core Showcase Tracks
 
 These are the main scientist-facing showcase demos for learning the framework.
 
-| Track | Domain | Difficulty | Data style | What you learn | Start here |
-|------|--------|------------|------------|----------------|-----------|
-| Lunar free-return trajectory | Physics | Beginner | Synthetic only | Numerical modeling, parameter sweeps, trajectory interpretation | [`lunar/DEMO.md`](lunar/DEMO.md) |
-| Enzyme kinetics | Biochemistry | Beginner | Synthetic first | Nonlinear fitting, parameter recovery, noisy-data interpretation | [`enzyme_kinetics/DEMO.md`](enzyme_kinetics/DEMO.md) |
-| Peptide digestion | Proteomics | Beginner | Synthetic first | Rule-based biology, exact validation, observable peptide filtering | [`peptide_digest/DEMO.md`](peptide_digest/DEMO.md) |
-| Protein sequence properties | Protein biochemistry | Beginner to intermediate | Synthetic first, optional real later | MW, pI, GRAVY, thresholding, simple classification | [`protein_properties/DEMO.md`](protein_properties/DEMO.md) |
-| Differential abundance | Quantitative proteomics | Intermediate | Synthetic first, optional real later | Statistics, multiple testing, planted truth, false discovery control | [`proteomics_de/DEMO.md`](proteomics_de/DEMO.md) |
-| Protein interaction networks | Network biology | Intermediate | Synthetic first | Graph analysis, centrality, communities, planted structure recovery | [`ppi_network/DEMO.md`](ppi_network/DEMO.md) |
+| Track                        | Domain                  | Difficulty               | Data style                           | What you learn                                                       | Start here                                                |
+| ---------------------------- | ----------------------- | ------------------------ | ------------------------------------ | -------------------------------------------------------------------- | --------------------------------------------------------- |
+| Lunar free-return trajectory | Physics                 | Beginner                 | Synthetic only                       | Numerical modeling, parameter sweeps, trajectory interpretation      | [`lunar/DEMO.md`](lunar/DEMO.md)                           |
+| Enzyme kinetics              | Biochemistry            | Beginner                 | Synthetic first                      | Nonlinear fitting, parameter recovery, noisy-data interpretation     | [`enzyme_kinetics/DEMO.md`](enzyme_kinetics/DEMO.md)       |
+| Peptide digestion            | Proteomics              | Beginner                 | Synthetic first                      | Rule-based biology, exact validation, observable peptide filtering   | [`peptide_digest/DEMO.md`](peptide_digest/DEMO.md)         |
+| Protein sequence properties  | Protein biochemistry    | Beginner to intermediate | Synthetic first, optional real later | MW, pI, GRAVY, thresholding, simple classification                   | [`protein_properties/DEMO.md`](protein_properties/DEMO.md) |
+| Differential abundance       | Quantitative proteomics | Intermediate             | Synthetic first, optional real later | Statistics, multiple testing, planted truth, false discovery control | [`proteomics_de/DEMO.md`](proteomics_de/DEMO.md)           |
+| Protein interaction networks | Network biology         | Intermediate             | Synthetic first                      | Graph analysis, centrality, communities, planted structure recovery  | [`ppi_network/DEMO.md`](ppi_network/DEMO.md)               |
 
 ### Extended tracks
 
 These extend the collection beyond the six core showcase demos.
 
-| Track | Domain | Difficulty | Data style | Notes | Start here |
-|------|--------|------------|------------|-------|-----------|
-| Human Virome Project | Database biology / metagenomics | Advanced | Real database | Uses PostgreSQL or a SQLite export; more infrastructure-heavy but scientifically rich | [`hvp/DEMO.md`](hvp/DEMO.md) |
-| Bring your own problem | Any scientific domain | Flexible | Your choice | Best if you already have a question and want the SMAIRT scaffold plus guardrails | [`bring_your_own/DEMO.md`](bring_your_own/DEMO.md) |
-| Protein language model | Computational biology / ML | Intermediate | Synthetic first | Nano masked-language-model demo with planted motifs, masked-token baselines, and optional family-separation embeddings | [`protein_lm/DEMO.md`](protein_lm/DEMO.md) |
+| Track                  | Domain                          | Difficulty | Data style      | Notes                                                                                                                  | Start here                                        |
+| ---------------------- | ------------------------------- | ---------- | --------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| Human Virome Project   | Database biology / metagenomics | Advanced   | Real database   | Uses PostgreSQL or a SQLite export; more infrastructure-heavy but scientifically rich                                  | [`hvp/DEMO.md`](hvp/DEMO.md)                       |
+| Protein language model | Computational biology / ML      | Advanced   | Synthetic first | Nano masked-language-model demo with planted motifs, masked-token baselines, and optional family-separation embeddings | [`protein_lm/DEMO.md`](protein_lm/DEMO.md)         |
+| Bring your own problem | Any scientific domain           | Flexible   | Your choice     | Best if you already have a question and want the SMAIRT scaffold plus guardrails                                       | [`bring_your_own/DEMO.md`](bring_your_own/DEMO.md) |
 
-### Track selection guide
+### Track Selection Guide
 
 - Pick **Lunar**, **Enzyme Kinetics**, or **Peptide Digestion** if you want the fastest setup.
 - Pick **Protein Properties**, **Differential Abundance**, or **PPI Network** if you want a biology-first showcase with a few natural iterations.
 - Pick **HVP** if you want a more realistic database-backed analysis.
+- Pick **Protein Language Model** if you are up for an advanced challange.
 - Pick **Bring Your Own Problem** if you already have a research idea.
 
 ---
@@ -188,12 +189,12 @@ If you are new to the AI workflow, read [`USING_ZOO_CODE.md`](USING_ZOO_CODE.md)
 
 Recommended workshop settings:
 
-| Setting | Value |
-|---------|-------|
-| API Provider | OpenAI Compatible |
-| API key source | PNNL Birthright key from `https://ai-incubator-depot.pnnl.gov/` |
-| API Base URL | `https://ai-incubator-api.pnnl.gov` |
-| Model | `gpt-5-birthright` first, then `gpt-5.5-project` if needed |
+| Setting        | Value                                                            |
+| -------------- | ---------------------------------------------------------------- |
+| API Provider   | OpenAI Compatible                                                |
+| API key source | PNNL Birthright key from`https://ai-incubator-depot.pnnl.gov/` |
+| API Base URL   | `https://ai-incubator-api.pnnl.gov`                            |
+| Model          | `gpt-5-birthright` first, then `gpt-5.5-project` if needed   |
 
 > The `depot` URL is only where the key is created. The API Base URL inside Zoo Code must be `https://ai-incubator-api.pnnl.gov`.
 
@@ -226,23 +227,23 @@ The completed lunar example shows what a multi-iteration trail can look like, bu
 
 ## Repository map
 
-| Path | What it contains |
-|------|------------------|
-| [`README.md`](README.md) | This landing page for the demo collection |
-| [`USING_ZOO_CODE.md`](USING_ZOO_CODE.md) | First-time Zoo Code setup and human-in-the-loop workflow guidance |
-| [`demo_tracks.svg`](demo_tracks.svg) | Visual summary of the demo tracks |
-| [`lunar/`](lunar/DEMO.md) | Physics demo with a completed 3-iteration reference project |
-| [`enzyme_kinetics/`](enzyme_kinetics/DEMO.md) | Small nonlinear-fitting demo |
-| [`peptide_digest/`](peptide_digest/DEMO.md) | Exact, rule-based proteomics demo |
-| [`protein_properties/`](protein_properties/DEMO.md) | Protein feature calculation and classification demo |
-| [`proteomics_de/`](proteomics_de/DEMO.md) | Differential-abundance statistics demo |
-| [`ppi_network/`](ppi_network/DEMO.md) | Graph-based biology demo |
-| [`protein_lm/`](protein_lm/DEMO.md) | Nano protein language model demo with synthetic grammar recovery |
-| [`hvp/`](hvp/DEMO.md) | Database-backed virome demo |
-| [`bring_your_own/`](bring_your_own/DEMO.md) | Flexible worksheet-driven custom-project entry point |
-| [`FIRST_SCRIPT_GUIDE.md`](FIRST_SCRIPT_GUIDE.md) | Shared beginner guide for choosing a strong first SMAIRT script |
-| [`../smairt-template/`](../smairt-template/README.md) | The canonical SMAIRT Cookiecutter framework |
-| [`../smairt-agentic/`](../smairt-agentic/README.md) | SMAIRT agentic tooling and CLI |
+| Path                                                 | What it contains                                                  |
+| ---------------------------------------------------- | ----------------------------------------------------------------- |
+| [`README.md`](README.md)                              | This landing page for the demo collection                         |
+| [`USING_ZOO_CODE.md`](USING_ZOO_CODE.md)              | First-time Zoo Code setup and human-in-the-loop workflow guidance |
+| [`demo_tracks.svg`](demo_tracks.svg)                  | Visual summary of the demo tracks                                 |
+| [`lunar/`](lunar/DEMO.md)                             | Physics demo with a completed 3-iteration reference project       |
+| [`enzyme_kinetics/`](enzyme_kinetics/DEMO.md)         | Small nonlinear-fitting demo                                      |
+| [`peptide_digest/`](peptide_digest/DEMO.md)           | Exact, rule-based proteomics demo                                 |
+| [`protein_properties/`](protein_properties/DEMO.md)   | Protein feature calculation and classification demo               |
+| [`proteomics_de/`](proteomics_de/DEMO.md)             | Differential-abundance statistics demo                            |
+| [`ppi_network/`](ppi_network/DEMO.md)                 | Graph-based biology demo                                          |
+| [`protein_lm/`](protein_lm/DEMO.md)                   | Nano protein language model demo with synthetic grammar recovery  |
+| [`hvp/`](hvp/DEMO.md)                                 | Database-backed virome demo                                       |
+| [`bring_your_own/`](bring_your_own/DEMO.md)           | Flexible worksheet-driven custom-project entry point              |
+| [`FIRST_SCRIPT_GUIDE.md`](FIRST_SCRIPT_GUIDE.md)      | Shared beginner guide for choosing a strong first SMAIRT script   |
+| [`../smairt-template/`](../smairt-template/README.md) | The canonical SMAIRT Cookiecutter framework                       |
+| [`../smairt-agentic/`](../smairt-agentic/README.md)   | SMAIRT agentic tooling and CLI                                    |
 
 ---
 
