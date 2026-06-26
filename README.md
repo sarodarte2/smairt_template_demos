@@ -3,9 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](../smairt-template/README.md)
 [![Framework: SMAIRT](https://img.shields.io/badge/framework-SMAIRT-6f42c1.svg)](../smairt-template/README.md)
 [![Template: Cookiecutter](https://img.shields.io/badge/template-cookiecutter-ffca28.svg)](../smairt-template/README.md)
-[![Interface: Zoo Code](https://img.shields.io/badge/interface-Zoo%20Code-0ea5e9.svg)](USING_ZOO_CODE.md)
-[![Tracks: 9](https://img.shields.io/badge/demo%20tracks-9-16a34a.svg)](README.md)
-[![Mode: Scientist in control](https://img.shields.io/badge/AI%20workflow-human%20review%20required-darkgreen.svg)](USING_ZOO_CODE.md)
+[![Mode: Scientist in Control](https://img.shields.io/badge/AI%20workflow-human%20review%20required-darkgreen.svg)](USING_ZOO_CODE.md)
 
 **A professional, scientist-friendly set of SMAIRT demos for learning how to do reproducible, AI-assisted research without giving up scientific judgment.**
 
@@ -17,7 +15,7 @@ SMAIRT stands for **Scientific Method with AI Research Template**. These demos a
 
 ## What SMAIRT is, in plain language
 
-SMAIRT is a way to use an AI coding assistant like a research collaborator **without pretending the AI is the scientist**.
+SMAIRT is a way to use an AI coding assistant like a research collaborator **without letting AI take control of the project as the lead scientist**.
 
 The AI helps you move faster: it can summarize context, draft code, propose experiments, and help keep a clean record. But **you** still decide:
 
