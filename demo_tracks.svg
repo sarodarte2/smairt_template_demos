@@ -35,7 +35,7 @@
 
   <!-- Header -->
   <text x="38" y="52" class="h1">SMAIRT Demo Collection</text>
-  <text x="38" y="72" class="sub">Nine tracks · background → hypothesis → code → results → analysis → next step</text>
+  <text x="38" y="72" class="sub">Nine Tracks · Background → Hypothesis → Code → Results → Analysis → Next Step</text>
 
   <!-- Inline legend (top right) -->
   <rect x="766" y="41" width="64" height="16" rx="8" class="pb"/>
@@ -69,7 +69,7 @@
 
   <!-- Card 3: Peptide digestion -->
   <rect x="726" y="86" width="332" height="143" rx="10" class="cb"/>
-  <text x="738" y="111" class="ct">🧬 Peptide digestion</text>
+  <text x="738" y="111" class="ct">🧬 Peptide Digestion</text>
   <rect x="738" y="118" width="64" height="14" rx="7" class="pb"/>
   <text x="770" y="128" text-anchor="middle" class="lg tb">BEGINNER</text>
   <text x="738" y="151" class="bp">• Exact tryptic cleavage rule validation</text>
@@ -80,7 +80,7 @@
 
   <!-- Card 4: Protein properties -->
   <rect x="38" y="241" width="332" height="143" rx="10" class="ci"/>
-  <text x="50" y="266" class="ct">🧫 Protein properties</text>
+  <text x="50" y="266" class="ct">🧫 Protein Properties</text>
   <rect x="50" y="273" width="88" height="14" rx="7" class="pi"/>
   <text x="94" y="283" text-anchor="middle" class="lg ti">INTERMEDIATE</text>
   <text x="50" y="306" class="bp">• Compute MW, pI, GRAVY from sequence</text>
@@ -89,7 +89,7 @@
 
   <!-- Card 5: Differential abundance -->
   <rect x="382" y="241" width="332" height="143" rx="10" class="ci"/>
-  <text x="394" y="266" class="ct">📊 Differential abundance</text>
+  <text x="394" y="266" class="ct">📊 Differential Abundance</text>
   <rect x="394" y="273" width="88" height="14" rx="7" class="pi"/>
   <text x="438" y="283" text-anchor="middle" class="lg ti">INTERMEDIATE</text>
   <text x="394" y="306" class="bp">• Planted fold change, p-values, FDR</text>
@@ -98,7 +98,7 @@
 
   <!-- Card 6: PPI network -->
   <rect x="726" y="241" width="332" height="143" rx="10" class="ci"/>
-  <text x="738" y="266" class="ct">🕸 PPI network</text>
+  <text x="738" y="266" class="ct">🕸 PPI Network</text>
   <rect x="738" y="273" width="88" height="14" rx="7" class="pi"/>
   <text x="782" y="283" text-anchor="middle" class="lg ti">INTERMEDIATE</text>
   <text x="738" y="306" class="bp">• Recover planted graph structure</text>
@@ -109,7 +109,7 @@
 
   <!-- Card 7: Protein LM (Intermediate) -->
   <rect x="38" y="396" width="332" height="143" rx="10" class="ci"/>
-  <text x="50" y="421" class="ct">🤖 Protein language model</text>
+  <text x="50" y="421" class="ct">🤖 Protein Language Model</text>
   <rect x="50" y="428" width="88" height="14" rx="7" class="pi"/>
   <text x="94" y="438" text-anchor="middle" class="lg ti">INTERMEDIATE</text>
   <text x="50" y="461" class="bp">• Nano masked-language model training</text>
@@ -127,13 +127,11 @@
 
   <!-- Card 9: Bring your own (Flexible) -->
   <rect x="726" y="396" width="332" height="143" rx="10" class="cf"/>
-  <text x="738" y="421" class="ct">🧭 Bring your own problem</text>
+  <text x="738" y="421" class="ct">🧭 Bring Your Own Problem</text>
   <rect x="738" y="428" width="62" height="14" rx="7" class="pf"/>
   <text x="769" y="438" text-anchor="middle" class="lg tf">FLEXIBLE</text>
   <text x="738" y="461" class="bp">• Start from your own research question</text>
   <text x="738" y="479" class="bp">• SMAIRT scaffold with added guardrails</text>
   <text x="738" y="506" class="rp">repo: bring_your_own</text>
-
-  <!-- Footer -->
-  <text x="38" y="549" class="sub">Use each track's DEMO guide · generate a project · prime the AI · iterate in small scientific steps</text>
+  
 </svg>
