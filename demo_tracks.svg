@@ -1,51 +1,110 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="390" viewBox="0 0 900 390" role="img" aria-labelledby="title desc">
-  <title id="title">SMAIRT demo track options</title>
-  <desc id="desc">Three cards showing the Lunar Free-Return Trajectory, Human Virome Project, and Bring your own problem demo tracks.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">SMAIRT demo track gallery</title>
+  <desc id="desc">A compact gallery of nine SMAIRT demo tracks: Lunar, Enzyme Kinetics, Peptide Digestion, Protein Properties, Differential Abundance, PPI Network, Protein Language Model, Human Virome Project, and Bring Your Own Problem.</desc>
   <defs>
     <style>
-      .card { fill: #f8f8f8; stroke-width: 10; }
-      .blue { stroke: #1f5d93; }
-      .green { stroke: #1f7a38; }
-      .red { stroke: #b23a35; }
-      .title { font: 19px Arial, Helvetica, sans-serif; fill: #222; }
-      .body { font: 18px Arial, Helvetica, sans-serif; fill: #222; }
-      .repo { font: 18px Arial, Helvetica, sans-serif; fill: #222; }
-      .icon { font: 26px Arial, Helvetica, sans-serif; fill: #000; }
+      .bg { fill: #f5f7fb; }
+      .panel { fill: #ffffff; stroke: #d7deea; stroke-width: 2; }
+      .card { fill: #ffffff; stroke-width: 3; rx: 18; ry: 18; }
+      .title { font: 700 30px Arial, Helvetica, sans-serif; fill: #10243e; }
+      .subtitle { font: 500 15px Arial, Helvetica, sans-serif; fill: #51627a; }
+      .cardTitle { font: 700 19px Arial, Helvetica, sans-serif; fill: #16263d; }
+      .tag { font: 700 12px Arial, Helvetica, sans-serif; letter-spacing: 0.8px; }
+      .body { font: 14px Arial, Helvetica, sans-serif; fill: #223248; }
+      .repo { font: 700 13px Menlo, Consolas, monospace; fill: #223248; }
+      .badgeText { font: 700 11px Arial, Helvetica, sans-serif; fill: #ffffff; letter-spacing: 0.7px; }
+      .accentPhysics { stroke: #2a6fdb; }
+      .accentBio { stroke: #2f9e44; }
+      .accentProt { stroke: #8e44ad; }
+      .accentData { stroke: #d97706; }
+      .accentAdv { stroke: #c0392b; }
+      .accentFlex { stroke: #475569; }
+      .fillPhysics { fill: #2a6fdb; }
+      .fillBio { fill: #2f9e44; }
+      .fillProt { fill: #8e44ad; }
+      .fillData { fill: #d97706; }
+      .fillAdv { fill: #c0392b; }
+      .fillFlex { fill: #475569; }
     </style>
   </defs>
 
-  <rect x="5" y="5" width="280" height="380" class="card blue" />
-  <text x="130" y="58" text-anchor="middle" class="title">Artemis Lunar</text>
-  <text x="130" y="82" text-anchor="middle" class="title">Free-Return Trajectory</text>
-  <text x="246" y="58" class="icon">🚀</text>
-  <text x="22" y="126" class="body">• Simple example</text>
-  <text x="22" y="170" class="body">• Calculate the trajectory of</text>
-  <text x="42" y="194" class="body">the Artemis free-return</text>
-  <text x="42" y="218" class="body">launch. This launch used the</text>
-  <text x="42" y="242" class="body">gravity of the Moon to return</text>
-  <text x="42" y="266" class="body">to Earth.</text>
-  <text x="22" y="310" class="repo">Repository name: `lunar`</text>
+  <rect x="0" y="0" width="1200" height="760" class="bg"/>
+  <rect x="24" y="24" width="1152" height="712" rx="28" ry="28" class="panel"/>
 
-  <rect x="310" y="5" width="280" height="380" class="card green" />
-  <text x="428" y="57" text-anchor="middle" class="title">Human Virome Project</text>
-  <text x="552" y="57" class="icon">🦠</text>
-  <text x="326" y="102" class="body">• Complex example</text>
-  <text x="326" y="146" class="body">• Ask questions about phage-</text>
-  <text x="346" y="170" class="body">host links, evidence methods,</text>
-  <text x="346" y="194" class="body">geography, and gene function.</text>
-  <text x="326" y="238" class="body">• Requires additional setup to</text>
-  <text x="346" y="262" class="body">use the HVP PostgreSQL</text>
-  <text x="346" y="286" class="body">database.</text>
-  <text x="326" y="330" class="repo">Repository name: `hvp`</text>
+  <text x="56" y="74" class="title">SMAIRT Demo Collection</text>
+  <text x="56" y="102" class="subtitle">Nine tracks, one repeatable scientific loop: background → hypothesis → code → results → analysis → next step.</text>
 
-  <rect x="615" y="5" width="280" height="380" class="card red" />
-  <text x="735" y="58" text-anchor="middle" class="title">Bring your own problem</text>
-  <text x="858" y="57" class="icon">🐙</text>
-  <text x="631" y="101" class="body">• Personal setup required:</text>
-  <text x="651" y="125" class="body">fill out a background</text>
-  <text x="651" y="149" class="body">questionnaire, provide</text>
-  <text x="651" y="173" class="body">data, or request synthetic</text>
-  <text x="651" y="197" class="body">data to begin.</text>
-  <text x="631" y="280" class="repo">Repository name:</text>
-  <text x="631" y="304" class="repo">`bring_your_own`</text>
+  <rect x="56" y="120" width="132" height="26" rx="13" class="fillPhysics"/>
+  <text x="122" y="137" text-anchor="middle" class="badgeText">BEGINNER FRIENDLY</text>
+  <rect x="198" y="120" width="132" height="26" rx="13" class="fillBio"/>
+  <text x="264" y="137" text-anchor="middle" class="badgeText">SYNTHETIC FIRST</text>
+  <rect x="340" y="120" width="150" height="26" rx="13" class="fillData"/>
+  <text x="415" y="137" text-anchor="middle" class="badgeText">MULTI-ITERATION</text>
+  <rect x="500" y="120" width="178" height="26" rx="13" class="fillAdv"/>
+  <text x="589" y="137" text-anchor="middle" class="badgeText">HUMAN-IN-THE-LOOP AI</text>
+
+  <rect x="56" y="170" width="340" height="150" rx="18" ry="18" class="card accentPhysics"/>
+  <text x="80" y="205" class="cardTitle">🚀 Lunar free-return</text>
+  <text x="80" y="226" class="tag" fill="#2a6fdb">PHYSICS · BEGINNER · SYNTHETIC</text>
+  <text x="80" y="252" class="body">• Parameter sweeps and trajectory interpretation</text>
+  <text x="80" y="274" class="body">• Completed multi-iteration reference project</text>
+  <text x="80" y="299" class="repo">repo: lunar</text>
+
+  <rect x="430" y="170" width="340" height="150" rx="18" ry="18" class="card accentBio"/>
+  <text x="454" y="205" class="cardTitle">🧪 Enzyme kinetics</text>
+  <text x="454" y="226" class="tag" fill="#2f9e44">BIOCHEMISTRY · BEGINNER · SYNTHETIC FIRST</text>
+  <text x="454" y="252" class="body">• Recover Michaelis-Menten parameters from noisy data</text>
+  <text x="454" y="274" class="body">• Practice model fitting and residual interpretation</text>
+  <text x="454" y="299" class="repo">repo: enzyme_kinetics</text>
+
+  <rect x="804" y="170" width="340" height="150" rx="18" ry="18" class="card accentBio"/>
+  <text x="828" y="205" class="cardTitle">🧬 Peptide digestion</text>
+  <text x="828" y="226" class="tag" fill="#2f9e44">PROTEOMICS · BEGINNER · SYNTHETIC FIRST</text>
+  <text x="828" y="252" class="body">• Exact rule-based tryptic cleavage validation</text>
+  <text x="828" y="274" class="body">• Connect sequence rules to observable peptides</text>
+  <text x="828" y="299" class="repo">repo: peptide_digest</text>
+
+  <rect x="56" y="340" width="340" height="150" rx="18" ry="18" class="card accentProt"/>
+  <text x="80" y="375" class="cardTitle">🧫 Protein properties</text>
+  <text x="80" y="396" class="tag" fill="#8e44ad">PROTEIN BIOCHEM · BEGINNER-INTERMEDIATE</text>
+  <text x="80" y="422" class="body">• Compute MW, pI, and GRAVY from sequence</text>
+  <text x="80" y="444" class="body">• Separate membrane-like vs soluble-like proteins</text>
+  <text x="80" y="469" class="repo">repo: protein_properties</text>
+
+  <rect x="430" y="340" width="340" height="150" rx="18" ry="18" class="card accentData"/>
+  <text x="454" y="375" class="cardTitle">📊 Differential abundance</text>
+  <text x="454" y="396" class="tag" fill="#d97706">QUANT PROTEOMICS · INTERMEDIATE</text>
+  <text x="454" y="422" class="body">• Planted truth, fold change, p-values, FDR</text>
+  <text x="454" y="444" class="body">• Learn effect sizes and multiple testing control</text>
+  <text x="454" y="469" class="repo">repo: proteomics_de</text>
+
+  <rect x="804" y="340" width="340" height="150" rx="18" ry="18" class="card accentData"/>
+  <text x="828" y="375" class="cardTitle">🕸️ PPI network</text>
+  <text x="828" y="396" class="tag" fill="#d97706">NETWORK BIOLOGY · INTERMEDIATE</text>
+  <text x="828" y="422" class="body">• Recover planted structure in interaction graphs</text>
+  <text x="828" y="444" class="body">• Use degree, centrality, and community analysis</text>
+  <text x="828" y="469" class="repo">repo: ppi_network</text>
+
+  <rect x="56" y="510" width="340" height="150" rx="18" ry="18" class="card accentProt"/>
+  <text x="80" y="545" class="cardTitle">🤖 Protein language model</text>
+  <text x="80" y="566" class="tag" fill="#8e44ad">COMPUTATIONAL BIOLOGY · ML · SYNTHETIC FIRST</text>
+  <text x="80" y="592" class="body">• Train a nano masked-language model with planted motifs</text>
+  <text x="80" y="614" class="body">• Test motif recovery and family-separating embeddings</text>
+  <text x="80" y="639" class="repo">repo: protein_lm</text>
+
+  <rect x="430" y="510" width="340" height="150" rx="18" ry="18" class="card accentAdv"/>
+  <text x="454" y="545" class="cardTitle">🦠 Human Virome Project</text>
+  <text x="454" y="566" class="tag" fill="#c0392b">ADVANCED · DATABASE-BACKED · REAL DATA</text>
+  <text x="454" y="592" class="body">• Ask phage-host, geography, and evidence questions</text>
+  <text x="454" y="614" class="body">• Richest science, heaviest setup and infrastructure</text>
+  <text x="454" y="639" class="repo">repo: hvp</text>
+
+  <rect x="804" y="510" width="340" height="150" rx="18" ry="18" class="card accentFlex"/>
+  <text x="828" y="545" class="cardTitle">🧭 Bring your own problem</text>
+  <text x="828" y="566" class="tag" fill="#475569">FLEXIBLE · ANY DOMAIN · YOUR QUESTION</text>
+  <text x="828" y="592" class="body">• Start from your own background, data, or synthesis plan</text>
+  <text x="828" y="614" class="body">• Use the SMAIRT scaffold with extra guardrails</text>
+  <text x="828" y="639" class="repo">repo: bring_your_own</text>
+
+  <text x="56" y="700" class="subtitle">Use each track’s DEMO guide to generate a fresh project, prime the AI with context files, and iterate in small scientific steps.</text>
 </svg>

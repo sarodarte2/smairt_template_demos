@@ -58,7 +58,7 @@ repo) so Zoo Code's file context is focused:
 
 Priming = giving the AI the context it needs before asking for work. Open the Zoo
 Code chat and paste a direct prompt telling it to read the context files from the
-workspace. Use the demo-specific prompt in your `DEMO.md`, or start with:
+workspace. Use the demo-specific prompt in your `DEMO.md`, or, if you are unsure what a good iteration-1 request looks like, read [`FIRST_SCRIPT_GUIDE.md`](FIRST_SCRIPT_GUIDE.md) first. Then start with:
 
 ```text
 Please read these project files before doing any work:
@@ -74,7 +74,10 @@ will follow, and the smallest first experiment to run. Do not write code yet.
 
 Type a request in plain English, e.g. *"Write a script that..."*. The assistant
 will propose new files or edits. Keep requests **small and specific**. Ask for
-one script or one change at a time so you can follow what it's doing.
+one script or one change at a time so you can follow what it's doing. A strong
+pattern for iteration 1 is: one narrow validation task, one baseline, and one
+piece of output you can inspect. [`FIRST_SCRIPT_GUIDE.md`](FIRST_SCRIPT_GUIDE.md)
+shows examples.
 
 ### c) Review, then approve
 

@@ -121,7 +121,7 @@ These extend the collection beyond the six core showcase demos.
 |------|--------|------------|------------|-------|-----------|
 | Human Virome Project | Database biology / metagenomics | Advanced | Real database | Uses PostgreSQL or a SQLite export; more infrastructure-heavy but scientifically rich | [`hvp/DEMO.md`](hvp/DEMO.md) |
 | Bring your own problem | Any scientific domain | Flexible | Your choice | Best if you already have a question and want the SMAIRT scaffold plus guardrails | [`bring_your_own/DEMO.md`](bring_your_own/DEMO.md) |
-| Protein language model | Computational biology / ML | Planned | Synthetic first | Background exists, but this track still needs a polished walkthrough comparable to the others | [`protein_lm/background/01_initial_question.md`](protein_lm/background/01_initial_question.md) |
+| Protein language model | Computational biology / ML | Intermediate | Synthetic first | Nano masked-language-model demo with planted motifs, masked-token baselines, and optional family-separation embeddings | [`protein_lm/DEMO.md`](protein_lm/DEMO.md) |
 
 ### Track selection guide
 
@@ -186,7 +186,7 @@ Each track's [`DEMO.md`](lunar/DEMO.md) provides suggested answers for the Cooki
 
 ### 4. Configure Zoo Code
 
-If you are new to the AI workflow, read [`USING_ZOO_CODE.md`](USING_ZOO_CODE.md).
+If you are new to the AI workflow, read [`USING_ZOO_CODE.md`](USING_ZOO_CODE.md). For a concrete mental model of how to begin, also read [`FIRST_SCRIPT_GUIDE.md`](FIRST_SCRIPT_GUIDE.md).
 
 Recommended workshop settings:
 
@@ -207,7 +207,7 @@ In your new SMAIRT project, the assistant should read these files first:
 2. `prompts/CODE_CONVENTIONS.md`
 3. `background/01_initial_question.md`
 
-That keeps the interaction anchored to the framework rather than drifting into generic code generation.
+That keeps the interaction anchored to the framework rather than drifting into generic code generation. If you are unsure what to ask for first, use [`FIRST_SCRIPT_GUIDE.md`](FIRST_SCRIPT_GUIDE.md) to keep iteration 1 small, checkable, and scientifically useful.
 
 ---
 
@@ -239,8 +239,10 @@ The completed lunar example shows what a multi-iteration trail can look like, bu
 | [`protein_properties/`](protein_properties/DEMO.md) | Protein feature calculation and classification demo |
 | [`proteomics_de/`](proteomics_de/DEMO.md) | Differential-abundance statistics demo |
 | [`ppi_network/`](ppi_network/DEMO.md) | Graph-based biology demo |
+| [`protein_lm/`](protein_lm/DEMO.md) | Nano protein language model demo with synthetic grammar recovery |
 | [`hvp/`](hvp/DEMO.md) | Database-backed virome demo |
 | [`bring_your_own/`](bring_your_own/DEMO.md) | Flexible worksheet-driven custom-project entry point |
+| [`FIRST_SCRIPT_GUIDE.md`](FIRST_SCRIPT_GUIDE.md) | Shared beginner guide for choosing a strong first SMAIRT script |
 | [`../smairt-template/`](../smairt-template/README.md) | The canonical SMAIRT Cookiecutter framework |
 | [`../smairt-agentic/`](../smairt-agentic/README.md) | SMAIRT agentic tooling and CLI |
 
