@@ -51,7 +51,7 @@
 
   <!-- Card 1: Lunar -->
   <rect x="38" y="86" width="332" height="143" rx="10" class="cb"/>
-  <text x="50" y="111" class="ct">🚀 Lunar free-return</text>
+  <text x="50" y="111" class="ct">🚀 Lunar Free-Return</text>
   <rect x="50" y="118" width="64" height="14" rx="7" class="pb"/>
   <text x="82" y="128" text-anchor="middle" class="lg tb">BEGINNER</text>
   <text x="50" y="151" class="bp">• Parameter sweeps and trajectory modeling</text>
@@ -60,7 +60,7 @@
 
   <!-- Card 2: Enzyme kinetics -->
   <rect x="382" y="86" width="332" height="143" rx="10" class="cb"/>
-  <text x="394" y="111" class="ct">🧪 Enzyme kinetics</text>
+  <text x="394" y="111" class="ct">🧪 Enzyme Kinetics</text>
   <rect x="394" y="118" width="64" height="14" rx="7" class="pb"/>
   <text x="426" y="128" text-anchor="middle" class="lg tb">BEGINNER</text>
   <text x="394" y="151" class="bp">• Recover Km and Vmax from noisy curve data</text>
