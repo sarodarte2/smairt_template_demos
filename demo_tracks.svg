@@ -1,110 +1,139 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">SMAIRT demo track gallery</title>
-  <desc id="desc">A compact gallery of nine SMAIRT demo tracks: Lunar, Enzyme Kinetics, Peptide Digestion, Protein Properties, Differential Abundance, PPI Network, Protein Language Model, Human Virome Project, and Bring Your Own Problem.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="570" viewBox="0 0 1100 570" role="img" aria-labelledby="svgTitle svgDesc">
+  <title id="svgTitle">SMAIRT demo track gallery</title>
+  <desc id="svgDesc">Nine SMAIRT demo tracks grouped by difficulty: Beginner (blue), Intermediate (green), Advanced (red), Flexible (gray).</desc>
   <defs>
     <style>
-      .bg { fill: #f5f7fb; }
-      .panel { fill: #ffffff; stroke: #d7deea; stroke-width: 2; }
-      .card { fill: #ffffff; stroke-width: 3; rx: 18; ry: 18; }
-      .title { font: 700 30px Arial, Helvetica, sans-serif; fill: #10243e; }
-      .subtitle { font: 500 15px Arial, Helvetica, sans-serif; fill: #51627a; }
-      .cardTitle { font: 700 19px Arial, Helvetica, sans-serif; fill: #16263d; }
-      .tag { font: 700 12px Arial, Helvetica, sans-serif; letter-spacing: 0.8px; }
-      .body { font: 14px Arial, Helvetica, sans-serif; fill: #223248; }
-      .repo { font: 700 13px Menlo, Consolas, monospace; fill: #223248; }
-      .badgeText { font: 700 11px Arial, Helvetica, sans-serif; fill: #ffffff; letter-spacing: 0.7px; }
-      .accentPhysics { stroke: #2a6fdb; }
-      .accentBio { stroke: #2f9e44; }
-      .accentProt { stroke: #8e44ad; }
-      .accentData { stroke: #d97706; }
-      .accentAdv { stroke: #c0392b; }
-      .accentFlex { stroke: #475569; }
-      .fillPhysics { fill: #2a6fdb; }
-      .fillBio { fill: #2f9e44; }
-      .fillProt { fill: #8e44ad; }
-      .fillData { fill: #d97706; }
-      .fillAdv { fill: #c0392b; }
-      .fillFlex { fill: #475569; }
+      .bg    { fill: #f3f4f6; }
+      .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+      .h1    { font: 700 25px Arial, Helvetica, sans-serif; fill: #111827; }
+      .sub   { font: 400 13px Arial, Helvetica, sans-serif; fill: #6b7280; }
+      .ct    { font: 700 15px Arial, Helvetica, sans-serif; fill: #111827; }
+      .bp    { font: 400 12px Arial, Helvetica, sans-serif; fill: #374151; }
+      .rp    { font: 700 11px Menlo, Consolas, monospace; fill: #4b5563; }
+      .lg    { font: 700 10px Arial, Helvetica, sans-serif; letter-spacing: 0.5px; }
+      /* card borders */
+      .cb { fill: #fff; stroke: #2563eb; stroke-width: 2; }
+      .ci { fill: #fff; stroke: #16a34a; stroke-width: 2; }
+      .ca { fill: #fff; stroke: #dc2626; stroke-width: 2; }
+      .cf { fill: #fff; stroke: #64748b; stroke-width: 2; }
+      /* pill fills */
+      .pb { fill: #dbeafe; }
+      .pi { fill: #dcfce7; }
+      .pa { fill: #fee2e2; }
+      .pf { fill: #f1f5f9; }
+      /* pill text */
+      .tb { fill: #1d4ed8; }
+      .ti { fill: #15803d; }
+      .ta { fill: #b91c1c; }
+      .tf { fill: #475569; }
     </style>
   </defs>
 
-  <rect x="0" y="0" width="1200" height="760" class="bg"/>
-  <rect x="24" y="24" width="1152" height="712" rx="28" ry="28" class="panel"/>
+  <!-- Background + panel -->
+  <rect width="1100" height="570" class="bg"/>
+  <rect x="14" y="14" width="1072" height="542" rx="18" class="panel"/>
 
-  <text x="56" y="74" class="title">SMAIRT Demo Collection</text>
-  <text x="56" y="102" class="subtitle">Nine tracks, one repeatable scientific loop: background → hypothesis → code → results → analysis → next step.</text>
+  <!-- Header -->
+  <text x="38" y="52" class="h1">SMAIRT Demo Collection</text>
+  <text x="38" y="72" class="sub">Nine tracks · background → hypothesis → code → results → analysis → next step</text>
 
-  <rect x="56" y="120" width="132" height="26" rx="13" class="fillPhysics"/>
-  <text x="122" y="137" text-anchor="middle" class="badgeText">BEGINNER FRIENDLY</text>
-  <rect x="198" y="120" width="132" height="26" rx="13" class="fillBio"/>
-  <text x="264" y="137" text-anchor="middle" class="badgeText">SYNTHETIC FIRST</text>
-  <rect x="340" y="120" width="150" height="26" rx="13" class="fillData"/>
-  <text x="415" y="137" text-anchor="middle" class="badgeText">MULTI-ITERATION</text>
-  <rect x="500" y="120" width="178" height="26" rx="13" class="fillAdv"/>
-  <text x="589" y="137" text-anchor="middle" class="badgeText">HUMAN-IN-THE-LOOP AI</text>
+  <!-- Inline legend (top right) -->
+  <rect x="766" y="41" width="64" height="16" rx="8" class="pb"/>
+  <text x="798" y="52" text-anchor="middle" class="lg tb">BEGINNER</text>
+  <rect x="840" y="41" width="90" height="16" rx="8" class="pi"/>
+  <text x="885" y="52" text-anchor="middle" class="lg ti">INTERMEDIATE</text>
+  <rect x="940" y="41" width="66" height="16" rx="8" class="pa"/>
+  <text x="973" y="52" text-anchor="middle" class="lg ta">ADVANCED</text>
+  <rect x="1016" y="41" width="62" height="16" rx="8" class="pf"/>
+  <text x="1047" y="52" text-anchor="middle" class="lg tf">FLEXIBLE</text>
 
-  <rect x="56" y="170" width="340" height="150" rx="18" ry="18" class="card accentPhysics"/>
-  <text x="80" y="205" class="cardTitle">🚀 Lunar free-return</text>
-  <text x="80" y="226" class="tag" fill="#2a6fdb">PHYSICS · BEGINNER · SYNTHETIC</text>
-  <text x="80" y="252" class="body">• Parameter sweeps and trajectory interpretation</text>
-  <text x="80" y="274" class="body">• Completed multi-iteration reference project</text>
-  <text x="80" y="299" class="repo">repo: lunar</text>
+  <!-- ── ROW 1 (y=86, h=143) ── BEGINNER ── -->
 
-  <rect x="430" y="170" width="340" height="150" rx="18" ry="18" class="card accentBio"/>
-  <text x="454" y="205" class="cardTitle">🧪 Enzyme kinetics</text>
-  <text x="454" y="226" class="tag" fill="#2f9e44">BIOCHEMISTRY · BEGINNER · SYNTHETIC FIRST</text>
-  <text x="454" y="252" class="body">• Recover Michaelis-Menten parameters from noisy data</text>
-  <text x="454" y="274" class="body">• Practice model fitting and residual interpretation</text>
-  <text x="454" y="299" class="repo">repo: enzyme_kinetics</text>
+  <!-- Card 1: Lunar -->
+  <rect x="38" y="86" width="332" height="143" rx="10" class="cb"/>
+  <text x="50" y="111" class="ct">🚀 Lunar free-return</text>
+  <rect x="50" y="118" width="64" height="14" rx="7" class="pb"/>
+  <text x="82" y="128" text-anchor="middle" class="lg tb">BEGINNER</text>
+  <text x="50" y="151" class="bp">• Parameter sweeps and trajectory modeling</text>
+  <text x="50" y="169" class="bp">• Completed 3-iteration reference project</text>
+  <text x="50" y="196" class="rp">repo: lunar</text>
 
-  <rect x="804" y="170" width="340" height="150" rx="18" ry="18" class="card accentBio"/>
-  <text x="828" y="205" class="cardTitle">🧬 Peptide digestion</text>
-  <text x="828" y="226" class="tag" fill="#2f9e44">PROTEOMICS · BEGINNER · SYNTHETIC FIRST</text>
-  <text x="828" y="252" class="body">• Exact rule-based tryptic cleavage validation</text>
-  <text x="828" y="274" class="body">• Connect sequence rules to observable peptides</text>
-  <text x="828" y="299" class="repo">repo: peptide_digest</text>
+  <!-- Card 2: Enzyme kinetics -->
+  <rect x="382" y="86" width="332" height="143" rx="10" class="cb"/>
+  <text x="394" y="111" class="ct">🧪 Enzyme kinetics</text>
+  <rect x="394" y="118" width="64" height="14" rx="7" class="pb"/>
+  <text x="426" y="128" text-anchor="middle" class="lg tb">BEGINNER</text>
+  <text x="394" y="151" class="bp">• Recover Km and Vmax from noisy curve data</text>
+  <text x="394" y="169" class="bp">• Nonlinear fitting and residual inspection</text>
+  <text x="394" y="196" class="rp">repo: enzyme_kinetics</text>
 
-  <rect x="56" y="340" width="340" height="150" rx="18" ry="18" class="card accentProt"/>
-  <text x="80" y="375" class="cardTitle">🧫 Protein properties</text>
-  <text x="80" y="396" class="tag" fill="#8e44ad">PROTEIN BIOCHEM · BEGINNER-INTERMEDIATE</text>
-  <text x="80" y="422" class="body">• Compute MW, pI, and GRAVY from sequence</text>
-  <text x="80" y="444" class="body">• Separate membrane-like vs soluble-like proteins</text>
-  <text x="80" y="469" class="repo">repo: protein_properties</text>
+  <!-- Card 3: Peptide digestion -->
+  <rect x="726" y="86" width="332" height="143" rx="10" class="cb"/>
+  <text x="738" y="111" class="ct">🧬 Peptide digestion</text>
+  <rect x="738" y="118" width="64" height="14" rx="7" class="pb"/>
+  <text x="770" y="128" text-anchor="middle" class="lg tb">BEGINNER</text>
+  <text x="738" y="151" class="bp">• Exact tryptic cleavage rule validation</text>
+  <text x="738" y="169" class="bp">• Sequence rules to observable peptides</text>
+  <text x="738" y="196" class="rp">repo: peptide_digest</text>
 
-  <rect x="430" y="340" width="340" height="150" rx="18" ry="18" class="card accentData"/>
-  <text x="454" y="375" class="cardTitle">📊 Differential abundance</text>
-  <text x="454" y="396" class="tag" fill="#d97706">QUANT PROTEOMICS · INTERMEDIATE</text>
-  <text x="454" y="422" class="body">• Planted truth, fold change, p-values, FDR</text>
-  <text x="454" y="444" class="body">• Learn effect sizes and multiple testing control</text>
-  <text x="454" y="469" class="repo">repo: proteomics_de</text>
+  <!-- ── ROW 2 (y=241, h=143) ── INTERMEDIATE ── -->
 
-  <rect x="804" y="340" width="340" height="150" rx="18" ry="18" class="card accentData"/>
-  <text x="828" y="375" class="cardTitle">🕸️ PPI network</text>
-  <text x="828" y="396" class="tag" fill="#d97706">NETWORK BIOLOGY · INTERMEDIATE</text>
-  <text x="828" y="422" class="body">• Recover planted structure in interaction graphs</text>
-  <text x="828" y="444" class="body">• Use degree, centrality, and community analysis</text>
-  <text x="828" y="469" class="repo">repo: ppi_network</text>
+  <!-- Card 4: Protein properties -->
+  <rect x="38" y="241" width="332" height="143" rx="10" class="ci"/>
+  <text x="50" y="266" class="ct">🧫 Protein properties</text>
+  <rect x="50" y="273" width="88" height="14" rx="7" class="pi"/>
+  <text x="94" y="283" text-anchor="middle" class="lg ti">INTERMEDIATE</text>
+  <text x="50" y="306" class="bp">• Compute MW, pI, GRAVY from sequence</text>
+  <text x="50" y="324" class="bp">• Separate membrane vs soluble proteins</text>
+  <text x="50" y="351" class="rp">repo: protein_properties</text>
 
-  <rect x="56" y="510" width="340" height="150" rx="18" ry="18" class="card accentProt"/>
-  <text x="80" y="545" class="cardTitle">🤖 Protein language model</text>
-  <text x="80" y="566" class="tag" fill="#8e44ad">COMPUTATIONAL BIOLOGY · ML · SYNTHETIC FIRST</text>
-  <text x="80" y="592" class="body">• Train a nano masked-language model with planted motifs</text>
-  <text x="80" y="614" class="body">• Test motif recovery and family-separating embeddings</text>
-  <text x="80" y="639" class="repo">repo: protein_lm</text>
+  <!-- Card 5: Differential abundance -->
+  <rect x="382" y="241" width="332" height="143" rx="10" class="ci"/>
+  <text x="394" y="266" class="ct">📊 Differential abundance</text>
+  <rect x="394" y="273" width="88" height="14" rx="7" class="pi"/>
+  <text x="438" y="283" text-anchor="middle" class="lg ti">INTERMEDIATE</text>
+  <text x="394" y="306" class="bp">• Planted fold change, p-values, FDR</text>
+  <text x="394" y="324" class="bp">• Multiple testing control in proteomics</text>
+  <text x="394" y="351" class="rp">repo: proteomics_de</text>
 
-  <rect x="430" y="510" width="340" height="150" rx="18" ry="18" class="card accentAdv"/>
-  <text x="454" y="545" class="cardTitle">🦠 Human Virome Project</text>
-  <text x="454" y="566" class="tag" fill="#c0392b">ADVANCED · DATABASE-BACKED · REAL DATA</text>
-  <text x="454" y="592" class="body">• Ask phage-host, geography, and evidence questions</text>
-  <text x="454" y="614" class="body">• Richest science, heaviest setup and infrastructure</text>
-  <text x="454" y="639" class="repo">repo: hvp</text>
+  <!-- Card 6: PPI network -->
+  <rect x="726" y="241" width="332" height="143" rx="10" class="ci"/>
+  <text x="738" y="266" class="ct">🕸 PPI network</text>
+  <rect x="738" y="273" width="88" height="14" rx="7" class="pi"/>
+  <text x="782" y="283" text-anchor="middle" class="lg ti">INTERMEDIATE</text>
+  <text x="738" y="306" class="bp">• Recover planted graph structure</text>
+  <text x="738" y="324" class="bp">• Centrality and community detection</text>
+  <text x="738" y="351" class="rp">repo: ppi_network</text>
 
-  <rect x="804" y="510" width="340" height="150" rx="18" ry="18" class="card accentFlex"/>
-  <text x="828" y="545" class="cardTitle">🧭 Bring your own problem</text>
-  <text x="828" y="566" class="tag" fill="#475569">FLEXIBLE · ANY DOMAIN · YOUR QUESTION</text>
-  <text x="828" y="592" class="body">• Start from your own background, data, or synthesis plan</text>
-  <text x="828" y="614" class="body">• Use the SMAIRT scaffold with extra guardrails</text>
-  <text x="828" y="639" class="repo">repo: bring_your_own</text>
+  <!-- ── ROW 3 (y=396, h=143) ── MIXED ── -->
 
-  <text x="56" y="700" class="subtitle">Use each track’s DEMO guide to generate a fresh project, prime the AI with context files, and iterate in small scientific steps.</text>
+  <!-- Card 7: Protein LM (Intermediate) -->
+  <rect x="38" y="396" width="332" height="143" rx="10" class="ci"/>
+  <text x="50" y="421" class="ct">🤖 Protein language model</text>
+  <rect x="50" y="428" width="88" height="14" rx="7" class="pi"/>
+  <text x="94" y="438" text-anchor="middle" class="lg ti">INTERMEDIATE</text>
+  <text x="50" y="461" class="bp">• Nano masked-language model training</text>
+  <text x="50" y="479" class="bp">• Motif recovery and family embeddings</text>
+  <text x="50" y="506" class="rp">repo: protein_lm</text>
+
+  <!-- Card 8: HVP (Advanced) -->
+  <rect x="382" y="396" width="332" height="143" rx="10" class="ca"/>
+  <text x="394" y="421" class="ct">🦠 Human Virome Project</text>
+  <rect x="394" y="428" width="66" height="14" rx="7" class="pa"/>
+  <text x="427" y="438" text-anchor="middle" class="lg ta">ADVANCED</text>
+  <text x="394" y="461" class="bp">• Phage-host links, evidence, geography</text>
+  <text x="394" y="479" class="bp">• PostgreSQL database, richest infrastructure</text>
+  <text x="394" y="506" class="rp">repo: hvp</text>
+
+  <!-- Card 9: Bring your own (Flexible) -->
+  <rect x="726" y="396" width="332" height="143" rx="10" class="cf"/>
+  <text x="738" y="421" class="ct">🧭 Bring your own problem</text>
+  <rect x="738" y="428" width="62" height="14" rx="7" class="pf"/>
+  <text x="769" y="438" text-anchor="middle" class="lg tf">FLEXIBLE</text>
+  <text x="738" y="461" class="bp">• Start from your own research question</text>
+  <text x="738" y="479" class="bp">• SMAIRT scaffold with added guardrails</text>
+  <text x="738" y="506" class="rp">repo: bring_your_own</text>
+
+  <!-- Footer -->
+  <text x="38" y="549" class="sub">Use each track's DEMO guide · generate a project · prime the AI · iterate in small scientific steps</text>
 </svg>
