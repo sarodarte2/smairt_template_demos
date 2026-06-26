@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1100" height="570" viewBox="0 0 1100 570" role="img" aria-labelledby="svgTitle svgDesc">
-  <title id="svgTitle">SMAIRT demo track gallery</title>
+  <title id="svgTitle">SMAIRT Demo Track Gallery</title>
   <desc id="svgDesc">Nine SMAIRT demo tracks grouped by difficulty: Beginner (blue), Intermediate (green), Advanced (red), Flexible (gray).</desc>
   <defs>
     <style>
@@ -133,5 +133,5 @@
   <text x="738" y="461" class="bp">• Start from your own research question</text>
   <text x="738" y="479" class="bp">• SMAIRT scaffold with added guardrails</text>
   <text x="738" y="506" class="rp">repo: bring_your_own</text>
-  
+
 </svg>
