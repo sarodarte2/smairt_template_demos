@@ -1,0 +1,86 @@
+============================================================
+Script: script_03_peptide_filtration
+Timestamp: 2026-06-29T09:08:45.609637
+Hypothesis: Filtering against physical MS constraints excludes short/long peptides and yield is maximized at standard missed cleavages (N=1,2).
+============================================================
+
+--- PART 1: MASS ACCURACY VALIDATION ---
+
+Validation Peptide 1: MK (Too short and light)
+  Calculated Mass: 277.14601 Da
+  Expected Mass:   277.14605 Da
+  Absolute Error:  0.00004 Da
+  Mass Accuracy:   PASSED
+  MS-Observable:   False (Expected: False)
+  Filter Check:    PASSED
+
+Validation Peptide 2: WVTFISLLR (Standard tryptic segment)
+  Calculated Mass: 1133.65969 Da
+  Expected Mass:   1133.65969 Da
+  Absolute Error:  0.00000 Da
+  Mass Accuracy:   PASSED
+  MS-Observable:   True (Expected: True)
+  Filter Check:    PASSED
+
+============================================================
+--- PART 2: REAL PROTEIN DIGESTION (BSA) ---
+Target Sequence: Bovine Serum Albumin (BSA, Mature Form)
+Total Sequence Length: 583 residues
+============================================================
+
+--- Allowed Missed Cleavages: 0 ---
+  Raw Peptides Generated:       78
+  MS-Observable Peptides:       46 (58.97%)
+  Peptides Excluded by Length:
+    Too Short (< 6 residues):   32
+    Too Long (> 40 residues):   0
+  Peptides Excluded by Mass:
+    Too Light (< 500.0 Da):     24
+    Too Heavy (> 5000.0 Da):    0
+
+  Sample MS-Observable Peptides (first 5):
+    1. SEIAHR          (Length:  6, Mass: 711.3664 Da)
+    2. DLGEEHFK        (Length:  8, Mass: 973.4505 Da)
+    3. GLVLIAFSQYLQQCPFDEHVK (Length: 21, Mass: 2434.2355 Da)
+    4. LVNELTEFAK      (Length: 10, Mass: 1162.6234 Da)
+    5. TCVADESHAGCEK   (Length: 13, Mass: 1348.5387 Da)
+
+--- Allowed Missed Cleavages: 1 ---
+  Raw Peptides Generated:       155
+  MS-Observable Peptides:       118 (76.13%)
+  Peptides Excluded by Length:
+    Too Short (< 6 residues):   37
+    Too Long (> 40 residues):   0
+  Peptides Excluded by Mass:
+    Too Light (< 500.0 Da):     24
+    Too Heavy (> 5000.0 Da):    0
+
+  Sample MS-Observable Peptides (first 5):
+    1. SEIAHR          (Length:  6, Mass: 711.3664 Da)
+    2. DLGEEHFK        (Length:  8, Mass: 973.4505 Da)
+    3. GLVLIAFSQYLQQCPFDEHVK (Length: 21, Mass: 2434.2355 Da)
+    4. LVNELTEFAK      (Length: 10, Mass: 1162.6234 Da)
+    5. TCVADESHAGCEK   (Length: 13, Mass: 1348.5387 Da)
+
+--- Allowed Missed Cleavages: 2 ---
+  Raw Peptides Generated:       231
+  MS-Observable Peptides:       193 (83.55%)
+  Peptides Excluded by Length:
+    Too Short (< 6 residues):   37
+    Too Long (> 40 residues):   1
+  Peptides Excluded by Mass:
+    Too Light (< 500.0 Da):     24
+    Too Heavy (> 5000.0 Da):    0
+
+  Sample MS-Observable Peptides (first 5):
+    1. SEIAHR          (Length:  6, Mass: 711.3664 Da)
+    2. DLGEEHFK        (Length:  8, Mass: 973.4505 Da)
+    3. GLVLIAFSQYLQQCPFDEHVK (Length: 21, Mass: 2434.2355 Da)
+    4. LVNELTEFAK      (Length: 10, Mass: 1162.6234 Da)
+    5. TCVADESHAGCEK   (Length: 13, Mass: 1348.5387 Da)
+
+Overall Status: ALL SUCCESS CRITERIA MET
+
+============================================================
+=== COMPLETE ===
+============================================================

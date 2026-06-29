@@ -1,0 +1,84 @@
+============================================================
+Script: script_02_missed_cleavages_validation
+Timestamp: 2026-06-29T08:52:42.699892
+Hypothesis: Allowing missed cleavages expands peptide pool in a bounded, predictable way.
+============================================================
+
+--- RUNNING VALIDATION TEST SUITE ---
+
+Test 1: Case A (N=0)
+  Sequence: MKWVTFISLLR (Allowed Missed: 0)
+  Expected: ['MK', 'WVTFISLLR']
+  Result:   ['MK', 'WVTFISLLR']
+  Status:   PASSED
+
+Test 2: Case A (N=1)
+  Sequence: MKWVTFISLLR (Allowed Missed: 1)
+  Expected: ['MK', 'WVTFISLLR', 'MKWVTFISLLR']
+  Result:   ['MK', 'WVTFISLLR', 'MKWVTFISLLR']
+  Status:   PASSED
+
+Test 3: Case A (N=2 - bounded by segments)
+  Sequence: MKWVTFISLLR (Allowed Missed: 2)
+  Expected: ['MK', 'WVTFISLLR', 'MKWVTFISLLR']
+  Result:   ['MK', 'WVTFISLLR', 'MKWVTFISLLR']
+  Status:   PASSED
+
+Test 4: Case B (N=0)
+  Sequence: AKR (Allowed Missed: 0)
+  Expected: ['AK', 'R']
+  Result:   ['AK', 'R']
+  Status:   PASSED
+
+Test 5: Case B (N=1)
+  Sequence: AKR (Allowed Missed: 1)
+  Expected: ['AK', 'R', 'AKR']
+  Result:   ['AK', 'R', 'AKR']
+  Status:   PASSED
+
+Test 6: Case C (N=0)
+  Sequence: AKRGPK (Allowed Missed: 0)
+  Expected: ['AK', 'R', 'GPK']
+  Result:   ['AK', 'R', 'GPK']
+  Status:   PASSED
+
+Test 7: Case C (N=1)
+  Sequence: AKRGPK (Allowed Missed: 1)
+  Expected: ['AK', 'R', 'GPK', 'AKR', 'RGPK']
+  Result:   ['AK', 'R', 'GPK', 'AKR', 'RGPK']
+  Status:   PASSED
+
+Test 8: Case C (N=2)
+  Sequence: AKRGPK (Allowed Missed: 2)
+  Expected: ['AK', 'R', 'GPK', 'AKR', 'RGPK', 'AKRGPK']
+  Result:   ['AK', 'R', 'GPK', 'AKR', 'RGPK', 'AKRGPK']
+  Status:   PASSED
+
+============================================================
+--- SUMMARY ---
+Total Tests Run: 8
+Passed:         8
+Failed:         0
+============================================================
+
+Analyzing average peptide length trend on a mock protein sequence...
+Allowed Missed: 0
+  Unique Peptide Count: 7
+  Average Peptide Length: 3.86 residues
+  Peptides: ['MK', 'WVTFISLLR', 'LVAK', 'R', 'GPKPLR', 'LVAK', 'R']
+Allowed Missed: 1
+  Unique Peptide Count: 13
+  Average Peptide Length: 6.00 residues
+  Peptides: ['MK', 'WVTFISLLR', 'LVAK', 'R', 'GPKPLR', 'LVAK', 'R', 'MKWVTFISLLR', 'WVTFISLLRLVAK', 'LVAKR', 'RGPKPLR', 'GPKPLRLVAK', 'LVAKR']
+Allowed Missed: 2
+  Unique Peptide Count: 18
+  Average Peptide Length: 7.78 residues
+  Peptides: ['MK', 'WVTFISLLR', 'LVAK', 'R', 'GPKPLR', 'LVAK', 'R', 'MKWVTFISLLR', 'WVTFISLLRLVAK', 'LVAKR', 'RGPKPLR', 'GPKPLRLVAK', 'LVAKR', 'MKWVTFISLLRLVAK', 'WVTFISLLRLVAKR', 'LVAKRGPKPLR', 'RGPKPLRLVAK', 'GPKPLRLVAKR']
+
+Verification: Average peptide length and peptide counts monotonically increase as expected.
+
+Overall Status: ALL SUCCESS CRITERIA MET
+
+============================================================
+=== COMPLETE ===
+============================================================

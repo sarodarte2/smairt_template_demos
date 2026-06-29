@@ -1,0 +1,53 @@
+============================================================
+Script: script_01_tryptic_digestion_smoke_test
+Timestamp: 2026-06-29T08:46:13.187773
+Hypothesis: Canonical trypsin rule perfectly reconstructs expected peptides for hand-curated test cases.
+============================================================
+
+--- RUNNING VALIDATION TEST SUITE ---
+
+Test 1: K-P block exception check (no cuts)
+  Sequence: AKPR
+  Expected: ['AKPR']
+  Result:   ['AKPR']
+  Status:   PASSED
+
+Test 2: Standard cleavage and terminal check
+  Sequence: MKWVTFISLLR
+  Expected: ['MK', 'WVTFISLLR']
+  Result:   ['MK', 'WVTFISLLR']
+  Status:   PASSED
+
+Test 3: K-P block exception with a prefix
+  Sequence: GPKPLR
+  Expected: ['GPKPLR']
+  Result:   ['GPKPLR']
+  Status:   PASSED
+
+Test 4: Very short sequence with K-P block
+  Sequence: KPR
+  Expected: ['KPR']
+  Result:   ['KPR']
+  Status:   PASSED
+
+Test 5: Cleavage near the N-terminus
+  Sequence: RGPK
+  Expected: ['R', 'GPK']
+  Result:   ['R', 'GPK']
+  Status:   PASSED
+
+============================================================
+--- SUMMARY ---
+Total Tests Run: 5
+Passed:         5
+Failed:         0
+============================================================
+
+Verifying Proline blockage exception rule explicitly...
+Confirmed: Proline exception block is completely respected (0% violation rate).
+
+Overall Status: ALL SUCCESS CRITERIA MET
+
+============================================================
+=== COMPLETE ===
+============================================================

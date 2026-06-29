@@ -45,11 +45,13 @@ Full context, hypothesis, and metrics are in
 
 0. **Set up your environment first** (run from this folder,
    `peptide_digest/`):
+
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
    pip install -r requirements.txt
    ```
+
    This installs `cookiecutter` (used in the next step) plus matplotlib (optional
    plots). The digestion itself is pure-Python standard library. If you see
    `command not found: cookiecutter`, this step was skipped or your venv isn't
@@ -59,47 +61,48 @@ Full context, hypothesis, and metrics are in
    `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal,
    then try `.venv\Scripts\Activate.ps1` again. In Command Prompt, use
    `.venv\Scripts\activate.bat`.
-
 1. **Generate a fresh SMAIRT project** (run from this folder, venv active):
+
    ```bash
    cookiecutter https://github.com/biodataganache/smairt-template.git
    ```
+
    Cookiecutter then asks you a series of questions. If you've run it before you
    may first see `Is it okay to delete and re-download it? [y/n] (y):`. Press
    **Enter**. Then answer the prompts. Press **Enter** to accept a default,
    or type the value/number shown. For the **Select** prompts, type the
    **number** (not the word). **Suggested answers for this demo:**
 
-   | Prompt | Suggested answer |
-   |--------|------------------|
-   | project_name | `Peptide Digest` |
-   | project_slug | press Enter (auto) |
-   | author_name | your name |
-   | author_email | your email (or Enter) |
-   | description | `In-silico tryptic digestion and MS-observable peptides` |
-   | project_mode | `1` (standard) |
-   | workflow_mode | `1` (ide_native) |
+   | Prompt                    | Suggested answer                                                               |
+   | ------------------------- | ------------------------------------------------------------------------------ |
+   | project_name              | `Peptide Digest`                                                             |
+   | project_slug              | press Enter (auto)                                                             |
+   | author_name               | your name                                                                      |
+   | author_email              | your email (or Enter)                                                          |
+   | description               | `In-silico tryptic digestion and MS-observable peptides`                     |
+   | project_mode              | `1` (standard)                                                               |
+   | workflow_mode             | `1` (ide_native)                                                             |
    | initial_research_question | `What tryptic peptides does a protein produce, and which are MS-observable?` |
-   | domain | `3` (computational_biology) |
-   | ai_tool | `1` (roo_zoo / Zoo Code) |
-   | include_example_project | `1` (no) |
-   | starting_phase | `1` (synthetic) |
-   | license | `1` (MIT) |
-   | create_git_repo | `1` (yes) |
+   | domain                    | `3` (computational_biology)                                                  |
+   | ai_tool                   | `1` (roo_zoo / Zoo Code)                                                     |
+   | include_example_project   | `1` (no)                                                                     |
+   | starting_phase            | `1` (synthetic)                                                              |
+   | license                   | `1` (MIT)                                                                    |
+   | create_git_repo           | `1` (yes)                                                                    |
 
    This creates a folder named after your project_slug (e.g. `peptide_digest/`).
-
 2. **Seed your project with the background:**
+
    ```bash
    cp background/01_initial_question.md peptide_digest/background/
    ```
-
 3. **Configure Zoo Code, then open the project in VS Code and prime it.** New to
    AI assistants? Read [`../USING_ZOO_CODE.md`](../USING_ZOO_CODE.md) first. It
    covers installing Zoo Code, signing in, and how to attach files and approve
    edits.
 
    Basic Zoo Code configuration for this demo:
+
    - Install **Zoo Code** from the VS Code Extensions panel.
    - Set **API Provider** to **OpenAI Compatible**.
    - Create a PNNL Birthright API key at https://ai-incubator-depot.pnnl.gov/.
@@ -113,6 +116,7 @@ Full context, hypothesis, and metrics are in
    >
    > **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
    > Windows to render this file in VS Code.
+   >
 
    Open your new project folder in VS Code (**File > Open Folder...**). In the
    Zoo Code chat, paste this direct prompt:
@@ -133,7 +137,6 @@ Full context, hypothesis, and metrics are in
 
    Read its reply. You decide whether the proposed hypothesis/experiment is
    reasonable before moving on.
-
 4. **Start the SMAIRT loop with one focused request.** After the assistant has
    summarized the question and proposed a first hypothesis, paste a prompt like
    this. Treat the reply as a proposal: you may accept, narrow, or redirect it.
@@ -152,20 +155,19 @@ Full context, hypothesis, and metrics are in
    ```
 
    How to handle the AI response:
+
    - If the test cases are explicit and the script is focused, say:
      `Proceed with building the script.`
    - Before trusting results, check the **"not before P"** exception is handled
      (no peptide boundary at K-P or R-P) and that the N- and C-terminal peptides
      are produced correctly.
    - If the assistant skips validation and just prints peptides, redirect it:
-     `Add explicit assertions against hand-checked expected peptides first; that
-     is the experiment.`
+     `Add explicit assertions against hand-checked expected peptides first; that is the experiment.`
    - **Second iteration:** add missed cleavages (0 -> 1 -> 2) and show how peptide
      count and average length change.
    - **Third iteration:** add monoisotopic peptide mass and filter to the
      MS-observable window (mass 500-5000 Da, length 6-40); report the observable
      fraction and plot the distribution.
-
 5. **Interpret and log.** In `analysis/ANALYSIS_01.md`, note: did the digest
    pass every hand-checked case? how did missed cleavages change the peptide set?
    what fraction was MS-observable? Record any key judgment call (e.g. the exact
@@ -190,17 +192,17 @@ CPU-only, no network needed.)
 
 ## Troubleshooting
 
-| Symptom | Likely cause / fix |
-|---------|--------------------|
-| `command not found: cookiecutter` | venv not active or Step 0 skipped. Run `source .venv/bin/activate` then `pip install -r requirements.txt`. |
-| `No such file or directory: .../.venv/bin/...` | The venv was deleted/moved. Recreate it: `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`. |
-| cookiecutter asks to re-download the template | Normal if you've run it before. Press **Enter** (y). |
-| Peptide split at K-P or R-P | The "not before P" exception isn't implemented. Ask the AI to skip cleavage when the next residue is proline. |
-| Off-by-one peptides (missing first/last) | Boundary handling at the protein N-/C-terminus. Check the last peptide is emitted even without a trailing K/R. |
-| Peptide masses look wrong (~18 Da off) | Forgot to add one water for the terminal groups, or used average instead of monoisotopic masses. |
-| Too few/too many peptides "observable" | Wrong mass/length window. Re-check the 500-5000 Da, 6-40 residue thresholds. |
-| Missed cleavages explode peptide count | Expected: count grows with allowed missed cleavages. Keep it at 1-2 like real searches. |
-| Zoo Code edits the wrong file / drifts | Re-attach `AI_CONTEXT.md` + your `background/01_initial_question.md` and restate the current step. |
+| Symptom                                          | Likely cause / fix                                                                                                                 |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `command not found: cookiecutter`              | venv not active or Step 0 skipped. Run`source .venv/bin/activate` then `pip install -r requirements.txt`.                      |
+| `No such file or directory: .../.venv/bin/...` | The venv was deleted/moved. Recreate it:`python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`. |
+| cookiecutter asks to re-download the template    | Normal if you've run it before. Press**Enter** (y).                                                                          |
+| Peptide split at K-P or R-P                      | The "not before P" exception isn't implemented. Ask the AI to skip cleavage when the next residue is proline.                      |
+| Off-by-one peptides (missing first/last)         | Boundary handling at the protein N-/C-terminus. Check the last peptide is emitted even without a trailing K/R.                     |
+| Peptide masses look wrong (~18 Da off)           | Forgot to add one water for the terminal groups, or used average instead of monoisotopic masses.                                   |
+| Too few/too many peptides "observable"           | Wrong mass/length window. Re-check the 500-5000 Da, 6-40 residue thresholds.                                                       |
+| Missed cleavages explode peptide count           | Expected: count grows with allowed missed cleavages. Keep it at 1-2 like real searches.                                            |
+| Zoo Code edits the wrong file / drifts           | Re-attach`AI_CONTEXT.md` + your `background/01_initial_question.md` and restate the current step.                              |
 
 ### Zoo Code is stuck (an error a retry won't fix)
 
