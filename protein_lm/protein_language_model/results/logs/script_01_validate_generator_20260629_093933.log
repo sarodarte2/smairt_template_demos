@@ -1,0 +1,69 @@
+============================================================
+Script: script_01_validate_generator
+Timestamp: 2026-06-29T09:39:33.371146
+Hypothesis: HYPOTHESIS_01.md (H_01A generator, H_01B plumbing)
+Goal: validate planted grammar BEFORE training any model
+============================================================
+
+[CONFIG]
+  seed            = 1024
+  n_sequences     = 2000
+  seq_len         = 50
+  alphabet (20)   = ACDEFGHIKLMNPQRSTVWY
+  background      = uniform over 20 AAs
+  motif           = GxGxxG  (P-loop / Walker-A)
+  motif start col = 22  (0-based, occupies 22..27)
+  invariant cols  = [22, 24, 27]  (must be ~100% glycine)
+  variable cols   = [23, 25, 26]  (background)
+  mask_rate       = 0.15
+
+[GENERATE] corpus shape = (2000, 50)
+
+[EXAMPLES] first 5 sequences (motif region in [brackets]):
+  seq0: NHVGCIRVIPPASVITIQIFNT[GKGYWG]AMFKNNSRMSKDNQAAKSIRKF
+  seq1: VMCRGRMHDEARQKALRLDAKT[GSGYSG]PQLQTWRDDEDPMEKHFDKQKC
+  seq2: FNQHDEGDWRKVQMMEHDDVYW[GMGNTG]INITTYYAGKPLFSYSDIQWFI
+  seq3: CGKASRMVPGKGAACGREDEPR[GWGNNG]MICGHHRNNMPLIAGSRKCGAY
+  seq4: ALGVPMVMYSPPEQCGICNWWQ[GIGAIG]FQHKIKNIQLPIVFYAPIVSMH
+
+[MOTIF REPORT] per motif column: expected vs observed top residue
+   col      role top_aa  top_freq  gly_freq
+    22 INVARIANT      G    1.0000    1.0000
+    23  variable      R    0.0590    0.0425
+    24 INVARIANT      G    1.0000    1.0000
+    25  variable      C    0.0550    0.0435
+    26  variable      C    0.0580    0.0425
+    27 INVARIANT      G    1.0000    1.0000
+
+[CHECKS] background p=1/20=0.0500, 3sigma tol=+/-0.0146
+  invariant col 22: glycine freq = 1.0000  -> PASS (expect 1.0)
+  invariant col 24: glycine freq = 1.0000  -> PASS (expect 1.0)
+  invariant col 27: glycine freq = 1.0000  -> PASS (expect 1.0)
+  non-invariant col 15: max dev 0.0150 EXCEEDS tol -> FAIL
+  non-invariant col 18: max dev 0.0150 EXCEEDS tol -> FAIL
+  all 47 non-invariant cols within background tol: FAIL
+  no stray glycine-dominated cols outside motif: PASS (found [])
+
+[BASELINE] unigram-frequency masked-prediction baseline
+  most common residue = G (freq 0.1076)
+  analytic glycine fraction over all positions = 0.1070
+  >>> BASELINE ACCURACY TO BEAT = 0.1076 <<<
+
+[MASKING TEST] 15% MLM plumbing
+  observed mask rate = 0.1496 (target 0.15) -> PASS
+  no label leakage (masked positions hidden): PASS
+  targets recover pre-mask residues: PASS
+
+[REPRODUCIBILITY] regenerate with seed 1024 identical: PASS
+
+[FIGURE] saved results/figures/script_01_glycine_by_column.png
+[FIGURE] saved results/figures/script_01_column_residue_heatmap.png
+============================================================
+VERDICT: CHECKS FAILED
+  Generator is NOT trustworthy — fix before training.
+  Baseline accuracy for script_02 to beat: 0.1076
+============================================================
+
+============================================================
+=== COMPLETE ===
+============================================================

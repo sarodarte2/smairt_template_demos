@@ -1,0 +1,38 @@
+============================================================
+Script: script_05_two_family_embeddings
+Timestamp: 2026-06-29T10:22:15.669698
+Hypothesis: HYPOTHESIS_05.md (two-family embedding separation)
+Motif: GKTYRG; Family A cols [22, 23, 24, 25, 26, 27]; Family B cols [10, 11, 12, 13, 14, 15]
+============================================================
+
+[DATA]   N=2000 (1000/family), L=50; train=1600 val=400
+[DATA]   composition is identical across families by construction (same motif residues, uniform background).
+
+[TRAIN]  training nano-MLM (masked-residue objective only)...
+
+[EMBED]  linear-probe AUC (family A vs B), held-out val split:
+           trained model : 0.9998
+           untrained ctrl: 0.9785
+           composition   : 0.4864
+[EMBED]  silhouette score (val):
+           trained model : 0.0575
+           untrained ctrl: 0.0040
+           composition   : -0.0010
+[MLM]    masked motif accuracy: FamA=1.0000 FamB=1.0000; background=0.0558
+
+[HYPOTHESIS CHECKS]
+  H_05A trained AUC>=0.95            : PASS (AUC=0.9998)
+  H_05B trained silhouette>=0.30     : FAIL (sil=0.0575)
+  H_05C controls at chance           : FAIL (AUC un=0.978 comp=0.486; sil un=0.004 comp=-0.001)
+  H_05D both-family motif MLM>=0.90  : PASS (A=1.000 B=1.000 bg=0.056)
+
+============================================================
+VERDICT: CHECKS FAILED
+  Separation did NOT behave as predicted; inspect controls.
+============================================================
+[FIGURE] saved results/figures/script_05_embedding_pca.png
+[FIGURE] saved results/figures/script_05_separability_metrics.png
+
+============================================================
+=== COMPLETE ===
+============================================================

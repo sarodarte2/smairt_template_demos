@@ -1,0 +1,34 @@
+============================================================
+Script: script_06_covariation_families
+Timestamp: 2026-06-29T10:31:01.573647
+Hypothesis: HYPOTHESIS_06.md (pairwise-covariation families)
+Coupling: Family A seq[35]=seq[15]; Family B independent
+============================================================
+
+[DATA]   Family A(coupled): max|marg_i-1/20|=0.024 max|marg_j-1/20|=0.024; P(seq[i]==seq[j])=1.000
+[DATA]   Family B(indep): max|marg_i-1/20|=0.016 max|marg_j-1/20|=0.014; P(seq[i]==seq[j])=0.053
+[DATA]   (Family A coupling => match~1.0; Family B independent => ~1/20=0.05)
+
+[TRAIN]  training nano-MLM (masked-residue objective only)...
+
+[EMBED]  linear-probe AUC (Family A vs B), held-out val split:
+           trained model : 0.4849
+           untrained ctrl: 0.4855   (must be ~0.5 now)
+           composition   : 0.4765   (must be ~0.5)
+[MECH]   masked acc at col j with i visible: FamA(coupled)=0.0550  FamB(indep)=0.0550  (chance=1/20=0.050)
+
+[HYPOTHESIS CHECKS]
+  H_06A trained AUC>=0.90        : FAIL (AUC=0.4849)
+  H_06B controls at chance<=0.60 : PASS (untrained=0.486 comp=0.476)
+  H_06C coupling learned         : FAIL (gap=0.000, FamB j-acc=0.055)
+
+============================================================
+VERDICT: CHECKS FAILED
+  Separation did NOT isolate learning as predicted; inspect controls.
+============================================================
+[FIGURE] saved results/figures/script_06_embedding_pca.png
+[FIGURE] saved results/figures/script_06_auc_vs_controls.png
+
+============================================================
+=== COMPLETE ===
+============================================================

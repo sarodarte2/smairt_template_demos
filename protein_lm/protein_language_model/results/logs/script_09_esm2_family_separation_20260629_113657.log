@@ -1,0 +1,46 @@
+============================================================
+Script: script_09_esm2_family_separation
+Timestamp: 2026-06-29T11:36:57.349902
+Hypothesis: HYPOTHESIS_09.md (real ESM-2 family separation)
+Model: esm2_t6_8M_UR50D (frozen, layer 6); data: rung3_two_families.fasta
+============================================================
+
+[DATA]   60 sequences; families=['cytochrome_c', 'globin']; counts=[30, 30]
+[DATA]   length min/mean/max = 105/160/351
+
+[ESM]    loading esm2_t6_8M_UR50D (first run downloads weights)...
+Downloading: "https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t6_8M_UR50D.pt" to /Users/salvador.rodarte/.cache/torch/hub/checkpoints/esm2_t6_8M_UR50D.pt
+Downloading: "https://dl.fbaipublicfiles.com/fair-esm/regression/esm2_t6_8M_UR50D-contact-regression.pt" to /Users/salvador.rodarte/.cache/torch/hub/checkpoints/esm2_t6_8M_UR50D-contact-regression.pt
+[ESM]    embedded 8/60
+[ESM]    embedded 16/60
+[ESM]    embedded 24/60
+[ESM]    embedded 32/60
+[ESM]    embedded 40/60
+[ESM]    embedded 48/60
+[ESM]    embedded 56/60
+[ESM]    embedded 60/60
+
+[EMBED]  ESM-2 embeddings shape = (60, 320)
+
+[PROBE]  ESM-2 embedding AUC (held-out)     : 1.0000
+[PROBE]  silhouette (family labels)          : 0.3918
+[CTRL]   shuffled-label AUC                  : 0.4375  (~0.5)
+[CTRL]   length-only AUC                     : 0.2208
+
+[HYPOTHESIS CHECKS]
+  H_09A embedding AUC>=0.95        : PASS (AUC=1.0000)
+  H_09B silhouette>=0.20           : PASS (sil=0.3918)
+  H_09C controls behave            : PASS (shuffled=0.438, length-only=0.221)
+
+============================================================
+VERDICT: ALL CHECKS PASSED
+  A FROZEN pretrained ESM-2 separates two real protein families with
+  no fine-tuning; shuffled-label control at chance confirms real signal.
+  Transfer from a real PLM -- the top rung of the fidelity ladder.
+============================================================
+[FIGURE] saved results/figures/script_09_esm2_pca.png
+[FIGURE] saved results/figures/script_09_auc_vs_controls.png
+
+============================================================
+=== COMPLETE ===
+============================================================

@@ -1,0 +1,34 @@
+============================================================
+Script: script_07_bijection_coupling
+Timestamp: 2026-06-29T10:38:12.455780
+Hypothesis: HYPOTHESIS_07.md (many-pair bijection coupling)
+K=10 pairs; Family A: seq[b]=PERM[seq[a]]; Family B independent
+Pairs (a->b): [(11, 46), (39, 42), (31, 0), (36, 10), (20, 41), (37, 45), (29, 13), (32, 16), (22, 12), (35, 5)]
+============================================================
+
+[DATA]   N=2000 (1000/family); K=10 pairs; max|marginal-1/20| over coupled cols = 0.022
+[DATA]   rule satisfaction seq[b]=PERM[seq[a]]: FamA=1.000 FamB=0.054 (FamB~1/20=0.05 expected)
+
+[TRAIN]  training nano-MLM (masked-residue objective only)...
+
+[EMBED]  linear-probe AUC (Family A vs B), held-out val split:
+           trained model : 0.6044
+           untrained ctrl: 0.5204   (must be ~0.5)
+           composition   : 0.5103   (must be ~0.5)
+[MECH]   mean masked acc at b-cols (a visible): FamA(coupled)=0.1830  FamB(indep)=0.0535  (chance=1/20=0.050)
+
+[HYPOTHESIS CHECKS]
+  H_07A trained AUC>=0.90        : FAIL (AUC=0.6044)
+  H_07B controls at chance<=0.60 : PASS (untrained=0.520 comp=0.510)
+  H_07C coupling learned         : FAIL (FamA b-acc=0.183 FamB b-acc=0.054)
+
+============================================================
+VERDICT: CHECKS FAILED
+  Did not fully isolate learned separation; inspect checks above.
+============================================================
+[FIGURE] saved results/figures/script_07_embedding_pca.png
+[FIGURE] saved results/figures/script_07_auc_vs_controls.png
+
+============================================================
+=== COMPLETE ===
+============================================================

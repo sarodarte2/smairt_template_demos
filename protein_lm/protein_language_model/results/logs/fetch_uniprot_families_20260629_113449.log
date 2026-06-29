@@ -1,0 +1,18 @@
+============================================================
+Script: fetch_uniprot_families
+Timestamp: 2026-06-29T11:34:49.121757
+Target: 30 reviewed seqs/family, length 50-400
+============================================================
+
+[FETCH]  globin (Pfam PF00042) ...
+         got 30 sequences
+[FETCH]  cytochrome_c (Pfam PF00034) ...
+         got 30 sequences
+
+[WRITE]  60 sequences -> data/downloaded/rung3_two_families.fasta
+[WRITE]  per-family counts: {'globin': 30, 'cytochrome_c': 30}
+[STATS]  length min/mean/max = 105/160/351
+
+============================================================
+=== COMPLETE ===
+============================================================
