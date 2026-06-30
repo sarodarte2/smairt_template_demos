@@ -2,7 +2,7 @@
 
 In-Silico tryptic digestion and MS-observable peptides
 
-**Author:** John Doe (john_doe@smairt.com)  
+**Author:** Your Name (you@example.com)
 **Domain:** computational_biology  
 **AI Tool:** roo_zoo
 

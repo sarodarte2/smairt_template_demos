@@ -45,11 +45,13 @@ Full context, hypothesis, and metrics are in
 
 0. **Set up your environment first** (run from this folder,
    `protein_properties/`):
+
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
    pip install -r requirements.txt
    ```
+
    This installs `cookiecutter` (used in the next step) plus numpy/pandas/
    scikit-learn/matplotlib. If you see `command not found: cookiecutter`, this
    step was skipped or your venv isn't active.
@@ -58,61 +60,63 @@ Full context, hypothesis, and metrics are in
    `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal,
    then try `.venv\Scripts\Activate.ps1` again. In Command Prompt, use
    `.venv\Scripts\activate.bat`.
-
 1. **Generate a fresh SMAIRT project** (run from this folder, venv active):
+
    ```bash
    cookiecutter https://github.com/biodataganache/smairt-template.git
    ```
+
    Cookiecutter then asks you a series of questions. If you've run it before you
    may first see `Is it okay to delete and re-download it? [y/n] (y):`. Press
    **Enter**. Then answer the prompts. Press **Enter** to accept a default,
    or type the value/number shown. For the **Select** prompts, type the
    **number** (not the word). **Suggested answers for this demo:**
 
-   | Prompt | Suggested answer |
-   |--------|------------------|
-   | project_name | `Protein Properties` |
-   | project_slug | press Enter (auto) |
-   | author_name | your name |
-   | author_email | your email (or Enter) |
-   | description | `Computing MW, pI, GRAVY and separating membrane from soluble proteins` |
-   | project_mode | `1` (standard) |
-   | workflow_mode | `1` (ide_native) |
-   | initial_research_question | `Can a hydrophobicity rule separate membrane from soluble proteins?` |
-   | domain | `3` (computational_biology) |
-   | ai_tool | `1` (roo_zoo / Zoo Code) |
-   | include_example_project | `1` (no) |
-   | starting_phase | `1` (synthetic) |
-   | license | `1` (MIT) |
-   | create_git_repo | `1` (yes) |
+   | Prompt                    | Suggested answer                                                          |
+   | ------------------------- | ------------------------------------------------------------------------- |
+   | project_name              | `Protein Properties`                                                    |
+   | project_slug              | press Enter (auto)                                                        |
+   | author_name               | your name                                                                 |
+   | author_email              | your email (or Enter)                                                     |
+   | description               | `Computing MW, pI, GRAVY and separating membrane from soluble proteins` |
+   | project_mode              | `1` (standard)                                                          |
+   | workflow_mode             | `1` (ide_native)                                                        |
+   | initial_research_question | `Can a hydrophobicity rule separate membrane from soluble proteins?`    |
+   | domain                    | `3` (computational_biology)                                             |
+   | ai_tool                   | `1` (roo_zoo / Zoo Code)                                                |
+   | include_example_project   | `1` (no)                                                                |
+   | starting_phase            | `1` (synthetic)                                                         |
+   | license                   | `1` (MIT)                                                               |
+   | create_git_repo           | `1` (yes)                                                               |
 
    This creates a folder named after your project_slug (e.g.
    `protein_properties/`).
-
 2. **Seed your project with the background:**
+
    ```bash
    cp background/01_initial_question.md protein_properties/background/
    ```
-
 3. **Configure Zoo Code, then open the project in VS Code and prime it.** New to
    AI assistants? Read [`../USING_ZOO_CODE.md`](../USING_ZOO_CODE.md) first. It
    covers installing Zoo Code, signing in, and how to attach files and approve
    edits.
 
    Basic Zoo Code configuration for this demo:
-   - Install **Zoo Code** from the VS Code Extensions panel.
-   - Set **API Provider** to **OpenAI Compatible**.
-   - Create a PNNL Birthright API key at https://ai-incubator-depot.pnnl.gov/.
-   - Use **API Base URL**: `https://ai-incubator-api.pnnl.gov`.
-   - Select **Model**: try `gpt-5-birthright` first; if your key does not show it,
-     use `gpt-5.5-project`.
 
-   > **Important URL check:** the `depot` URL is only for creating the API key.
-   > The API Base URL field must be `https://ai-incubator-api.pnnl.gov`, not the
-   > `depot` website.
+   - Install **Zoo Code** from the VS Code Extensions panel.
+   - Set **API Provider** to **OpenAI Compatible**. Any OpenAI-compatible
+     endpoint works (OpenAI, Anthropic, OpenRouter, Azure OpenAI, a local server
+     such as Ollama / LM Studio, or an institutional gateway).
+   - Use **API Base URL**: your provider's documented base URL (for example,
+     `https://api.openai.com/v1` for OpenAI).
+   - Paste an **API Key** from your chosen provider.
+   - Select a **Model** by difficulty. This track runs from **beginner to
+     intermediate**, so start with a fast, lightweight model and step up to a
+     mid-tier model if the later classification steps need stronger reasoning.
    >
    > **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
    > Windows to render this file in VS Code.
+   >
 
    Open your new project folder in VS Code (**File > Open Folder...**). In the
    Zoo Code chat, paste this direct prompt:
@@ -133,7 +137,6 @@ Full context, hypothesis, and metrics are in
 
    Read its reply. You decide whether the proposed hypothesis/experiment is
    reasonable before moving on.
-
 4. **Start the SMAIRT loop with one focused request.** After the assistant has
    summarized the question and proposed a first hypothesis, paste a prompt like
    this. Treat the reply as a proposal: you may accept, narrow, or redirect it.
@@ -154,6 +157,7 @@ Full context, hypothesis, and metrics are in
    ```
 
    How to handle the AI response:
+
    - If the plan validates the calculators against hand-checkable / reference
      values first, say: `Proceed with building the script.`
    - Before trusting results, check that MW uses the right residue masses **plus
@@ -161,15 +165,13 @@ Full context, hypothesis, and metrics are in
      GRAVY uses the Kyte-Doolittle scale. Confirm the computed values match the
      references within tolerance.
    - If the assistant jumps straight to classification without validating the
-     calculators, redirect it: `First validate MW/pI/GRAVY against known values;
-     that is the foundation of the experiment.`
+     calculators, redirect it: `First validate MW/pI/GRAVY against known values; that is the foundation of the experiment.`
    - **Second iteration:** generate two labeled pools (hydrophobic "membrane-like"
      vs. charged/polar "soluble-like"), show GRAVY separates them, and recover the
      planted labels with a one-feature threshold or classifier (report
      accuracy/AUC).
    - **Third iteration:** compare features (GRAVY vs. pI vs. MW) and show GRAVY is
      the best separator; plot the GRAVY histograms for the two classes.
-
 5. **Interpret and log.** In `analysis/ANALYSIS_01.md`, note: did the
    calculators match references within tolerance? how well did GRAVY separate the
    two classes? which feature mattered most, and where did the simple rule
@@ -197,18 +199,18 @@ CPU-only, no network needed.)
 
 ## Troubleshooting
 
-| Symptom | Likely cause / fix |
-|---------|--------------------|
-| `command not found: cookiecutter` | venv not active or Step 0 skipped. Run `source .venv/bin/activate` then `pip install -r requirements.txt`. |
-| `No such file or directory: .../.venv/bin/...` | The venv was deleted/moved. Recreate it: `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`. |
-| cookiecutter asks to re-download the template | Normal if you've run it before. Press **Enter** (y). |
-| Computed MW is off by ~18 Da | Forgot to add (or double-counted) the terminal water. Add exactly one water to the summed residue masses. |
-| Computed MW is off by a lot | Mixed up monoisotopic vs. average masses, or used peptide-bond-subtracted residue masses inconsistently. Pick one scheme and check against a reference tool. |
-| pI is wildly wrong | Wrong pKa set or missing the N-/C-terminus charges. Include termini plus D, E, C, Y, H, K, R. |
-| GRAVY sign looks inverted | Scale applied backwards. Kyte-Doolittle: positive = hydrophobic. |
-| Classifier accuracy is ~50% | The two pools aren't actually biased, or labels are shuffled. Check the generator plants a real hydrophobicity difference and that labels line up with sequences. |
-| Results change every run | No fixed random seed. Set and log a seed so the synthetic pools are reproducible. |
-| Zoo Code edits the wrong file / drifts | Re-attach `AI_CONTEXT.md` + your `background/01_initial_question.md` and restate the current step. |
+| Symptom                                          | Likely cause / fix                                                                                                                                                |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `command not found: cookiecutter`              | venv not active or Step 0 skipped. Run`source .venv/bin/activate` then `pip install -r requirements.txt`.                                                     |
+| `No such file or directory: .../.venv/bin/...` | The venv was deleted/moved. Recreate it:`python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`.                                |
+| cookiecutter asks to re-download the template    | Normal if you've run it before. Press**Enter** (y).                                                                                                         |
+| Computed MW is off by ~18 Da                     | Forgot to add (or double-counted) the terminal water. Add exactly one water to the summed residue masses.                                                         |
+| Computed MW is off by a lot                      | Mixed up monoisotopic vs. average masses, or used peptide-bond-subtracted residue masses inconsistently. Pick one scheme and check against a reference tool.      |
+| pI is wildly wrong                               | Wrong pKa set or missing the N-/C-terminus charges. Include termini plus D, E, C, Y, H, K, R.                                                                     |
+| GRAVY sign looks inverted                        | Scale applied backwards. Kyte-Doolittle: positive = hydrophobic.                                                                                                  |
+| Classifier accuracy is ~50%                      | The two pools aren't actually biased, or labels are shuffled. Check the generator plants a real hydrophobicity difference and that labels line up with sequences. |
+| Results change every run                         | No fixed random seed. Set and log a seed so the synthetic pools are reproducible.                                                                                 |
+| Zoo Code edits the wrong file / drifts           | Re-attach`AI_CONTEXT.md` + your `background/01_initial_question.md` and restate the current step.                                                             |
 
 ### Zoo Code is stuck (an error a retry won't fix)
 

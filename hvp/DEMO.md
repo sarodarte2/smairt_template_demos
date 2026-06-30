@@ -43,7 +43,7 @@ Full context, schema, and data caveats are in
 
 1. A running PostgreSQL database with GSVA + Wu Hi-C soil-virome data.
 2. A SMAIRT project scaffolded from the cookiecutter template.
-3. Zoo Code configured with the PNNL LLM endpoint.
+3. Zoo Code configured with your LLM provider.
 4. Your `background/01_initial_question.md` seeded with full HVP context, ready
    for your first hypothesis.
 
@@ -248,15 +248,15 @@ Full details in [`../USING_ZOO_CODE.md`](../USING_ZOO_CODE.md). In short:
 
 1. Install **Zoo Code** from the VS Code Extensions panel (`Cmd+Shift+X` on Mac,
    `Ctrl+Shift+X` on Windows).
-2. Open its settings → **API Provider: OpenAI Compatible**.
-3. **API Key:** create a PNNL Birthright API key at https://ai-incubator-depot.pnnl.gov/.
-4. **API Base URL:** `https://ai-incubator-api.pnnl.gov`
-5. **Model:** try `gpt-5-birthright` first; if your key does not show it, use
-   `gpt-5.5-project`.
-
-> **Important URL check:** the `depot` URL is only for creating the API key. The
-> API Base URL field must be `https://ai-incubator-api.pnnl.gov`, not the `depot`
-> website.
+2. Open its settings → **API Provider: OpenAI Compatible**. Any
+   OpenAI-compatible endpoint works (OpenAI, Anthropic, OpenRouter, Azure
+   OpenAI, a local server such as Ollama / LM Studio, or an institutional gateway).
+3. **API Base URL:** your provider's documented base URL (for example,
+   `https://api.openai.com/v1` for OpenAI).
+4. **API Key:** paste a key from your chosen provider.
+5. **Model:** choose by difficulty. This is an **advanced**, database-backed
+   track, so prefer a larger, stronger reasoning model. Larger models tend to
+   perform better on multi-join SQL and multi-file analysis.
 >
 > **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
 > Windows to render this file in VS Code.

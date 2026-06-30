@@ -78,15 +78,15 @@
 
    Basic Zoo Code configuration for this demo:
    - Install **Zoo Code** from the VS Code Extensions panel.
-   - Set **API Provider** to **OpenAI Compatible**.
-   - Create a PNNL Birthright API key at https://ai-incubator-depot.pnnl.gov/.
-   - Use **API Base URL**: `https://ai-incubator-api.pnnl.gov`.
-   - Select **Model**: try `gpt-5-birthright` first; if your key does not show it,
-     use `gpt-5.5-project`.
-
-   > **Important URL check:** the `depot` URL is only for creating the API key.
-   > The API Base URL field must be `https://ai-incubator-api.pnnl.gov`, not the
-   > `depot` website.
+   - Set **API Provider** to **OpenAI Compatible**. Any OpenAI-compatible
+     endpoint works (OpenAI, Anthropic, OpenRouter, Azure OpenAI, a local server
+     such as Ollama / LM Studio, or an institutional gateway).
+   - Use **API Base URL**: your provider's documented base URL (for example,
+     `https://api.openai.com/v1` for OpenAI).
+   - Paste an **API Key** from your chosen provider.
+   - Select a **Model** by difficulty. This track is **flexible**, so match the
+     model to your problem's complexity: a lightweight model for simple questions,
+     a larger, stronger reasoning model as the problem gets harder.
    >
    > **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
    > Windows to render this file in VS Code.

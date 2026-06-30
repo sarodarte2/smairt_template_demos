@@ -1,0 +1,48 @@
+============================================================
+Script: script_01_bh_correction
+Timestamp: 2026-06-30T10:55:42.215345
+Hypothesis: hypotheses/H1_bh_correction_baseline.md
+============================================================
+
+Generating synthetic data: 2000 proteins, 5 control & 5 treated replicates.
+Planted DE proteins: 100 (50 up-regulated, 50 down-regulated by log2 FC = ±1.0).
+Measurement noise SD: 0.3 on log2 scale.
+Random seed set to: 1024
+
+Saved synthetic abundance to /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/proteomics_de/proteomics_de/data/synthetic/synthetic_abundance.csv
+
+Running Welch's t-test per protein...
+Completed t-tests.
+
+Applying Benjamini-Hochberg FDR correction...
+Completed BH correction (target FDR threshold: 0.05).
+
+=== EVALUATION METRICS ===
+Uncorrected p-value < 0.05:
+  Called Significant: 186
+  True Positives (TP): 98
+  False Positives (FP): 88  <-- Multiple testing problem visible here!
+  Recall (Sensitivity): 98.00%
+  Observed FDR: 47.31%
+
+BH-corrected q-value < 0.05:
+  Called Significant: 37
+  True Positives (TP): 36
+  False Positives (FP): 1
+  Recall (Sensitivity): 36.00%
+  Observed FDR: 2.70%
+
+Generating Volcano Plot...
+Saved Volcano Plot to /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/proteomics_de/proteomics_de/results/figures/script_01_bh_correction_volcano.png
+
+Saved DE results matrix to /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/proteomics_de/proteomics_de/results/script_01_bh_correction_results.csv
+
+=== HYPOTHESIS ASSESSMENT ===
+FDR Controlled (<= 0.05)? True (Observed: 2.70%)
+Recall High (>= 70%)? False (Observed: 36.00%)
+Uncorrected FDR High (> 40%)? True (Observed: 47.31%)
+Status: PARTIALLY SUPPORTED or REFUTED (Check values)
+
+============================================================
+=== COMPLETE ===
+============================================================

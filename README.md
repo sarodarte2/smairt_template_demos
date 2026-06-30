@@ -128,27 +128,7 @@ These extend the collection beyond the six core showcase demos.
 - Pick **HVP** if you want a more realistic database-backed analysis.
 - Pick **Protein Language Model** if you are up for an advanced challange.
 - Pick **Bring Your Own Problem** if you already have a research idea.
-
----
-
-## How a participant actually uses this repo
-
-```mermaid
-flowchart TD
-    A[Choose a demo track] --> B[Read the track DEMO guide]
-    B --> C[Create a virtual environment]
-    C --> D[Install requirements]
-    D --> E[Generate a fresh SMAIRT project with Cookiecutter]
-    E --> F[Copy the background question into the new project]
-    F --> G[Configure Zoo Code]
-    G --> H[Prime the AI with project context files]
-    H --> I[Ask for one focused experiment]
-    I --> J[Review the proposed code]
-    J --> K[Run it]
-    K --> L[Interpret and log what happened]
-    L --> M[Start the next iteration]
-```
-
+  
 ---
 
 ## Quick start
@@ -187,16 +167,27 @@ Each track's [`DEMO.md`](lunar/DEMO.md) provides suggested answers for the Cooki
 
 If you are new to the AI workflow, read [`USING_ZOO_CODE.md`](USING_ZOO_CODE.md). For a concrete mental model of how to begin, also read [`FIRST_SCRIPT_GUIDE.md`](FIRST_SCRIPT_GUIDE.md).
 
-Recommended workshop settings:
+Recommended settings:
 
-| Setting        | Value                                                            |
-| -------------- | ---------------------------------------------------------------- |
-| API Provider   | OpenAI Compatible                                                |
-| API key source | PNNL Birthright key from`https://ai-incubator-depot.pnnl.gov/` |
-| API Base URL   | `https://ai-incubator-api.pnnl.gov`                            |
-| Model          | `gpt-5-birthright` first, then `gpt-5.5-project` if needed   |
+| Setting      | Value                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------- |
+| API Provider | OpenAI Compatible (works with OpenAI, Anthropic, OpenRouter, Azure OpenAI, or a local server such as Ollama / LM Studio, or any institutional gateway) |
+| API Base URL | Your provider's documented base URL (for example, `https://api.openai.com/v1` for OpenAI) |
+| API Key      | A key from your chosen provider                                                        |
+| Model        | Choose by track difficulty (see the guidance below)                                    |
 
-> The `depot` URL is only where the key is created. The API Base URL inside Zoo Code must be `https://ai-incubator-api.pnnl.gov`.
+#### Choosing a model by difficulty
+
+Match the model to the difficulty of the track you picked:
+
+| Track difficulty             | Suggested model tier                                                    |
+| ---------------------------- | ----------------------------------------------------------------------- |
+| Beginner (Lunar, Enzyme, Peptide) | A fast, lightweight reasoning model. It iterates quickly and costs less. |
+| Intermediate (Protein Properties, Differential Abundance, PPI) | A mid-tier model for stronger multi-step reasoning and code quality. |
+| Advanced (HVP, Protein LM)   | A larger, stronger reasoning model. Larger models tend to perform better on harder, multi-file, or database-heavy problems. |
+| Flexible (Bring Your Own)    | Match the model to your problem's complexity.                            |
+
+Start small and step up to a larger model if the assistant struggles.
 
 ### 5. Prime the assistant before asking for code
 

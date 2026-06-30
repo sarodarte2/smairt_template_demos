@@ -1,0 +1,29 @@
+======================================================================
+Script: script_01_validate_calculators
+Timestamp: 2026-06-30T09:07:32.163452
+Hypothesis: hypotheses/HYPOTHESIS_01.md
+======================================================================
+
+--- PHASE 1: Validate on Hand-Checkable Peptides ---
+Peptide: AAA
+  MW    - Calc: 231.255 Da | Expected: 231.255 Da | Diff: 0.000e+00 Da
+  GRAVY - Calc: 1.800    | Expected: 1.800    | Diff: 0.000e+00
+  pI    - Calc: 6.099     | Expected: 6.100     | Diff: 6.348e-04
+  => PASS (AAA)
+
+Peptide: MVR
+  MW    - Calc: 404.535 Da | Expected: 404.535 Da | Diff: 5.684e-14 Da
+  GRAVY - Calc: 0.533    | Expected: 0.533    | Diff: 0.000e+00
+  pI    - Calc: 10.550     | Expected: 10.550    | Diff: 1.221e-05
+  => PASS (MVR)
+
+--- PHASE 2: Validate on Reference Protein (Human Ubiquitin) ---
+Protein: Human Ubiquitin (76 residues)
+  MW    - Calc: 8564.835 Da | Expected: 8564.800 Da | Rel Diff: 0.000%
+  GRAVY - Calc: -0.489    | Expected: -0.489    | Diff: 4.737e-04
+  pI    - Calc: 7.541     | Expected: 7.540     | Diff: 7.333e-04
+  => PASS (Human Ubiquitin)
+
+======================================================================
+=== ALL CALCULATORS SUCCESSFULLY VALIDATED WITH ZERO ERRORS ===
+======================================================================

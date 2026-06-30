@@ -1,0 +1,47 @@
+============================================================
+Script: script_03_missingness_heteroscedasticity
+Timestamp: 2026-06-30T11:17:24.611726
+Hypothesis: hypotheses/H3_missingness_heteroscedasticity.md
+============================================================
+
+=== Running Experiment: Config A (N=5 Replicates) (N=5, Base Noise=0.2) ===
+  Missing values generated: 2042 out of 20000 cells (10.21%)
+  Replica filtering threshold: require >= 3 detected values per group
+Saved Comparison Volcano plot to /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/proteomics_de/proteomics_de/results/figures/script_03_volcano_comparison_config_a_(n=5_replicates).png
+  Oracle Baseline:         TP=23, FP=01 | Recall=23.00%, Observed FDR=4.17%
+  MinDet Imputation:       TP=05, FP=00 | Recall=5.00%, Observed FDR=0.00%
+  Replica Filtering:       TP=10, FP=00 | Recall=10.00%, Observed FDR=0.00%
+
+=== Running Experiment: Config B (N=8 Replicates) (N=8, Base Noise=0.3) ===
+  Missing values generated: 3403 out of 32000 cells (10.63%)
+  Replica filtering threshold: require >= 4 detected values per group
+Saved Comparison Volcano plot to /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/proteomics_de/proteomics_de/results/figures/script_03_volcano_comparison_config_b_(n=8_replicates).png
+  Oracle Baseline:         TP=50, FP=02 | Recall=50.00%, Observed FDR=3.85%
+  MinDet Imputation:       TP=30, FP=02 | Recall=30.00%, Observed FDR=6.25%
+  Replica Filtering:       TP=45, FP=02 | Recall=45.00%, Observed FDR=4.26%
+
+Saved comparative results table to /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/proteomics_de/proteomics_de/results/script_03_missingness_heteroscedasticity_comparison.csv
+
+=== HYPOTHESIS ASSESSMENT ===
+1. MinDet Imputation FDR exploded (>= 15.0%)?
+   - Config A FDR: 0.00% (FP: 0)
+   - Config B FDR: 6.25% (FP: 2)
+   - Outcome: False
+2. Replica Filtering restored FDR control (<= 5.0%)?
+   - Config A FDR: 0.00% (FP: 0)
+   - Config B FDR: 4.26% (FP: 2)
+   - Outcome: True
+3. Heteroscedasticity caused overall Recall degradation (>= 15.0%)?
+   - Config A: Oracle Recall 23.00% vs. Clean Baseline 95.00% (Loss: 72.00%)
+   - Config B: Oracle Recall 50.00% vs. Clean Baseline 97.00% (Loss: 47.00%)
+   - Outcome: True
+4. Replica-Presence Filtering added additional Recall loss (>= 10.0%)?
+   - Config A: Filtered Recall 10.00% vs. Oracle 23.00% (Loss: 13.00%)
+   - Config B: Filtered Recall 45.00% vs. Oracle 50.00% (Loss: 5.00%)
+   - Outcome: True
+
+Status: PARTIALLY SUPPORTED
+
+============================================================
+=== COMPLETE ===
+============================================================

@@ -1,0 +1,49 @@
+======================================================================
+Script: script_04_benchmark_classification
+Timestamp: 2026-06-30T09:17:24.879596
+Hypothesis: hypotheses/HYPOTHESIS_03.md
+======================================================================
+
+Loaded benchmark dataset with 12 Human reviewed proteins.
+
+--- Extracting Whole-Sequence & Sliding-Window Properties ---
+Extracted Protein Sequence Features:
+accession        name    class_name  molecular_weight        pi  whole_gravy  max_window_gravy
+   P08183  MDR1_HUMAN transmembrane         10706.795  9.825936     0.204211          2.200000
+   P00533  EGFR_HUMAN transmembrane         20813.925  5.685925    -0.055376          1.705263
+   P11274 GBRB1_HUMAN transmembrane         11949.285  3.994998    -0.696000          1.921053
+   P16473  TSHR_HUMAN transmembrane         11401.205  6.067662    -0.137624          1.115789
+   P04626 ERBB2_HUMAN transmembrane         11066.035  5.660450     0.317000          1.510526
+   O15303 ERBB4_HUMAN transmembrane         11051.005  8.505856     0.308000          2.068421
+   P62988  UBIQ_HUMAN       soluble          8564.835  7.540733    -0.489474          0.347368
+   P68032  ACTC_HUMAN       soluble         21237.275  5.036344    -0.225521          1.373684
+   P00558  PGK1_HUMAN       soluble         11146.265 10.214837    -0.089000          0.994737
+   P04075 ALDOA_HUMAN       soluble         11198.775  7.511253    -0.515000          1.136842
+   P06733  ENO1_HUMAN       soluble         11036.755  8.931486    -0.304000          0.626316
+   P14618   PKM_HUMAN       soluble         10958.465  7.143188    -0.283000          0.621053
+
+Property Averages by Biological Class:
+               whole_gravy  max_window_gravy
+class_name                                  
+soluble          -0.317666          0.850000
+transmembrane    -0.009965          1.753509
+
+--- Running Leave-One-Out Cross-Validation ---
+LOOCV Accuracy - Whole-Sequence GRAVY : 41.67%
+LOOCV Accuracy - Max Window GRAVY (19): 83.33%
+LOOCV Accuracy - Isoelectric Point (pI): 50.00%
+LOOCV Accuracy - Molecular Weight (MW) : 0.00%
+
+--- Plotting Property Distributions ---
+Saved comparative distribution plot to: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/protein_properties/protein_properties/results/figures/uniprot_distribution_comparison.png
+
+--- Validating Hypothesis 03 Predictions ---
+  Whole-Sequence GRAVY Accuracy: 41.67%
+  Whole-Sequence accuracy <= 85%? True
+  Max Window GRAVY Accuracy: 83.33%
+  Max Window accuracy >= 90%? False
+  Biophysical Feature Accuracy Gain: +41.67%
+
+======================================================================
+=== EXPERIMENT 04 COMPLETED SUCCESSFULLY ===
+======================================================================
