@@ -1,0 +1,9 @@
+============================================================
+Script: script_03_missingness_heteroscedasticity
+Timestamp: 2026-06-30T11:16:16.724617
+Hypothesis: hypotheses/H3_missingness_heteroscedasticity.md
+============================================================
+
+=== Running Experiment: Config A (N=5 Replicates) (N=5, Base Noise=0.2) ===
+  Missing values generated: 2042 out of 20000 cells (10.21%)
+  Replica filtering threshold: require >= 3 detected values per group

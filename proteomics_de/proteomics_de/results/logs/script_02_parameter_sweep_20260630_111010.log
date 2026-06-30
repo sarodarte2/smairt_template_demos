@@ -1,0 +1,66 @@
+============================================================
+Script: script_02_parameter_sweep
+Timestamp: 2026-06-30T11:10:10.309504
+Hypothesis: hypotheses/H2_parameter_sweep.md
+============================================================
+
+Starting Multi-Variable Parameter Sweep...
+Sweep Grid: Replicates N in [3, 4, 5, 6, 8, 12, 15]
+Sweep Grid: Measurement noise SD in [0.1, 0.2, 0.3, 0.4, 0.5]
+Planted DE proteins: 100 | Planted fold change: ±1.0
+Total proteins: 2000 | BH Target FDR: 0.05
+
+N=03, Noise=0.1 | TP=081, FP=02 | Recall=81.00%, Observed FDR=2.41%
+N=03, Noise=0.2 | TP=000, FP=00 | Recall=0.00%, Observed FDR=0.00%
+N=03, Noise=0.3 | TP=000, FP=00 | Recall=0.00%, Observed FDR=0.00%
+N=03, Noise=0.4 | TP=000, FP=00 | Recall=0.00%, Observed FDR=0.00%
+N=03, Noise=0.5 | TP=000, FP=00 | Recall=0.00%, Observed FDR=0.00%
+N=04, Noise=0.1 | TP=100, FP=02 | Recall=100.00%, Observed FDR=1.96%
+N=04, Noise=0.2 | TP=069, FP=02 | Recall=69.00%, Observed FDR=2.82%
+N=04, Noise=0.3 | TP=011, FP=01 | Recall=11.00%, Observed FDR=8.33%
+N=04, Noise=0.4 | TP=002, FP=00 | Recall=2.00%, Observed FDR=0.00%
+N=04, Noise=0.5 | TP=002, FP=00 | Recall=2.00%, Observed FDR=0.00%
+N=05, Noise=0.1 | TP=100, FP=03 | Recall=100.00%, Observed FDR=2.91%
+N=05, Noise=0.2 | TP=095, FP=03 | Recall=95.00%, Observed FDR=3.06%
+N=05, Noise=0.3 | TP=036, FP=01 | Recall=36.00%, Observed FDR=2.70%
+N=05, Noise=0.4 | TP=004, FP=00 | Recall=4.00%, Observed FDR=0.00%
+N=05, Noise=0.5 | TP=000, FP=00 | Recall=0.00%, Observed FDR=0.00%
+N=06, Noise=0.1 | TP=100, FP=02 | Recall=100.00%, Observed FDR=1.96%
+N=06, Noise=0.2 | TP=100, FP=02 | Recall=100.00%, Observed FDR=1.96%
+N=06, Noise=0.3 | TP=087, FP=01 | Recall=87.00%, Observed FDR=1.14%
+N=06, Noise=0.4 | TP=038, FP=00 | Recall=38.00%, Observed FDR=0.00%
+N=06, Noise=0.5 | TP=000, FP=00 | Recall=0.00%, Observed FDR=0.00%
+N=08, Noise=0.1 | TP=100, FP=07 | Recall=100.00%, Observed FDR=6.54%
+N=08, Noise=0.2 | TP=100, FP=07 | Recall=100.00%, Observed FDR=6.54%
+N=08, Noise=0.3 | TP=097, FP=07 | Recall=97.00%, Observed FDR=6.73%
+N=08, Noise=0.4 | TP=082, FP=04 | Recall=82.00%, Observed FDR=4.65%
+N=08, Noise=0.5 | TP=057, FP=03 | Recall=57.00%, Observed FDR=5.00%
+N=12, Noise=0.1 | TP=100, FP=03 | Recall=100.00%, Observed FDR=2.91%
+N=12, Noise=0.2 | TP=100, FP=03 | Recall=100.00%, Observed FDR=2.91%
+N=12, Noise=0.3 | TP=100, FP=03 | Recall=100.00%, Observed FDR=2.91%
+N=12, Noise=0.4 | TP=100, FP=03 | Recall=100.00%, Observed FDR=2.91%
+N=12, Noise=0.5 | TP=089, FP=03 | Recall=89.00%, Observed FDR=3.26%
+N=15, Noise=0.1 | TP=100, FP=02 | Recall=100.00%, Observed FDR=1.96%
+N=15, Noise=0.2 | TP=100, FP=02 | Recall=100.00%, Observed FDR=1.96%
+N=15, Noise=0.3 | TP=100, FP=02 | Recall=100.00%, Observed FDR=1.96%
+N=15, Noise=0.4 | TP=100, FP=02 | Recall=100.00%, Observed FDR=1.96%
+N=15, Noise=0.5 | TP=098, FP=02 | Recall=98.00%, Observed FDR=2.00%
+
+Grid search complete. Processing results for visualization...
+Saved sweep results table to /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/proteomics_de/proteomics_de/results/script_02_parameter_sweep_results.csv
+Saved Recall Heatmap to /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/proteomics_de/proteomics_de/results/figures/script_02_parameter_sweep_recall_heatmap.png
+Saved FDR Heatmap to /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/proteomics_de/proteomics_de/results/figures/script_02_parameter_sweep_fdr_heatmap.png
+
+=== EVALUATION OF DESIGN ENVELOPES ===
+1. FDR Controlled globally (<= 5.0%)? False (Max Observed: 8.33%)
+2. Recall High (>= 70%) at N=8, SD=0.3? True (Observed: 97.00%)
+3. Recall High (>= 70%) at N=5, SD=0.2? True (Observed: 95.00%)
+4. Recall High (>= 70%) at N=6, SD=0.2? True (Observed: 100.00%)
+5. Recall Low (< 70%) at N=3, SD=0.2? True (Observed: 0.00%)
+
+=== HYPOTHESIS ASSESSMENT ===
+Status: PARTIALLY SUPPORTED or REFUTED (Check parameters)
+
+============================================================
+=== COMPLETE ===
+============================================================
