@@ -44,11 +44,13 @@ Full context, hypothesis, and metrics are in
 
 0. **Set up your environment first** (run from this folder,
    `enzyme_kinetics/`):
+
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
    pip install -r requirements.txt
    ```
+
    This installs `cookiecutter` (used in the next step) plus numpy/scipy/
    matplotlib. If you see `command not found: cookiecutter`, this step was
    skipped or your venv isn't active.
@@ -57,47 +59,48 @@ Full context, hypothesis, and metrics are in
    `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal,
    then try `.venv\Scripts\Activate.ps1` again. In Command Prompt, use
    `.venv\Scripts\activate.bat`.
-
 1. **Generate a fresh SMAIRT project** (run from this folder, venv active):
+
    ```bash
    cookiecutter https://github.com/biodataganache/smairt-template.git
    ```
+
    Cookiecutter then asks you a series of questions. If you've run it before you
    may first see `Is it okay to delete and re-download it? [y/n] (y):`. Press
    **Enter**. Then answer the prompts. Press **Enter** to accept a default,
    or type the value/number shown. For the **Select** prompts, type the
    **number** (not the word). **Suggested answers for this demo:**
 
-   | Prompt | Suggested answer |
-   |--------|------------------|
-   | project_name | `Enzyme Kinetics` |
-   | project_slug | press Enter (auto) |
-   | author_name | your name |
-   | author_email | your email (or Enter) |
-   | description | `Recovering Km and Vmax from velocity data` |
-   | project_mode | `1` (standard) |
-   | workflow_mode | `1` (ide_native) |
+   | Prompt                    | Suggested answer                                                        |
+   | ------------------------- | ----------------------------------------------------------------------- |
+   | project_name              | `Enzyme Kinetics`                                                     |
+   | project_slug              | press Enter (auto)                                                      |
+   | author_name               | your name                                                               |
+   | author_email              | your email (or Enter)                                                   |
+   | description               | `Recovering Km and Vmax from velocity data`                           |
+   | project_mode              | `1` (standard)                                                        |
+   | workflow_mode             | `1` (ide_native)                                                      |
    | initial_research_question | `How accurately can we recover Km and Vmax from noisy velocity data?` |
-   | domain | `3` (computational_biology) |
-   | ai_tool | `1` (roo_zoo / Zoo Code) |
-   | include_example_project | `1` (no) |
-   | starting_phase | `1` (synthetic) |
-   | license | `1` (MIT) |
-   | create_git_repo | `1` (yes) |
+   | domain                    | `3` (computational_biology)                                           |
+   | ai_tool                   | `1` (roo_zoo / Zoo Code)                                              |
+   | include_example_project   | `1` (no)                                                              |
+   | starting_phase            | `1` (synthetic)                                                       |
+   | license                   | `1` (MIT)                                                             |
+   | create_git_repo           | `1` (yes)                                                             |
 
    This creates a folder named after your project_slug (e.g. `enzyme_kinetics/`).
-
 2. **Seed your project with the background:**
+
    ```bash
    cp background/01_initial_question.md enzyme_kinetics/background/
    ```
-
 3. **Configure Zoo Code, then open the project in VS Code and prime it.** New to
    AI assistants? Read [`../USING_ZOO_CODE.md`](../USING_ZOO_CODE.md) first. It
    covers installing Zoo Code, signing in, and how to attach files and approve
    edits.
 
    Basic Zoo Code configuration for this demo:
+
    - Install **Zoo Code** from the VS Code Extensions panel.
    - Set **API Provider** to **OpenAI Compatible**.
    - Create a PNNL Birthright API key at https://ai-incubator-depot.pnnl.gov/.
@@ -111,6 +114,7 @@ Full context, hypothesis, and metrics are in
    >
    > **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
    > Windows to render this file in VS Code.
+   >
 
    Open your new project folder in VS Code (**File > Open Folder...**). In the
    Zoo Code chat, paste this direct prompt:
@@ -131,7 +135,6 @@ Full context, hypothesis, and metrics are in
 
    Read its reply. You decide whether the proposed hypothesis/experiment is
    reasonable before moving on.
-
 4. **Start the SMAIRT loop with one focused request.** After the assistant has
    summarized the question and proposed a first hypothesis, paste a prompt like
    this. Treat the reply as a proposal: you may accept, narrow, or redirect it.
@@ -151,19 +154,18 @@ Full context, hypothesis, and metrics are in
    ```
 
    How to handle the AI response:
+
    - If the plan plants known parameters and checks recovery against them, say:
      `Proceed with building the script.`
    - Before trusting results, check it uses a **fixed random seed**, sensible
      initial guesses for the fit, and compares fitted Km/Vmax **against the
      planted truth**, not just an R^2.
    - If the assistant only reports an R^2 with no truth comparison, redirect it:
-     `On synthetic data, report the recovery error against the known Km and Vmax;
-     that is the experiment.`
+     `On synthetic data, report the recovery error against the known Km and Vmax; that is the experiment.`
    - **Second iteration:** raise the noise and compare nonlinear fit vs.
      Lineweaver-Burk parameter recovery; show the linearized method's bias.
    - **Third iteration:** generate data with a competitive or noncompetitive
      inhibitor and confirm the expected shift in apparent Km/Vmax.
-
 5. **Interpret and log.** In `analysis/ANALYSIS_01.md`, note: how well did each
    method recover Km/Vmax? at what noise level did Lineweaver-Burk break down?
    did the inhibition model behave as predicted? Record your key judgment call
@@ -188,17 +190,17 @@ Step 0; CPU-only, no network needed.)
 
 ## Troubleshooting
 
-| Symptom | Likely cause / fix |
-|---------|--------------------|
-| `command not found: cookiecutter` | venv not active or Step 0 skipped. Run `source .venv/bin/activate` then `pip install -r requirements.txt`. |
-| `No such file or directory: .../.venv/bin/...` | The venv was deleted/moved. Recreate it: `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`. |
-| cookiecutter asks to re-download the template | Normal if you've run it before. Press **Enter** (y). |
-| Fit doesn't converge / gives nonsense | Bad initial guesses. Seed Km near the [S] of half-max and Vmax near the highest observed v. |
-| Fitted Vmax keeps climbing | Substrate range doesn't reach saturation. Extend [S] well above Km so the plateau is sampled. |
-| Lineweaver-Burk looks as good as the nonlinear fit | Noise is too low to expose the bias. Increase noise; the reciprocal plot should degrade faster. |
-| Results change every run | No fixed random seed. Set and log a seed so the synthetic truth is reproducible. |
-| Inhibition iteration shows no change | Check which parameter the model should move (competitive -> Km up; noncompetitive -> Vmax down) and that the generator applies it. |
-| Zoo Code edits the wrong file / drifts | Re-attach `AI_CONTEXT.md` + your `background/01_initial_question.md` and restate the current step. |
+| Symptom                                            | Likely cause / fix                                                                                                                 |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `command not found: cookiecutter`                | venv not active or Step 0 skipped. Run`source .venv/bin/activate` then `pip install -r requirements.txt`.                      |
+| `No such file or directory: .../.venv/bin/...`   | The venv was deleted/moved. Recreate it:`python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`. |
+| cookiecutter asks to re-download the template      | Normal if you've run it before. Press**Enter** (y).                                                                          |
+| Fit doesn't converge / gives nonsense              | Bad initial guesses. Seed Km near the [S] of half-max and Vmax near the highest observed v.                                        |
+| Fitted Vmax keeps climbing                         | Substrate range doesn't reach saturation. Extend [S] well above Km so the plateau is sampled.                                      |
+| Lineweaver-Burk looks as good as the nonlinear fit | Noise is too low to expose the bias. Increase noise; the reciprocal plot should degrade faster.                                    |
+| Results change every run                           | No fixed random seed. Set and log a seed so the synthetic truth is reproducible.                                                   |
+| Inhibition iteration shows no change               | Check which parameter the model should move (competitive -> Km up; noncompetitive -> Vmax down) and that the generator applies it. |
+| Zoo Code edits the wrong file / drifts             | Re-attach`AI_CONTEXT.md` + your `background/01_initial_question.md` and restate the current step.                              |
 
 ### Zoo Code is stuck (an error a retry won't fix)
 
@@ -225,3 +227,4 @@ files hold the context.
    ```
    Tip: if it exists, run `python scripts/compile_for_ai.py` and paste its output
    to hand over the whole trail at once.
+
