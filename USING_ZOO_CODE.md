@@ -18,18 +18,32 @@ experience needed.
 
 ## 2. Sign in / connect
 
+Zoo Code works with any OpenAI-compatible endpoint, so you can use OpenAI,
+Anthropic, OpenRouter, Azure OpenAI, a local server such as Ollama or LM Studio,
+or an institutional gateway. Pick whichever provider you have access to.
+
 1. Click the **Zoo Code** icon in the left sidebar to open its chat panel.
 2. Open Zoo Code settings and set **API Provider** to **OpenAI Compatible**.
-3. Create a PNNL Birthright API key at https://ai-incubator-depot.pnnl.gov/.
-4. Set **API Base URL** to `https://ai-incubator-api.pnnl.gov`.
-5. Paste your API key and select **Model** `gpt-5-birthright` first. If that
-   model is not available for your key, use `gpt-5.5-project`.
+3. Set **API Base URL** to your provider's documented base URL (for example,
+   `https://api.openai.com/v1` for OpenAI). If you use a local server or an
+   institutional gateway, use the base URL it gives you.
+4. Paste an **API Key** from your chosen provider.
+5. Select a **Model**. Choose it by task difficulty (see the next section).
 6. You'll know it's ready when the chat box at the bottom of the panel is active
    and you can type into it.
 
-> **Important URL check:** the `depot` URL is only for creating your API key.
-> Do **not** paste the `depot` URL into the API Base URL field. The API Base URL
-> must be exactly `https://ai-incubator-api.pnnl.gov`.
+### Choosing a model by difficulty
+
+- **Simple / beginner tasks:** a fast, lightweight reasoning model is usually
+  enough. It iterates quickly and costs less.
+- **Intermediate tasks:** a mid-tier model improves multi-step reasoning and
+  code quality.
+- **Advanced tasks (e.g. database-backed or multi-file work):** prefer a larger,
+  stronger reasoning model. Larger models tend to perform better on harder
+  problems.
+
+Start small and step up to a larger model if the assistant struggles. Each
+demo's `DEMO.md` notes the difficulty of that track so you can pick accordingly.
 
 ## 3. Open your project folder
 

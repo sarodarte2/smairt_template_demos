@@ -2,7 +2,7 @@
 
 Differential protein abundance with FDR control
 
-**Author:** Jane Doe (jane.doe@example.com)  
+**Author:** Your Name (you@example.com)
 **Domain:** computational_biology  
 **AI Tool:** roo_zoo
 

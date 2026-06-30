@@ -2,7 +2,7 @@
 
 Computing MW, pI, GRAVY and separating membrane from soluble proteins.
 
-**Author:** John Doe (john.doe@example.com)  
+**Author:** Your Name (you@example.com)
 **Domain:** computational_biology  
 **AI Tool:** roo_zoo
 

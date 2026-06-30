@@ -2,7 +2,7 @@
 
 Artemis II free-return trajectory
 
-**Author:** Jane Doe
+**Author:** Your Name (you@example.com)
 **Domain:** physics  
 **AI Tool:** roo_zoo
 

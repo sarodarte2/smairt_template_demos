@@ -2,7 +2,7 @@
 
 Learning a planted protein sequence grammar with a nano masked language model
 
-**Author:** John Doe (johndoe@example.com)  
+**Author:** Your Name (you@example.com)
 **Domain:** computational_biology  
 **AI Tool:** roo_zoo
 

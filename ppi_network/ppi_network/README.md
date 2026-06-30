@@ -2,7 +2,7 @@
 
 Finding hubs and communities in a protein interaction network.
 
-**Author:** John Doe (john.doe@example.com)  
+**Author:** Your Name (you@example.com)
 **Domain:** computational_biology  
 **AI Tool:** roo_zoo
 
