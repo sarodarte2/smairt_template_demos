@@ -1,0 +1,48 @@
+============================================================
+Script: script_01_synthetic_validation
+Timestamp: 2026-06-29T12:51:28.525361
+Hypothesis: baseline hub & community recovery in synthetic network
+============================================================
+
+--- NETWORK GENERATION ---
+Nodes: 153
+Edges: 1297
+Planted hubs: [150, 151, 152]
+Planted communities: 3 modules of 50 nodes each (total 150 community nodes)
+
+Average Degree: 16.95
+Max Degree: 40
+  - Hub 150 degree: 40
+  - Hub 151 degree: 40
+  - Hub 152 degree: 40
+Average Non-Hub Degree: 16.49
+
+--- HUB RECOVERY EVALUATION ---
+Degree Centrality Top 3:
+  1. Node 150 (Centrality: 0.2632)
+  2. Node 151 (Centrality: 0.2632)
+  3. Node 152 (Centrality: 0.2632)
+Degree Centrality Precision@3: 1.00
+Degree Centrality Recall@3: 1.00
+
+Betweenness Centrality Top 3:
+  1. Node 151 (Centrality: 0.0735)
+  2. Node 150 (Centrality: 0.0720)
+  3. Node 152 (Centrality: 0.0704)
+Betweenness Centrality Precision@3: 1.00
+Betweenness Centrality Recall@3: 1.00
+
+--- COMMUNITY RECOVERY EVALUATION ---
+Number of communities detected: 3
+Adjusted Rand Index (ARI): 1.0000
+Normalized Mutual Information (NMI): 1.0000
+
+--- GENERATING VISUALIZATION ---
+Saved visualization to /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/ppi_network/ppi_network/results/figures/script_01_synthetic_validation_network.png (and .pdf)
+
+--- SANITY CHECKS ---
+All assertions passed!
+
+============================================================
+=== COMPLETE ===
+============================================================

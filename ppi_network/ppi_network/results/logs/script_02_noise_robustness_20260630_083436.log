@@ -1,0 +1,29 @@
+============================================================
+Script: script_02_noise_robustness
+Timestamp: 2026-06-30T08:34:36.111626
+Hypothesis: Robustness of recovery under random edge rewiring noise
+============================================================
+
+Running robustness sweep across 11 noise levels, 5 trials each.
+Noise Levels: [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+
+Noise: 0.00 | Deg P: 1.000±0.00 | Bet P: 1.000±0.00 | ARI: 1.000±0.00 | NMI: 1.000±0.00
+Noise: 0.05 | Deg P: 1.000±0.00 | Bet P: 1.000±0.00 | ARI: 0.996±0.01 | NMI: 0.994±0.01
+Noise: 0.10 | Deg P: 1.000±0.00 | Bet P: 1.000±0.00 | ARI: 0.988±0.02 | NMI: 0.982±0.02
+Noise: 0.15 | Deg P: 0.933±0.13 | Bet P: 0.933±0.13 | ARI: 0.988±0.02 | NMI: 0.982±0.02
+Noise: 0.20 | Deg P: 0.933±0.13 | Bet P: 1.000±0.00 | ARI: 0.976±0.01 | NMI: 0.966±0.02
+Noise: 0.25 | Deg P: 0.867±0.16 | Bet P: 0.867±0.16 | ARI: 0.968±0.02 | NMI: 0.954±0.03
+Noise: 0.30 | Deg P: 1.000±0.00 | Bet P: 1.000±0.00 | ARI: 0.922±0.04 | NMI: 0.906±0.04
+Noise: 0.35 | Deg P: 0.667±0.21 | Bet P: 0.733±0.25 | ARI: 0.916±0.09 | NMI: 0.903±0.08
+Noise: 0.40 | Deg P: 0.800±0.16 | Bet P: 0.800±0.16 | ARI: 0.850±0.03 | NMI: 0.818±0.02
+Noise: 0.45 | Deg P: 0.667±0.30 | Bet P: 0.667±0.21 | ARI: 0.829±0.05 | NMI: 0.800±0.06
+Noise: 0.50 | Deg P: 0.467±0.16 | Bet P: 0.533±0.16 | ARI: 0.556±0.14 | NMI: 0.551±0.13
+
+Saved CSV results to: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/ppi_network/ppi_network/results/results_noise_robustness.csv
+Saved robustness plot to: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/ppi_network/ppi_network/results/figures/script_02_noise_robustness_metrics.png (and .pdf)
+
+All assertions passed!
+
+============================================================
+=== COMPLETE ===
+============================================================

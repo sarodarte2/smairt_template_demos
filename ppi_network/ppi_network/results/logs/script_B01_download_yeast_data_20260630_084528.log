@@ -1,0 +1,31 @@
+============================================================
+Script: script_B01_download_yeast_data
+Timestamp: 2026-06-30T08:45:28.686806
+Yeast PPI Benchmarking Data Acquirer
+============================================================
+
+Attempting to fetch Yeast interactions from STRING API...
+Querying STRING API: https://string-db.org/api/tsv/network?identifiers=RPL3%0dRPL4%0dRPS3%0dRPS4%0dHTA1%0dHTB1%0dHHO1%0dACT1%0dMYO2%0dCOF1&species=4932&caller_identity=smairt_pipeline
+Successfully downloaded data from STRING!
+
+--- DOWNLOADED DATA STATS ---
+Total Unique Interactions: 15
+Data Source: STRING_API
+Output Path: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/ppi_network/ppi_network/data/downloaded/yeast_ppi.csv
+
+First 10 Interactions:
+  p1   p2  score  p1_essential  p2_essential       module     source
+HTB1 ACT1  818.0         False          True   Background STRING_API
+HTB1 HHO1  987.0         False         False    Chromatin STRING_API
+HTB1 HTA1  999.0         False         False    Chromatin STRING_API
+HTA1 ACT1  532.0         False          True   Background STRING_API
+HTA1 HHO1  978.0         False         False    Chromatin STRING_API
+ACT1 RPL3  492.0          True          True   Background STRING_API
+ACT1 HHO1  542.0          True         False   Background STRING_API
+ACT1 RPS3  642.0          True          True   Background STRING_API
+ACT1 RPS2  683.0          True         False   Background STRING_API
+ACT1 MYO2  998.0          True          True Cytoskeleton STRING_API
+
+============================================================
+=== COMPLETE ===
+============================================================

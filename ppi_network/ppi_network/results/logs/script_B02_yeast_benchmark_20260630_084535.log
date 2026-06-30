@@ -1,0 +1,35 @@
+============================================================
+Script: script_B02_yeast_benchmark
+Timestamp: 2026-06-30T08:45:35.186877
+Hypothesis: biological hub and community recovery in Yeast PPI networks
+============================================================
+
+--- LOAD & PREPROCESS YEAST DATA ---
+Unique Proteins (Nodes): 9
+High-Confidence Interactions (Edges): 9
+Essential Genes in network: ['ACT1', 'COF1', 'MYO2', 'RPL3', 'RPS3']
+
+--- BIOLOGICAL HUB EVALUATION ---
+Degree Centrality Top 3:
+  1. Gene HTB1 (NON-ESSENTIAL | Centrality: 0.3750)
+  2. Gene ACT1 (ESSENTIAL | Centrality: 0.3750)
+  3. Gene HHO1 (NON-ESSENTIAL | Centrality: 0.2500)
+Degree Centrality Precision@3: 0.33
+Degree Centrality Recall@3: 0.20
+
+Betweenness Centrality Top 3:
+  1. Gene ACT1 (ESSENTIAL | Centrality: 0.2500)
+  2. Gene HTB1 (NON-ESSENTIAL | Centrality: 0.2143)
+  3. Gene HHO1 (NON-ESSENTIAL | Centrality: 0.0000)
+Betweenness Centrality Precision@3: 0.33
+Betweenness Centrality Recall@3: 0.20
+
+--- BIOLOGICAL COMMUNITY EVALUATION ---
+Number of communities detected: 3
+Adjusted Rand Index (ARI): 1.0000
+Normalized Mutual Information (NMI): 1.0000
+
+--- GENERATING VISUALIZATION ---
+Saved Yeast network plot to /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/ppi_network/ppi_network/results/figures/script_B02_yeast_benchmark_yeast.png (and .pdf)
+
+--- SANITY CHECKS ---
