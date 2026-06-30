@@ -128,27 +128,7 @@ These extend the collection beyond the six core showcase demos.
 - Pick **HVP** if you want a more realistic database-backed analysis.
 - Pick **Protein Language Model** if you are up for an advanced challange.
 - Pick **Bring Your Own Problem** if you already have a research idea.
-
----
-
-## How a participant actually uses this repo
-
-```mermaid
-flowchart TD
-    A[Choose a demo track] --> B[Read the track DEMO guide]
-    B --> C[Create a virtual environment]
-    C --> D[Install requirements]
-    D --> E[Generate a fresh SMAIRT project with Cookiecutter]
-    E --> F[Copy the background question into the new project]
-    F --> G[Configure Zoo Code]
-    G --> H[Prime the AI with project context files]
-    H --> I[Ask for one focused experiment]
-    I --> J[Review the proposed code]
-    J --> K[Run it]
-    K --> L[Interpret and log what happened]
-    L --> M[Start the next iteration]
-```
-
+  
 ---
 
 ## Quick start
