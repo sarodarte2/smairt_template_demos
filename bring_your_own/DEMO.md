@@ -4,6 +4,26 @@
 
 **You build:** everything, on your own question, using SMAIRT.
 
+---
+
+## Background / Why this matters
+
+The other demos in this collection hand you a ready-made scientific question. This
+track is different: **you supply the question**, from your own research, coursework,
+or curiosity, and SMAIRT gives you the scaffolding and guardrails to attack it with
+an AI assistant.
+
+You do not need a polished project or even data to start. What you need is a
+question that can be made **computable** (a machine can produce evidence about it),
+**evaluable** (you can tell whether an answer is good), **bounded** (small enough
+for one iteration), and **honest** (its assumptions and limits are stated). The
+[`QUESTION_WORKSHEET.md`](QUESTION_WORKSHEET.md) walks you through shaping any rough
+idea into that form. If you have no data yet, the recommended move - just like every
+other demo here - is to **start synthetic**: generate data with a known, built-in
+answer so you can confirm your method works before trusting it on real data.
+
+---
+
 ### Key terms
 
 - **SMAIRT loop:** hypothesis, ask AI for code, review, run, interpret, log, then

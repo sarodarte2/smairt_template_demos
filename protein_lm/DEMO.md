@@ -14,6 +14,23 @@ computational biology / ML problem that stays scientifically checkable.
 
 ---
 
+## Background / Why this matters
+
+**The field:** **Language models** (the technology behind tools like ChatGPT)
+learn patterns by predicting missing or next words in text. Biologists have
+borrowed the same idea for **proteins**: an amino-acid sequence is treated like a
+sentence, and a **protein language model (PLM)** learns which "letters" (amino
+acids) tend to occur together. Big PLMs like ESM now help predict protein
+structure and function.
+
+**The core idea:** you train the model by hiding some amino acids and asking it to
+fill in the blanks (**masked language modeling**). If the model has genuinely
+learned the "grammar" of the sequences, it will predict the hidden residues far
+better than simply guessing the most common amino acid, and it will be especially
+good at **conserved motifs** - short patterns that recur across related proteins.
+
+---
+
 ## The question
 
 Can a **nano masked-language model** trained on synthetic protein-like sequences

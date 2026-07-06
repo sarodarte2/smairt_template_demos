@@ -161,11 +161,12 @@ A good first script does **not** begin by training a transformer immediately.
 It first proves that the synthetic corpus really contains the planted motif,
 correct masking setup, and a baseline the model should beat.
 
-### Example pattern: HVP
+### Example pattern: epidemic modeling (SIRD)
 
-A good first script does **not** start with a complicated multi-join analysis.
-It first verifies the database connection and prints a small, meaningful summary
-from a few key tables.
+A good first script does **not** start by sweeping every parameter and fitting a
+real outbreak curve. It first integrates the SIRD equations for one scenario and
+verifies that the population is conserved (S + I + R + D = N) with sensible,
+non-negative curves, before varying R0 in later scripts.
 
 ---
 

@@ -14,6 +14,23 @@ problem you can iterate on.
 
 ---
 
+## Background / Why this matters
+
+**The field:** Enzymes are the protein catalysts that run the chemistry of life,
+speeding up reactions in your cells by orders of magnitude. **Enzyme kinetics**
+is the study of *how fast* an enzyme works and *how* that speed changes as you
+give it more raw material (substrate). It is one of the oldest and most practical
+corners of biochemistry: it underlies drug design (many drugs are enzyme
+inhibitors), metabolic engineering, and clinical diagnostics.
+
+**The core idea in one picture:** if you feed an enzyme more and more substrate,
+its reaction rate climbs quickly at first, then levels off. It cannot go faster
+than a maximum speed set by how much enzyme is present. Two numbers capture this
+curve: **Vmax** (the top speed) and **Km** (how much substrate you need to reach
+half of that top speed, a proxy for how tightly the enzyme grabs its substrate).
+
+---
+
 ## The question
 
 Given measurements of reaction velocity (v) at several substrate concentrations

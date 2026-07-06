@@ -14,6 +14,24 @@ that lets you iterate a few times.
 
 ---
 
+## Background / Why this matters
+
+**The field:** In **proteomics**, a common experiment measures how much of each
+protein is present in two conditions - say, cells with a drug (**treated**)
+versus without it (**control**) - across thousands of proteins at once. The goal
+is to find which proteins genuinely change, a task called **differential
+abundance analysis**. The same statistical machinery is used across genomics,
+transcriptomics, and much of modern biology.
+
+**The core idea:** for each protein you run a statistical test asking "is the
+difference between conditions bigger than random noise?" The catch: when you test
+*thousands* of proteins at once, some will look "significant" by pure chance. So
+you must correct for **multiple testing** (the Benjamini-Hochberg / FDR
+procedure) to keep the fraction of false discoveries under control. A **volcano
+plot** then shows which proteins are both strongly and reliably changed.
+
+---
+
 ## The question
 
 Given a two-condition protein-abundance matrix (e.g. **treated vs. control**),

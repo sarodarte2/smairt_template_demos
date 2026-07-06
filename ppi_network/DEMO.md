@@ -14,6 +14,23 @@ biology problem you can iterate on.
 
 ---
 
+## Background / Why this matters
+
+**The field:** Proteins rarely work alone; they physically bind and cooperate
+with other proteins to do their jobs. Map every such interaction and you get a
+**protein-protein interaction (PPI) network** - a graph where each protein is a
+dot (node) and each interaction is a line (edge). This is a cornerstone of
+**systems biology**, used to find disease genes, drug targets, and the machinery
+of the cell.
+
+**The core idea:** networks have structure you can measure. Some proteins have
+far more partners than others - **hubs** - and are often essential to the cell.
+Proteins also cluster into **modules (communities)**: tight-knit groups that talk
+mostly among themselves, usually because they share a pathway or form a complex.
+Standard graph algorithms claim to find these hubs and modules automatically.
+
+---
+
 ## The question
 
 In a protein-protein interaction network, can standard graph methods reliably

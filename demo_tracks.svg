@@ -116,14 +116,14 @@
   <text x="50" y="479" class="bp">• Motif recovery and family embeddings</text>
   <text x="50" y="506" class="rp">repo: protein_lm</text>
 
-  <!-- Card 8: HVP (Advanced) -->
-  <rect x="382" y="396" width="332" height="143" rx="10" class="ca"/>
-  <text x="394" y="421" class="ct">🦠 Human Virome Project</text>
-  <rect x="394" y="428" width="66" height="14" rx="7" class="pa"/>
-  <text x="427" y="438" text-anchor="middle" class="lg ta">ADVANCED</text>
-  <text x="394" y="461" class="bp">• Phage-host links, evidence, geography</text>
-  <text x="394" y="479" class="bp">• PostgreSQL database, richest infrastructure</text>
-  <text x="394" y="506" class="rp">repo: hvp</text>
+  <!-- Card 8: Epidemic Modeling (Intermediate) -->
+  <rect x="382" y="396" width="332" height="143" rx="10" class="ci"/>
+  <text x="394" y="421" class="ct">🦠 Epidemic Modeling (SIRD)</text>
+  <rect x="394" y="428" width="88" height="14" rx="7" class="pi"/>
+  <text x="438" y="438" text-anchor="middle" class="lg ti">INTERMEDIATE</text>
+  <text x="394" y="461" class="bp">• Infection, recovery, death ODEs</text>
+  <text x="394" y="479" class="bp">• Population conserved, R0-driven outbreak</text>
+  <text x="394" y="506" class="rp">repo: epidemic_sird</text>
 
   <!-- Card 9: Bring your own (Flexible) -->
   <rect x="726" y="396" width="332" height="143" rx="10" class="cf"/>

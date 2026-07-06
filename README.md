@@ -117,7 +117,7 @@ These extend the collection beyond the six core showcase demos.
 
 | Track                  | Domain                          | Difficulty | Data style      | Notes                                                                                                                  | Start here                                        |
 | ---------------------- | ------------------------------- | ---------- | --------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| Human Virome Project   | Database biology / metagenomics | Advanced   | Real database   | Uses PostgreSQL or a SQLite export; more infrastructure-heavy but scientifically rich                                  | [`hvp/DEMO.md`](hvp/DEMO.md)                       |
+| Epidemic Modeling (SIRD) | Mathematics / epidemiology    | Intermediate | Synthetic first | Models infection/recovery/death with the SIRD ODEs; checks population conservation and R0-driven outbreak growth       | [`epidemic_sird/DEMO.md`](epidemic_sird/DEMO.md)   |
 | Protein language model | Computational biology / ML      | Advanced   | Synthetic first | Nano masked-language-model demo with planted motifs, masked-token baselines, and optional family-separation embeddings | [`protein_lm/DEMO.md`](protein_lm/DEMO.md)         |
 | Bring your own problem | Any scientific domain           | Flexible   | Your choice     | Best if you already have a question and want the SMAIRT scaffold plus guardrails                                       | [`bring_your_own/DEMO.md`](bring_your_own/DEMO.md) |
 
@@ -125,7 +125,7 @@ These extend the collection beyond the six core showcase demos.
 
 - Pick **Lunar**, **Enzyme Kinetics**, or **Peptide Digestion** if you want the fastest setup.
 - Pick **Protein Properties**, **Differential Abundance**, or **PPI Network** if you want a biology-first showcase with a few natural iterations.
-- Pick **HVP** if you want a more realistic database-backed analysis.
+- Pick **Epidemic Modeling (SIRD)** if you want a math / epidemiology track modeling an outbreak over time.
 - Pick **Protein Language Model** if you are up for an advanced challange.
 - Pick **Bring Your Own Problem** if you already have a research idea.
 
@@ -203,8 +203,8 @@ Match the model to the difficulty of the track you picked:
 | Track difficulty             | Suggested model tier                                                    |
 | ---------------------------- | ----------------------------------------------------------------------- |
 | Beginner (Lunar, Enzyme, Peptide) | A fast, lightweight reasoning model. It iterates quickly and costs less. |
-| Intermediate (Protein Properties, Differential Abundance, PPI) | A mid-tier model for stronger multi-step reasoning and code quality. |
-| Advanced (HVP, Protein LM)   | A larger, stronger reasoning model. Larger models tend to perform better on harder, multi-file, or database-heavy problems. |
+| Intermediate (Protein Properties, Differential Abundance, PPI, Epidemic Modeling) | A mid-tier model for stronger multi-step reasoning and code quality. |
+| Advanced (Protein LM)        | A larger, stronger reasoning model. Larger models tend to perform better on harder, multi-file problems. |
 | Flexible (Bring Your Own)    | Match the model to your problem's complexity.                            |
 
 Start small and step up to a larger model if the assistant struggles.
@@ -250,7 +250,7 @@ The completed lunar example shows what a multi-iteration trail can look like, bu
 | [`proteomics_de/`](proteomics_de/DEMO.md)             | Differential-abundance statistics demo                            |
 | [`ppi_network/`](ppi_network/DEMO.md)                 | Graph-based biology demo                                          |
 | [`protein_lm/`](protein_lm/DEMO.md)                   | Nano protein language model demo with synthetic grammar recovery  |
-| [`hvp/`](hvp/DEMO.md)                                 | Database-backed virome demo                                       |
+| [`epidemic_sird/`](epidemic_sird/DEMO.md)             | Math / epidemiology demo (SIRD infection-recovery-death model)    |
 | [`bring_your_own/`](bring_your_own/DEMO.md)           | Flexible worksheet-driven custom-project entry point              |
 | [`FIRST_SCRIPT_GUIDE.md`](FIRST_SCRIPT_GUIDE.md)      | Shared beginner guide for choosing a strong first SMAIRT script   |
 | [`../smairt-template/`](../smairt-template/README.md) | The canonical SMAIRT Cookiecutter framework                       |

@@ -14,6 +14,26 @@ biochemistry problem you can iterate on.
 
 ---
 
+## Background / Why this matters
+
+**The field:** A protein is a chain of **amino acids**, and that sequence alone
+determines many of the protein's basic physical properties. **Protein
+biochemistry** lets you predict useful numbers straight from the sequence, with
+no experiment: how heavy the protein is (**molecular weight, MW**), the pH at
+which it carries no net charge (**isoelectric point, pI**), and how
+water-loving or water-fearing it is on average (**GRAVY**, a hydrophobicity
+score). Researchers use these constantly when planning experiments and
+interpreting data.
+
+**The core idea:** these properties come from simple, well-established formulas -
+sum up residue masses, solve a charge-versus-pH curve, average a hydrophobicity
+scale. A neat payoff is that hydrophobicity carries biological signal:
+**membrane** proteins, which sit in oily cell membranes, are more hydrophobic
+than **soluble** proteins that float in water. So a simple threshold or classifier
+on GRAVY should be able to tell the two apart.
+
+---
+
 ## The question
 
 From an amino-acid sequence alone, can we compute **MW, pI, and GRAVY**

@@ -12,6 +12,22 @@ to go from a question to an answer with an AI assistant.
 
 ---
 
+## Background / Why this matters
+
+**The field:** This is **orbital mechanics** (astrodynamics) - the physics of how
+spacecraft move under gravity. It is the math NASA uses to plan every mission to
+the Moon, including **Artemis II**, the crewed flight that will loop around the
+Moon and return.
+
+**The core idea:** a spacecraft in a low orbit around Earth fires its engine once
+(the **trans-lunar injection**, or TLI, burn) to fling itself toward the Moon. If
+the aim and speed are just right, the Moon's gravity bends the path around the far
+side and slings the craft *back* to Earth with **no further engine burns** - a
+**free-return** trajectory. This is exactly the safety feature that brought the
+Apollo 13 crew home after their spacecraft was crippled.
+
+---
+
 ## The question
 
 Can you find a **Trans-Lunar Injection (TLI) burn** from a low-Earth parking orbit that produces a

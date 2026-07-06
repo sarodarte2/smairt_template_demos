@@ -14,6 +14,23 @@ exactly-checkable biology problem.
 
 ---
 
+## Background / Why this matters
+
+**The field:** **Proteomics** is the large-scale study of the proteins in a cell,
+tissue, or organism. The workhorse instrument is the **mass spectrometer**, which
+weighs molecules with extraordinary precision. But a whole protein is usually too
+big to measure directly, so scientists first chop it into small pieces called
+**peptides** using a protein-cutting enzyme, then weigh those.
+
+**The core idea:** the standard "molecular scissors" is **trypsin**, and it cuts
+by a simple, near-deterministic rule: snip the chain right after the amino acids
+K (lysine) or R (arginine) - *unless* the next amino acid is P (proline). Knowing
+this rule, you can predict, purely on a computer ("in silico"), exactly which
+peptides a given protein will produce. Then you can predict each peptide's mass
+and ask which ones fall in the range a mass spectrometer can actually detect.
+
+---
+
 ## The question
 
 For a given protein sequence, what set of peptides does **trypsin** produce, and
