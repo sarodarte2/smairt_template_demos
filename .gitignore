@@ -1,1 +1,7 @@
 .DS_Store
+# GSVA resources are downloaded from Figshare by hvp/download_hvp_gsva_resources.sh.
+# Keep the directory placeholder, but do not commit downloaded GSVA data or archives.
+hvp/build/resource/GSVA/*
+!hvp/build/resource/GSVA/.gitkeep
+enzyme_kinetics/enzyme_kinetics/
+
