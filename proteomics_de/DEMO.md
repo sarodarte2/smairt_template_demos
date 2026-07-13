@@ -126,9 +126,10 @@ Full context, hypothesis, and metrics are in
    - Use **API Base URL**: your provider's documented base URL (for example,
      `https://api.openai.com/v1` for OpenAI).
    - Paste an **API Key** from your chosen provider.
-   - Select a **Model** by difficulty. This is an **intermediate** track, so a
-     mid-tier reasoning model is a good default for the statistics and
-     multiple-testing steps. Step up to a larger model if the assistant struggles.
+   - Select a **Model** by difficulty. This is an **advanced** track, so prefer a
+     larger, stronger reasoning model for the statistics, multiple-testing, and
+     higher-fidelity noise/missingness steps. Larger models tend to perform better
+     on this kind of multi-iteration statistical work.
    >
    > **Markdown preview tip:** press `Cmd+Shift+V` on Mac or `Ctrl+Shift+V` on
    > Windows to render this file in VS Code.

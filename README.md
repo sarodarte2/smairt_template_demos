@@ -108,7 +108,7 @@ These are the main scientist-facing showcase demos for learning the framework.
 | Enzyme kinetics              | Biochemistry            | Beginner                 | Synthetic first                      | Nonlinear fitting, parameter recovery, noisy-data interpretation     | [`enzyme_kinetics/DEMO.md`](enzyme_kinetics/DEMO.md)       |
 | Peptide digestion            | Proteomics              | Beginner                 | Synthetic first                      | Rule-based biology, exact validation, observable peptide filtering   | [`peptide_digest/DEMO.md`](peptide_digest/DEMO.md)         |
 | Protein sequence properties  | Protein biochemistry    | Beginner to intermediate | Synthetic first, optional real later | MW, pI, GRAVY, thresholding, simple classification                   | [`protein_properties/DEMO.md`](protein_properties/DEMO.md) |
-| Differential abundance       | Quantitative proteomics | Intermediate             | Synthetic first, optional real later | Statistics, multiple testing, planted truth, false discovery control | [`proteomics_de/DEMO.md`](proteomics_de/DEMO.md)           |
+| Differential abundance       | Quantitative proteomics | Advanced                 | Synthetic first, optional real later | Statistics, multiple testing, planted truth, false discovery control | [`proteomics_de/DEMO.md`](proteomics_de/DEMO.md)           |
 | Protein interaction networks | Network biology         | Intermediate             | Synthetic first                      | Graph analysis, centrality, communities, planted structure recovery  | [`ppi_network/DEMO.md`](ppi_network/DEMO.md)               |
 
 ### Extended tracks
@@ -124,9 +124,9 @@ These extend the collection beyond the six core showcase demos.
 ### Track Selection Guide
 
 - Pick **Lunar**, **Enzyme Kinetics**, or **Peptide Digestion** if you want the fastest setup.
-- Pick **Protein Properties**, **Differential Abundance**, or **PPI Network** if you want a biology-first showcase with a few natural iterations.
+- Pick **Protein Properties** or **PPI Network** if you want a biology-first showcase with a few natural iterations.
 - Pick **Epidemic Modeling (SIRD)** if you want a math / epidemiology track modeling an outbreak over time.
-- Pick **Protein Language Model** if you are up for an advanced challange.
+- Pick **Differential Abundance** or **Protein Language Model** if you are up for an advanced challange.
 - Pick **Bring Your Own Problem** if you already have a research idea.
   
 ---
@@ -183,8 +183,8 @@ Match the model to the difficulty of the track you picked:
 | Track difficulty             | Suggested model tier                                                    |
 | ---------------------------- | ----------------------------------------------------------------------- |
 | Beginner (Lunar, Enzyme, Peptide) | A fast, lightweight reasoning model. It iterates quickly and costs less. |
-| Intermediate (Protein Properties, Differential Abundance, PPI, Epidemic Modeling) | A mid-tier model for stronger multi-step reasoning and code quality. |
-| Advanced (Protein LM)        | A larger, stronger reasoning model. Larger models tend to perform better on harder, multi-file problems. |
+| Intermediate (Protein Properties, PPI, Epidemic Modeling) | A mid-tier model for stronger multi-step reasoning and code quality. |
+| Advanced (Differential Abundance, Protein LM) | A larger, stronger reasoning model. Larger models tend to perform better on harder, multi-file problems. |
 | Flexible (Bring Your Own)    | Match the model to your problem's complexity.                            |
 
 Start small and step up to a larger model if the assistant struggles.

@@ -76,7 +76,7 @@
   <text x="738" y="169" class="bp">• Sequence rules to observable peptides</text>
   <text x="738" y="196" class="rp">repo: peptide_digest</text>
 
-  <!-- ── ROW 2 (y=241, h=143) ── INTERMEDIATE ── -->
+  <!-- ── ROW 2 (y=241, h=143) ── MIXED ── -->
 
   <!-- Card 4: Protein properties -->
   <rect x="38" y="241" width="332" height="143" rx="10" class="ci"/>
@@ -87,11 +87,11 @@
   <text x="50" y="324" class="bp">• Separate membrane vs soluble proteins</text>
   <text x="50" y="351" class="rp">repo: protein_properties</text>
 
-  <!-- Card 5: Differential abundance -->
-  <rect x="382" y="241" width="332" height="143" rx="10" class="ci"/>
+  <!-- Card 5: Differential abundance (Advanced) -->
+  <rect x="382" y="241" width="332" height="143" rx="10" class="ca"/>
   <text x="394" y="266" class="ct">📊 Differential Abundance</text>
-  <rect x="394" y="273" width="88" height="14" rx="7" class="pi"/>
-  <text x="438" y="283" text-anchor="middle" class="lg ti">INTERMEDIATE</text>
+  <rect x="394" y="273" width="66" height="14" rx="7" class="pa"/>
+  <text x="427" y="283" text-anchor="middle" class="lg ta">ADVANCED</text>
   <text x="394" y="306" class="bp">• Planted fold change, p-values, FDR</text>
   <text x="394" y="324" class="bp">• Multiple testing control in proteomics</text>
   <text x="394" y="351" class="rp">repo: proteomics_de</text>
