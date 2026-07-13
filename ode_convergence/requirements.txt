@@ -1,6 +1,0 @@
-# Math demo: numerical ODE solving and convergence analysis
-# CPU-only, no network needed at runtime (cookiecutter fetches the template once).
-cookiecutter
-numpy
-scipy
-matplotlib
