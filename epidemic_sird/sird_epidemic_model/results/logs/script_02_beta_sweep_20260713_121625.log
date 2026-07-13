@@ -1,0 +1,63 @@
+============================================================
+Script: script_02_beta_sweep
+Timestamp: 2026-07-13T12:16:25.164463
+Hypothesis: Sweeping beta should reveal the R0 = 1 growth/fade threshold and shift infected peaks.
+Log file: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/results/logs/script_02_beta_sweep_20260713_121625.log
+============================================================
+
+Fixed parameters:
+  N = 1000
+  S0 = 999
+  I0 = 1
+  R0 compartment = 0
+  D0 = 0
+  gamma = 0.1000 /day
+  mu = 0.0100 /day
+  gamma + mu = 0.1100 /day
+  beta values = [0.03, 0.06, 0.09, 0.1, 0.11, 0.12, 0.16, 0.2, 0.3, 0.45, 0.6]
+
+Thresholds:
+  Ideal fully susceptible threshold: beta = gamma + mu = 0.110000, R0 = 1.000000
+  Finite-seed initial-growth threshold with S0/N=0.999000:
+    beta > (gamma + mu) * N / S0 = 0.110110
+    equivalent R0 > 1.001001
+
+Credibility criteria:
+  1. Every scenario must conserve S + I + R + D to < 1.0e-06.
+  2. Every scenario must keep compartments >= -1.0e-09.
+  3. Below-threshold scenarios should fade immediately; above-threshold scenarios should grow and peak.
+  4. Peak infected and peak day should be plotted against R0.
+
+Beta sweep results:
+beta    R0_basic  predicted_growth  grew_above_seed  peak_I     peak_day  final_I      final_R_frac  final_D_frac  max_cons_err   min_comp
+------------------------------------------------------------------------------------------------------------------------------------------
+0.030   0.2727    False             False            1.0000     0.00      0.000000     0.1249%       0.0125%       3.411e-13      0.000e+00
+0.060   0.5455    False             False            1.0000     0.00      0.000044     0.1996%       0.0200%       3.411e-13      0.000e+00
+0.090   0.8182    False             False            1.0000     0.00      0.016934     0.4846%       0.0485%       4.547e-13      0.000e+00
+0.100   0.9091    False             False            1.0000     0.00      0.118721     0.8379%       0.0838%       3.411e-13      0.000e+00
+0.110   1.0000    False             False            1.0000     0.00      0.777677     1.8349%       0.1835%       2.274e-13      0.000e+00
+0.120   1.0909    True              True             4.1754     200.00    4.175448     4.9939%       0.4994%       3.411e-13      0.000e+00
+0.160   1.4545    True              True             55.5847    111.00    5.667645     48.7867%      4.8787%       6.821e-13      0.000e+00
+0.200   1.8182    True              True             121.7359   72.00     0.212635     67.2083%      6.7208%       3.411e-13      0.000e+00
+0.300   2.7273    True              True             265.8146   39.50     0.000663     83.4889%      8.3489%       7.958e-13      0.000e+00
+0.450   4.0909    True              True             411.4196   24.00     0.000012     89.2743%      8.9274%       9.095e-13      0.000e+00
+0.600   5.4545    True              True             505.8340   17.50     0.000002     90.5113%      9.0511%       7.958e-13      0.000e+00
+
+Threshold classification check passed for all beta values using finite-seed initial-growth threshold.
+
+Interpretation summary:
+  Below the R0≈1 threshold, infected counts fade immediately and peak at the initial seed.
+  Above the threshold, infected counts rise to a peak and later decline as susceptibles are depleted.
+  Higher beta produces larger infected peaks and earlier peak timing, demonstrating the start of a flatten-the-curve interpretation.
+
+Figures generated:
+  /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/results/figures/script_02_beta_sweep_infected_curves.png
+  /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/results/figures/script_02_beta_sweep_peak_metrics_vs_r0.png
+
+Next experiment direction:
+  Sweep mu to measure how final recovered/deceased split changes with death rate.
+  Compare lower beta scenarios to show flatten-the-curve behavior: lower peak, later peak, and reduced instantaneous burden.
+
+============================================================
+=== COMPLETE ===
+============================================================

@@ -1,0 +1,75 @@
+============================================================
+Script: script_01_single_scenario
+Timestamp: 2026-07-13T12:14:06.020773
+Hypothesis: With R0 > 1, the infected curve should rise to a peak, decline, and conserve total population.
+Log file: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/results/logs/script_01_single_scenario_20260713_121406.log
+============================================================
+
+Parameters used:
+  N = 1000
+  S0 = 999
+  I0 = 1
+  R0 compartment = 0
+  D0 = 0
+  beta = 0.3000 /day
+  gamma = 0.1000 /day
+  mu = 0.0100 /day
+  basic reproduction number R0 = beta / (gamma + mu) = 2.727273
+  integration interval = [0, 160] days
+  evaluation points = 161
+
+Credibility criteria for this first scenario:
+  1. Conservation: max |S + I + R + D - N| < 1.0e-06
+  2. Sensible epidemic shape: because R0 > 1, infected should rise above I0, peak, then decline.
+  3. Final outcome: recovered and deceased should accumulate while infected approaches zero.
+  4. Future scripts will sweep beta to vary R0 across the R0 = 1 threshold.
+
+Initial condition validation passed.
+
+ODE solver completed successfully.
+  Solver message: The solver successfully reached the end of the integration interval.
+  Number of time points returned: 161
+
+Validation metrics:
+  Max conservation error = 7.958078640513e-13
+  Conservation tolerance = 1.000000000000e-06
+  Conservation check passed = True
+  Minimum S value = 8.162661453748e+01
+  Minimum I value = 2.026808144263e-02
+  Minimum R value = 0.000000000000e+00
+  Minimum D value = 0.000000000000e+00
+  Nonnegative tolerance = -1.000000000000e-09
+  Nonnegative compartment check passed = True
+
+Epidemic-shape metrics:
+  Initial infected = 1.000000
+  Peak infected = 265.618355
+  Day of peak infection = 39.00
+  Final infected = 0.020268081443
+  Grows above seed = True
+  Peak occurs after start = True
+  Final infected below peak = True
+
+Final compartment values:
+  S(final) = 81.626615 (8.1627%)
+  I(final) = 0.020268 (0.0020%)
+  R(final) = 834.866470 (83.4866%)
+  D(final) = 83.486647 (8.3487%)
+  Total(final) = 1000.000000
+  Expected D/R ratio = mu/gamma = 0.100000
+  Observed D/R ratio = 0.100000
+  D/R ratio error = 4.163336342344e-17
+
+All core validation checks passed.
+
+Figure generated:
+  /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/results/figures/script_01_single_scenario_sird_curves.png
+
+Next experiment direction:
+  Use this validated solver in script_02_beta_sweep.py to sweep beta values.
+  The sweep should vary R0 = beta / (gamma + mu) across below-threshold and above-threshold regimes.
+  Key outputs should include peak infected count, peak timing, final size, and whether I(t) grows or fades.
+
+============================================================
+=== COMPLETE ===
+============================================================

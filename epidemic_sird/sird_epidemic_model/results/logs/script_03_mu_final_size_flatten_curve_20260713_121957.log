@@ -1,0 +1,68 @@
+============================================================
+Script: script_03_mu_final_size_flatten_curve
+Timestamp: 2026-07-13T12:19:57.755309
+Hypothesis: Mu controls final recovered/deceased split, while lowering beta flattens the infected curve.
+Log file: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/results/logs/script_03_mu_final_size_flatten_curve_20260713_121957.log
+============================================================
+
+Shared setup:
+  N = 1000
+  S0 = 999
+  I0 = 1
+  R0 compartment = 0
+  D0 = 0
+  integration interval = [0, 500] days
+  conservation tolerance = 1.0e-06
+  nonnegative tolerance = -1.0e-09
+
+Experiment A: mu sweep for final recovered/deceased size
+  fixed beta = 0.3000 /day
+  fixed gamma = 0.1000 /day
+  mu values = [0.0, 0.005, 0.01, 0.02, 0.04, 0.06, 0.08]
+
+Mu sweep results:
+mu      R0_basic  peak_I     peak_day  final_S_frac  final_I_frac  final_R_frac  final_D_frac  expected_D/R  observed_D/R  ratio_error   max_cons_err  min_comp
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+0.000   3.0000    300.7678   38.50     5.9448%       0.000000%     94.0552%      0.0000%       0.000000     0.000000     0.000e+00     1.364e-12     -1.785e-14
+0.005   2.8571    282.8915   39.00     7.0098%       0.000000%     88.5621%      4.4281%       0.050000     0.050000     2.082e-17     6.821e-13     0.000e+00
+0.010   2.7273    265.8146   39.50     8.1621%       0.000000%     83.4890%      8.3489%       0.100000     0.100000     8.327e-17     7.958e-13     0.000e+00
+0.020   2.5000    233.8734   40.50     10.7209%      0.000000%     74.3993%      14.8799%      0.200000     0.200000     1.110e-16     5.684e-13     -1.667e-13
+0.040   2.1429    178.1285   43.50     16.7983%      0.000000%     59.4298%      23.7719%      0.400000     0.400000     2.220e-16     1.023e-12     -3.294e-13
+0.060   1.8750    131.9374   47.00     24.0488%      0.000000%     47.4695%      28.4817%      0.600000     0.600000     4.441e-16     4.547e-13     -3.071e-13
+0.080   1.6667    94.0947    51.50     32.3539%      0.000000%     37.5812%      30.0649%      0.800000     0.800000     8.882e-16     1.364e-12     0.000e+00
+
+Final deceased fraction non-decreasing across tested mu values = True
+
+Experiment B: flatten-the-curve beta comparison
+  fixed gamma = 0.1000 /day
+  fixed mu = 0.0100 /day
+  beta values = [0.12, 0.16, 0.2, 0.3]
+
+Flatten-the-curve comparison:
+beta    R0_basic  peak_I     peak_day  final_R_frac  final_D_frac  max_cons_err  min_comp
+-----------------------------------------------------------------------------------------
+0.120   1.0909    4.4900     249.50    14.4606%      1.4461%       3.411e-13     0.000e+00
+0.160   1.4545    55.5847    111.00    50.2922%      5.0292%       6.821e-13     0.000e+00
+0.200   1.8182    121.7359   72.00     67.2450%      6.7245%       4.547e-13     0.000e+00
+0.300   2.7273    265.8146   39.50     83.4890%      8.3489%       7.958e-13     0.000e+00
+
+Peak infected increases with beta = True
+Peak day shifts earlier as beta increases = True
+
+Interpretation summary:
+  Increasing mu shifts a larger fraction of removed individuals into the deceased compartment.
+  The observed final D/R ratio matches mu/gamma for every mu value tested.
+  Lowering beta flattens the curve by reducing the infected peak and delaying peak timing.
+  Scientific judgment call: prioritize lowering beta first because it directly reduces simultaneous infections and hospital burden; shortening infectious period also lowers R0 but requires rapid detection/isolation/treatment capacity.
+
+Figures generated:
+  /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/results/figures/script_03_mu_final_size_flatten_curve_mu_final_size.png
+  /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/results/figures/script_03_mu_final_size_flatten_curve_flatten_curve_beta_comparison.png
+
+Next experiment direction:
+  Move from synthetic validation to downloaded/real data: fit beta, gamma, and mu to a small published outbreak time series.
+  Report estimated R0 with uncertainty and clearly state SIRD limitations: closed population, homogeneous mixing, fixed rates, no latent period, no interventions, and observation/reporting noise.
+
+============================================================
+=== COMPLETE ===
+============================================================

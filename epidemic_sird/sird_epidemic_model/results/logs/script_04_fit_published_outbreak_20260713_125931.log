@@ -1,0 +1,72 @@
+============================================================
+Script: script_04_fit_published_outbreak
+Timestamp: 2026-07-13T12:59:31.478115
+Hypothesis: SIRD can fit an early downloaded COVID-19 curve, but uncertainty and limitations will be substantial.
+Log file: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/results/logs/script_04_fit_published_outbreak_20260713_125931.log
+============================================================
+
+Data source:
+  Johns Hopkins University CSSE COVID-19 global time series
+  Base URL: https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series
+  Cache directory: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/data/downloaded/covid19_jhu
+
+Downloading confirmed data from: https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv
+  Saved to: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/data/downloaded/covid19_jhu/time_series_covid19_confirmed_global.csv
+Downloading deaths data from: https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv
+  Saved to: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/data/downloaded/covid19_jhu/time_series_covid19_deaths_global.csv
+Downloading recovered data from: https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv
+  Saved to: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/data/downloaded/covid19_jhu/time_series_covid19_recovered_global.csv
+Selected fitting window:
+  Country = Italy
+  Population used as closed SIRD N = 60461826
+  Start date = 2020-02-23
+  End date = 2020-04-22
+  Window length = 60 days
+  Start confirmed = 155
+  Start active = 150
+  Start recovered = 2
+  Start deaths = 3
+  End confirmed = 187327
+  End active = 107699
+  End recovered = 54543
+  End deaths = 25085
+  Provenance file = /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/data/downloaded/covid19_jhu/italy_provenance.txt
+
+Fitting SIRD parameters with bounded least squares on log active/recovered/deaths...
+  Optimizer success = True
+  Optimizer message = `ftol` termination condition is satisfied.
+  beta = 0.23081955 /day
+  gamma = 0.05206253 /day
+  mu = 0.03663978 /day
+  R0 = beta / (gamma + mu) = 2.60218185
+  log-scale RMSE = 1.035406
+  Max conservation error = 5.960464477539e-08
+  Minimum fitted compartment value = 2.000000000000e+00
+
+Estimating uncertainty with residual bootstrap...
+  Bootstrap progress: 10/60 attempted; 10 successful
+  Bootstrap progress: 20/60 attempted; 20 successful
+  Bootstrap progress: 30/60 attempted; 30 successful
+  Bootstrap progress: 40/60 attempted; 40 successful
+  Bootstrap progress: 50/60 attempted; 50 successful
+  Bootstrap progress: 60/60 attempted; 60 successful
+  Bootstrap successful fits = 60 / 60
+Bootstrap percentile intervals (2.5%, 50%, 97.5%):
+  beta:  0.23530088, 0.25620280, 0.28774245
+  gamma: 0.06164448, 0.07655121, 0.09974708
+  mu:    0.03872071, 0.05049627, 0.06706978
+  R0:    1.74888496, 2.00616651, 2.28267311
+
+Figures generated:
+  /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/results/figures/script_04_fit_published_outbreak_fit.png
+  /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/epidemic_sird/sird_epidemic_model/results/figures/script_04_fit_published_outbreak_residuals_uncertainty.png
+
+Limitations to carry into analysis:
+  - Reported confirmed/recovered/deaths are not true SIRD compartments.
+  - Testing policy, reporting delays, interventions, and undercounting changed over time.
+  - The model assumes fixed rates, homogeneous mixing, closed population, no latency, and no reinfection.
+  - Fitted beta/gamma/mu should be interpreted as effective parameters for this selected window only.
+
+============================================================
+=== COMPLETE ===
+============================================================
