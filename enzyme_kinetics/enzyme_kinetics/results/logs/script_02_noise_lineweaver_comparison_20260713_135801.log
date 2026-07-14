@@ -1,0 +1,54 @@
+============================================================
+Script: script_02_noise_lineweaver_comparison
+Timestamp: 2026-07-13T13:58:01.251454
+Hypothesis: Increasing measurement noise reveals larger Lineweaver-Burk recovery bias than direct nonlinear Michaelis-Menten fitting.
+============================================================
+
+=== PLANTED PARAMETERS AND EXPERIMENT DESIGN ===
+True Vmax: 100
+True Km: 5
+Substrate range: 0.5 to 50
+Substrate points: 12
+Noise levels: ['0%', '3%', '10%', '20%', '40%']
+Replicates per noise level: 50
+Base random seed: 2048
+Nonlinear initial guess [Vmax, Km]: [90.0, 4.0]
+Credible recovery threshold: <= 10.0% median relative error for both Km and Vmax
+
+=== SUMMARY BY METHOD AND NOISE LEVEL ===
+noise	method	valid/total	invalid%	median_Vmax_err	median_Km_err	median_R2	credible
+    0%	nonlinear       	50/50	   0.00%	         0.000%	       0.000%	  1.00000	True
+    0%	lineweaver_burk 	50/50	   0.00%	         0.000%	       0.000%	  1.00000	True
+    3%	nonlinear       	50/50	   0.00%	         1.093%	       3.732%	  0.99776	True
+    3%	lineweaver_burk 	50/50	   0.00%	         2.328%	       3.113%	  0.99662	True
+   10%	nonlinear       	50/50	   0.00%	         5.000%	      12.666%	  0.97462	False
+   10%	lineweaver_burk 	50/50	   0.00%	         7.880%	       8.856%	  0.95395	True
+   20%	nonlinear       	50/50	   0.00%	        11.064%	      25.296%	  0.89899	False
+   20%	lineweaver_burk 	50/50	   0.00%	        16.635%	      23.219%	  0.80635	False
+   40%	nonlinear       	50/50	   0.00%	        21.212%	      33.566%	  0.68147	False
+   40%	lineweaver_burk 	40/50	  20.00%	        36.584%	      47.898%	  0.37478	False
+
+=== LINEWEAVER-BURK BREAKDOWN CHECK ===
+Breakdown noise level: None among tested levels
+Breakdown reason: No tested noise level met the breakdown definition
+
+=== REPRESENTATIVE DATASET ===
+Noise level: 20%
+Replicate: 0
+method	Vmax	Km	Vmax_err	Km_err	success	failure_reason
+nonlinear	82.538767	2.693782	17.461%	46.124%	True	
+lineweaver_burk	133.258717	8.082860	33.259%	61.657%	True	
+
+=== OUTPUT FILES ===
+Log file: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/results/logs/script_02_noise_lineweaver_comparison_20260713_135801.log
+Detailed CSV: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/results/script_02_noise_lineweaver_comparison_detailed_results.csv
+Summary CSV: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/results/script_02_noise_lineweaver_comparison_summary.csv
+Median error figure: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/results/figures/script_02_noise_lineweaver_comparison_median_errors.png
+Representative fit figure: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/results/figures/script_02_noise_lineweaver_comparison_representative_fit.png
+
+=== NEXT ITERATION ===
+Script 03 should generate competitive or noncompetitive inhibition data and confirm the expected apparent Km/Vmax shift.
+
+============================================================
+=== COMPLETE ===
+============================================================

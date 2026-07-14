@@ -1,0 +1,102 @@
+============================================================
+Script: script_03_puromycin_real_fit
+Timestamp: 2026-07-13T14:14:24.711150
+Hypothesis: Public Puromycin initial-rate data can be fit with positive finite Michaelis-Menten parameters and interpretable condition differences.
+============================================================
+
+=== DATA SOURCE ===
+Source: R datasets::Puromycin
+Cached CSV: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/data/downloaded/puromycin_rates.csv
+Note: This is public real/downloaded data; no planted truth is assumed.
+
+=== DATA VALIDATION ===
+- Required columns present: ['conc', 'rate', 'state']
+- Loaded rows: 23
+- All substrate concentrations are positive and finite
+- All reaction rates are positive and finite
+- Observed expected states: ['treated', 'untreated']
+- treated: observation count OK (12)
+- treated: unique concentration count OK (6)
+- untreated: observation count OK (11)
+- untreated: unique concentration count OK (6)
+Validation passed: True
+
+=== NONLINEAR MICHAELIS-MENTEN FITS ===
+State: treated
+  Observations: 12
+  Unique concentrations: 6
+  Initial guess [Vmax, Km]: [207.0, 0.165]
+  Fitted Vmax: 212.683859
+  Fitted Km: 0.064121
+  Vmax SE: 6.947162
+  Km SE: 0.008281
+  Vmax 95% CI: [197.204618, 228.163100]
+  Km 95% CI: [0.045670, 0.082573]
+  RSS: 1195.448814
+  R^2: 0.961261
+  Residual mean: 0.879193
+  Residual max absolute value: 25.434103
+  Positive finite parameters: True
+  Finite uncertainty estimates: True
+  Max concentration exceeds fitted Km: True
+
+State: untreated
+  Observations: 11
+  Unique concentrations: 6
+  Initial guess [Vmax, Km]: [160.0, 0.11]
+  Fitted Vmax: 160.280124
+  Fitted Km: 0.047708
+  Vmax SE: 6.480251
+  Km SE: 0.007782
+  Vmax 95% CI: [145.620777, 174.939470]
+  Km 95% CI: [0.030104, 0.065312]
+  RSS: 859.604294
+  R^2: 0.935572
+  Residual mean: 0.791555
+  Residual max absolute value: 19.655697
+  Positive finite parameters: True
+  Finite uncertainty estimates: True
+  Max concentration exceeds fitted Km: True
+
+=== CONDITION COMPARISON ===
+Treated / untreated Vmax ratio: 1.326951
+Treated / untreated Km ratio: 1.344031
+Treated Vmax higher than untreated Vmax: True
+
+=== LINEWEAVER-BURK DIAGNOSTIC COMPARISON ===
+State: treated
+  Lineweaver-Burk Vmax: 195.802709
+  Lineweaver-Burk Km: 0.048407
+  Lineweaver-Burk R^2 on original rate scale: 0.937761
+  Relative Vmax difference vs nonlinear: 7.937%
+  Relative Km difference vs nonlinear: 24.508%
+  Material diagnostic disagreement: True
+
+State: untreated
+  Lineweaver-Burk Vmax: 143.428116
+  Lineweaver-Burk Km: 0.030837
+  Lineweaver-Burk R^2 on original rate scale: 0.884596
+  Relative Vmax difference vs nonlinear: 10.514%
+  Relative Km difference vs nonlinear: 35.363%
+  Material diagnostic disagreement: True
+
+Any material Lineweaver-Burk disagreement: True
+
+=== OUTPUT CORRECTNESS CHECKLIST ===
+Data validation passed: True
+All nonlinear fits converged: True
+All nonlinear parameters positive and finite: True
+All approximate uncertainty estimates finite: True
+All conditions sample above fitted Km: True
+Visual correctness requires inspecting the saved fitted-curve and residual plots.
+Non-visual output correctness checks passed: True
+
+=== OUTPUT FILES ===
+Log file: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/results/logs/script_03_puromycin_real_fit_20260713_141424.log
+Fit summary CSV: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/results/script_03_puromycin_real_fit_fit_summary.csv
+Fitted curve figure: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/results/figures/script_03_puromycin_real_fit_fit_curves.png
+Residual figure: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/results/figures/script_03_puromycin_real_fit_residuals.png
+
+============================================================
+=== COMPLETE ===
+============================================================

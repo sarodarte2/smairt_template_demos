@@ -1,0 +1,62 @@
+============================================================
+Script: script_01_synthetic_nonlinear_fit
+Timestamp: 2026-07-13T13:52:05.747216
+Hypothesis: Low-noise synthetic Michaelis-Menten data allow direct nonlinear least-squares recovery of planted Km and Vmax within 10% relative error.
+============================================================
+
+=== PLANTED PARAMETERS AND CREDIBILITY CRITERION ===
+True Vmax: 100
+True Km: 5
+Substrate range: 0.5 to 50
+Substrate points: 12
+Relative Gaussian noise: 3.00% of clean velocity
+Random seed: 1024
+Credible recovery threshold: <= 10.0% relative error for both Km and Vmax
+
+=== GENERATED DATA VALIDATION ===
+Loaded/generated samples: 12
+Substrate shape: (12,)
+Velocity shape: (12,)
+Minimum noisy velocity: 8.967179
+Maximum noisy velocity: 89.894077
+
+=== SYNTHETIC DATA TABLE ===
+index	[S]	clean_v	noise_sd	observed_v
+01	0.500000	9.090909	0.272727	8.967179
+02	0.759956	13.193774	0.395813	13.138670
+03	1.155065	18.766087	0.562983	20.127012
+04	1.755596	25.987284	0.779619	26.052159
+05	2.668350	34.796922	1.043908	36.348471
+06	4.055654	44.785877	1.343576	45.403573
+07	6.164234	55.214123	1.656424	54.860952
+08	9.369087	65.203078	1.956092	63.920841
+09	14.240179	74.012716	2.220381	73.206094
+10	21.643806	81.233913	2.437017	82.331792
+11	32.896661	86.806226	2.604187	82.986078
+12	50.000000	90.909091	2.727273	89.894077
+
+=== NONLINEAR LEAST-SQUARES RESULTS ===
+Fitted Vmax: 97.373584
+Fitted Km: 4.678811
+Vmax absolute error: 2.626416
+Km absolute error: 0.321189
+Vmax relative error: 2.626%
+Km relative error: 6.424%
+Residual sum of squares: 14.675522
+R^2 on noisy observations: 0.998404
+Fit covariance matrix:
+[[1.06554741 0.13614538]
+ [0.13614538 0.02618409]]
+Credible under <=10% criterion: True
+
+=== OUTPUT FILES ===
+Log file: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/results/logs/script_01_synthetic_nonlinear_fit_20260713_135205.log
+Figure file: /Users/salvador.rodarte/Library/CloudStorage/OneDrive-PNNL/Documents/GitHub/smairt_template_demos/enzyme_kinetics/enzyme_kinetics/results/figures/script_01_synthetic_nonlinear_fit_fit_curve.png
+
+=== NEXT ITERATIONS ===
+Script 02 should repeat the same nonlinear fit across increasing noise levels to find where recovery degrades.
+Script 03 should add the Lineweaver-Burk double-reciprocal comparison and quantify its bias under noise.
+
+============================================================
+=== COMPLETE ===
+============================================================
